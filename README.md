@@ -1,5 +1,8 @@
 # Twitter-Block-With-Love
-Block users who loves a specific tweet, and help you improve your experience using twitter.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Intro
+Block users who loves a specific tweet, and help you improve your experience using Twitter.
 
 ## Install
 
