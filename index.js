@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     1.0
+// @version     1.1
 // @description Block all users who love a certain tweet
 // @author      Eol
 // @run-at      document-end
 // @match       https://twitter.com/*
+// @match       https://mobile.twitter.com/*
 // @require     https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
 // @require     https://cdn.jsdelivr.net/npm/qs/dist/qs.min.js
 // @require     https://code.jquery.com/jquery-3.4.1.min.js
@@ -15,6 +16,54 @@
 /* global axios $ Qs waitForKeyElements*/
 
 (_ => {
+  var lang = document.documentElement.lang
+  // alert("lang = " + document.documentElement.lang)
+  const translations = {
+      // add your own language here by copy one and modifying it
+    "en": {
+      lang_name: "English",
+      likedby: "Timeline: Liked by", // aria-label
+      title: "Liked by",
+      btn: "Block All",
+      success: "All Users Blocked!"
+    },
+    "en-GB": {
+      lang_name: "British English",
+      likedby: "Timeline: Liked by",
+      title: "Liked by",
+      btn: "Block All",
+      success: "All Users Blocked!"
+    },
+    "zh": {
+      lang_name: "简体中文",
+      likedby: '时间线：喜欢者',
+      title: "喜欢者",
+      btn: "拉清单",
+      success: "已屏蔽所有为这条推文打心的账户！"
+    },
+    "zh-Hant": {
+      lang_name: "正體中文",
+      likedby: '時間軸：已被喜歡',
+      title: "已被喜歡",
+      btn: "全部封鎖",
+      success: "已封鎖所有喜歡了這條推文的賬戶！"
+    },
+    "ja": {
+      lang_name: "日本語",
+      likedby: "タイムライン: いいねしたユーザー",
+      title: "いいねしたユーザー",
+      btn: "一括でブロック",
+      success: "全てブロックした！"
+      }
+  }
+  var i18n = (translations[lang])
+  if (!i18n) {
+    var langnames = []
+    for(let l in translations) langnames.push(translations[l].lang_name)
+    langnames = langnames.join(", ")
+    alert("Twitter Block With Love userscript does not support your language. Please add your language to the translations string in the editor, or switch the language of Twitter Web App to the following languages: " + langnames + ".")
+    }
+
   function get_cookie (cname) {
     var name = cname + "="
     var ca = document.cookie.split(';')
@@ -73,7 +122,7 @@
   }
 
   function clear_view () {
-    const container = $('div[aria-label="Timeline: Liked by"]')
+    const container = $('div[aria-label="'+ i18n.likedby + '"]')
     container.children().fadeOut(400, _ => {
       const notice = $(`
         <div style="
@@ -82,7 +131,7 @@
           margin-top: 3em;
           font-size: x-large;
         ">
-          <span>All Users Blocked!</span>
+          <span>${i18n.success}</span>
         </div>
       `)
       container.append(notice)
@@ -134,7 +183,7 @@
       >
         <div class="bwl-btn-inner-wrapper">
           <span>
-            <span class="bwl-text-font">Block All</span>
+            <span class="bwl-text-font">${i18n.btn}</span>
           </span>
         </div>
       </div>
@@ -166,11 +215,10 @@
   }
 
   function main () {
-    waitForKeyElements('h2:has(> span:contains(Liked by))', dom => {
+    waitForKeyElements('h2:has(> span:contains(' + i18n.title + '))', dom => {
       mount_block_button(dom.parent().parent().parent())
     })
   }
 
   main()
 })()
-
