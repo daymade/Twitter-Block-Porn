@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.0
+// @version     2.3
 // @description Block all users who love a certain tweet
 // @author      Eol
 // @run-at      document-end
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
+// @exclude     https://twitter.com/account/*
 // @require     https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
 // @require     https://cdn.jsdelivr.net/npm/qs/dist/qs.min.js
 // @require     https://code.jquery.com/jquery-3.4.1.min.js
@@ -65,7 +66,17 @@
       retweet_title: 'リツイート',
       btn: '<span style="font-size: small">全部ブロックする<span>',
       success: '全てブロックしました！'
-      }
+      },
+    'vi': {
+      lang_name: 'Tiếng Việt',
+      like_list_identifier: 'Dòng thời gian: Được thích bởi',
+      like_title: 'Được thích bởi',
+      retweet_list_identifier: 'Dòng thời gian: Được Tweet lại bởi',
+      retweet_title: 'Được Tweet lại bởi',
+      btn: 'Chặn tất cả',
+      success: 'Tất cả tài khoản đã bị chặn!'
+      // translated by Ly Hương
+    }
   }
   var i18n = translations[lang]
 
@@ -74,12 +85,13 @@
     var langnames = []
     Object.values(translations).forEach(language => langnames.push(language.lang_name))
     langnames = langnames.join(', ')
-    alert(
-      'Twitter Block With Love userscript does not support your language.\n' +
-      'Please submit a feedback at Greasyfork.com or a issue at Github.com.\n' +
-      'Before that, you can edit the userscript yourself or just switch the language of the Twitter Web App to any of the following languages: ' +
-      langnames + '.'
+    var issue = confirm(
+      'Twitter Block With Love userscript does not support your language (language code: "' + lang + '").\n' +
+      'Please send feedback on Greasyfork.com or open an issue at Github.com.\n' +
+      'Before that, you can edit the userscript yourself or just switch the language of Twitter Web App to any of the following languages: ' +
+      langnames + '.\n\nDo you want to open an issue?'
     )
+    if (issue) window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/choose")
   }
 
   function get_cookie (cname) {
