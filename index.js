@@ -79,7 +79,6 @@
     }
   }
   var i18n = translations[lang]
-
   // lang is empty in some error pages, so check lang first
   if (lang && !i18n) {
     var langnames = []
@@ -93,6 +92,8 @@
     )
     if (issue) window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/choose")
   }
+
+  var themeColor = "rgb(29, 161, 242)"
 
   function get_cookie (cname) {
     var name = cname + '='
@@ -187,7 +188,7 @@
       container.children().fadeOut(400, _ => {
         const notice = $(`
           <div style="
-            color: rgb(224, 36, 94);
+            color: ${themeColor};
             text-align: center;
             margin-top: 3em;
             font-size: x-large;
@@ -204,21 +205,26 @@
     const btn_mousedown = 'bwl-btn-mousedown'
     const btn_hover = 'bwl-btn-hover'
 
+    var ele = $('div[aria-label] > div[dir="auto"] > svg[viewBox="0 0 24 24"]')[0]
+    themeColor = window.getComputedStyle(ele).color
+    const rgba1 = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.1)')
+    const rgba2 = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.2)')
+
     $('head').append(`
       <style>
         .bwl-btn-base {
           min-height: 30px;
           padding-left: 1em;
           padding-right: 1em;
-          border: 1px solid rgb(29, 161, 242) !important;
+          border: 1px solid ${themeColor} !important;
           border-radius: 9999px;
         }
         .${btn_mousedown} {
-          background-color: rgba(29, 161, 242, 0.2);
+          background-color: ${rgba2};
           cursor: pointer;
         }
         .${btn_hover} {
-          background-color: rgba(29, 161, 242, 0.1);
+          background-color: ${rgba1};
           cursor: pointer;
         }
         .bwl-btn-inner-wrapper {
@@ -227,7 +233,7 @@
           align-items: center;
           -webkit-box-flex: 1;
           flex-grow: 1;
-          color: rgba(29,161,242,1.00);
+          color: ${themeColor};
           display: flex;
         }
         .bwl-text-font {
