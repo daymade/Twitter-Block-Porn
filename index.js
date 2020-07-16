@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.3
+// @version     2.1
 // @description Block all users who love a certain tweet
-// @author      Eol
+// @author      Eol, OverflowCat
 // @run-at      document-end
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
@@ -17,7 +17,7 @@
 /* global axios $ Qs waitForKeyElements*/
 
 (_ => {
-  var lang = document.documentElement.lang
+  let lang = document.documentElement.lang
   const translations = {
     // Please submit a feedback on Greasyfork.com if your language is not in the list bellow
     'en': {
@@ -78,28 +78,26 @@
       // translated by Ly Hương
     }
   }
-  var i18n = translations[lang]
+  let i18n = translations[lang]
   // lang is empty in some error pages, so check lang first
   if (lang && !i18n) {
-    var langnames = []
+    let langnames = []
     Object.values(translations).forEach(language => langnames.push(language.lang_name))
     langnames = langnames.join(', ')
-    var issue = confirm(
+    let issue = confirm(
       'Twitter Block With Love userscript does not support your language (language code: "' + lang + '").\n' +
-      'Please send feedback on Greasyfork.com or open an issue at Github.com.\n' +
+      'Please send feedback at Greasyfork.com or open an issue at Github.com.\n' +
       'Before that, you can edit the userscript yourself or just switch the language of Twitter Web App to any of the following languages: ' +
       langnames + '.\n\nDo you want to open an issue?'
     )
-    if (issue) window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/choose")
+    if (issue) window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/")
   }
 
-  var themeColor = "rgb(29, 161, 242)"
-
   function get_cookie (cname) {
-    var name = cname + '='
-    var ca = document.cookie.split(';')
-    for(var i=0; i<ca.length; i++) {
-      var c = ca[i].trim()
+    let name = cname + '='
+    let ca = document.cookie.split(';')
+    for(let i=0; i<ca.length; i++) {
+      let c = ca[i].trim()
       if (c.indexOf(name)==0) {
         return c.substring(name.length,c.length)
       }
@@ -205,10 +203,10 @@
     const btn_mousedown = 'bwl-btn-mousedown'
     const btn_hover = 'bwl-btn-hover'
 
-    var ele = $('div[aria-label] > div[dir="auto"] > svg[viewBox="0 0 24 24"]')[0]
-    themeColor = window.getComputedStyle(ele).color
-    const rgba1 = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.1)')
-    const rgba2 = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.2)')
+    let close_icon = $('div[aria-label] > div[dir="auto"] > svg[viewBox="0 0 24 24"]')[0]
+    let themeColor = window.getComputedStyle(close_icon).color
+    const hoverColor = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.1)')
+    const mousedownColor = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.2)')
 
     $('head').append(`
       <style>
@@ -220,11 +218,11 @@
           border-radius: 9999px;
         }
         .${btn_mousedown} {
-          background-color: ${rgba2};
+          background-color: ${mousedownColor};
           cursor: pointer;
         }
         .${btn_hover} {
-          background-color: ${rgba1};
+          background-color: ${hoverColor};
           cursor: pointer;
         }
         .bwl-btn-inner-wrapper {
