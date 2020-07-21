@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.1
+// @version     2.1.1
 // @description Block all users who love a certain tweet
 // @author      Eol, OverflowCat
 // @run-at      document-end
@@ -182,11 +182,12 @@
 
   function success_notice (identifier) {
     return _ => {
+      const alertColor = 'rgb(224, 36, 94)'
       const container = $('div[aria-label="'+ identifier + '"]')
       container.children().fadeOut(400, _ => {
         const notice = $(`
           <div style="
-            color: ${themeColor};
+            color: ${alertColor};
             text-align: center;
             margin-top: 3em;
             font-size: x-large;
@@ -199,7 +200,7 @@
     }
   }
 
-  function mount_block_button (dom, executer, success_notifier) {
+  function mount_block_button (parentDom, executer, success_notifier) {
     const btn_mousedown = 'bwl-btn-mousedown'
     const btn_hover = 'bwl-btn-hover'
 
@@ -254,7 +255,7 @@
         </div>
       </div>
     `)
-    .addClass(dom.prop('classList')[0])
+    .addClass(parentDom.prop('classList')[0])
     .hover(function () {
       $(this).addClass(btn_hover)
     }, function () {
@@ -277,7 +278,7 @@
     .click(executer)
     .click(success_notifier)
 
-    dom.append(button)
+    parentDom.append(button)
   }
 
   function main () {
