@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.1.1
+// @version     2.2
 // @description Block all users who love a certain tweet
 // @author      Eol, OverflowCat
 // @run-at      document-end
@@ -68,6 +68,7 @@
       success: '全てブロックしました！'
       },
     'vi': {
+      // translation by Ly Hương
       lang_name: 'Tiếng Việt',
       like_list_identifier: 'Dòng thời gian: Được thích bởi',
       like_title: 'Được thích bởi',
@@ -75,7 +76,16 @@
       retweet_title: 'Được Tweet lại bởi',
       btn: 'Chặn tất cả',
       success: 'Tất cả tài khoản đã bị chặn!'
-      // translated by Ly Hương
+    },
+    'ko': {
+      // translation by hellojo011
+      lang_name: '한국어',
+      like_list_identifier: '타임라인: 마음에 들어 함',
+      like_title: '마음에 들어 함',
+      retweet_list_identifier: '타임라인: 리트윗함',
+      retweet_title: '리트윗',
+      btn: '모두 차단',
+      success: '모두 차단했습니다!'
     }
   }
   let i18n = translations[lang]
