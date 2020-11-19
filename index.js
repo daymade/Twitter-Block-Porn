@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Twitter Block With Love
+// @name        Twitter Block With Love (Local test)
 // @namespace   https://www.eolstudy.com
 // @version     2.3
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
@@ -33,12 +33,14 @@
       retweet_title: 'Retweets',
       mini_retweet_title: 'Retweeted by',
       retweet_list_identifier: 'Timeline: Retweeted by',
-      block_btn: 'Block all',
+      block_btn: 'Block all(test)',
       block_success: 'All users blocked!',
       mute_btn: 'Mute all',
       mute_success: 'All users muted!',
       include_original_tweeter: 'Include the original Tweeter',
-      logs: 'Logs'
+      logs: 'Logs',
+      list_members: 'List members',
+      list_members_identifier: 'Timeline: List members'
     },
     'en-GB': {
       lang_name: 'British English',
@@ -54,7 +56,9 @@
       mute_success: 'All users muted!',
       mute_success: 'All users muted!',
       include_original_tweeter: 'Include the original Tweeter',
-      logs: 'Logs'
+      logs: 'Logs',
+      list_members: 'List members',
+      list_members_identifier: 'Timeline: List members'
     },
     'zh': {
       lang_name: '简体中文',
@@ -67,7 +71,9 @@
       block_success: '列表用户已全部屏蔽！',
       mute_success: '列表用户已全部隐藏！',
       include_original_tweeter: '包括推主',
-      logs: '操作记录'
+      logs: '操作记录',
+      list_members: '列表成员',
+      list_members_identifier: '时间线：列表成员'
     },
     'zh-Hant': {
       lang_name: '正體中文',
@@ -80,7 +86,9 @@
       block_success: '列表用戶已全部封鎖！',
       mute_success: '列表用戶已全部靜音！',
       include_original_tweeter: '包括推主',
-      logs: '活動記錄'
+      logs: '活動記錄',
+      list_members: '列表成員',
+      list_members_identifier: '時間軸：列表成員'
     },
     'ja': {
       lang_name: '日本語',
@@ -93,7 +101,9 @@
       block_success: '全てブロックしました！',
       mute_success: '全てミュートしました！',
       include_original_tweeter: 'スレ主',
-      logs: '操作履歴を表示'
+      logs: '操作履歴を表示',
+      list_members: 'リストに追加されているユーザー',
+      list_members_identifier: 'タイムライン: リストに追加されているユーザー'
     },
     'vi': {
       // translation by Ly Hương
@@ -107,7 +117,9 @@
       block_success: 'Tất cả tài khoản đã bị chặn!',
       mute_success: 'Tất cả tài khoản đã bị tắt tiếng!',
       include_original_tweeter: 'Tweeter gốc',
-      logs: 'Lịch sử'
+      logs: 'Lịch sử',
+      list_members: 'Thành viên trong danh sách',
+      list_members_identifier: 'Dòng thời gian: Thành viên trong danh sách'
     },
     'ko': {
       // translation by hellojo011
@@ -121,7 +133,9 @@
       block_success: '모두 차단했습니다!',
       mute_success: '모두 뮤트했습니다!',
       include_original_tweeter: '글쓴이',
-      logs: '활동'
+      logs: '활동',
+      list_members: '리스트 멤버',
+      list_members_identifier: '타임라인: 리스트 멤버'
     }
   }
   let i18n = translations[lang]
@@ -206,6 +220,11 @@
     return location.href.split('status/')[1].split('/')[0]
   }
 
+  function get_list_id () {
+    // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
+    return location.href.split('lists/')[1].split('/')[0]
+  }
+
   // fetch_likers and fetch_no_comment_retweeters need to be merged into one function
   async function fetch_likers (tweetId) {
     const users = await ajax.get(`/2/timeline/liked_by.json?tweet_id=${tweetId}`).then(
@@ -218,11 +237,19 @@
   }
 
   async function fetch_no_comment_retweeters (tweetId) {
-    const users = (await ajax.get(`/2/timeline/retweeted_by.json?tweet_id=${tweetId}`)).data.globalObjects.users
+    const users = (await ajax.get(`/2/timeline/retweeted_by.json?tweet_id=${tweetId}`)).data.globalObjects
 
     let targets = []
     Object.keys(users).forEach(user => targets.push(user))
     return targets
+  }
+
+  async function fetch_list_members (listId) {
+    const users = (await ajax.get(`/1.1/lists/members.json?list_id=${listId}`)).data.globalObjects.users
+
+    let members = []
+    Object.keys(users).forEach(user => members.push(user))
+    return members
   }
 
   function block_user (id) {
@@ -275,9 +302,11 @@
   }
 
   async function mute_all_likers () {
+    console.log("likers")
     const tweetId = get_tweet_id()
     const likers = await fetch_likers(tweetId)
     likers.forEach(id => mute_user(id))
+    console.log(likers);
   }
 
   async function block_no_comment_retweeters () {
@@ -298,7 +327,7 @@
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
     retweeters.forEach(id => mute_user(id))
-
+    console.log(retweeters)
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
       if (!block_no_comment_retweeters.hasAlerted) {
@@ -310,6 +339,18 @@
     }
   }
 
+  async function block_list_members () {
+      const listId = get_list_id()
+      const members = await fetch_list_members(listId)
+      members.forEach(id => block_user(id))
+  }
+  async function mute_list_members () {
+      const listId = get_list_id()
+      console.log(listId)
+      const members = await fetch_list_members(listId)
+      console.log(members)
+      members.forEach(id => mute_user(id))
+  }
   function success_notice (identifier, success_msg) {
     return _ => {
       const alertColor = 'rgb(224, 36, 94)'
@@ -354,7 +395,6 @@
             position: relative;
             display: block;
         }
-
         .checkbox input[type="checkbox"] {
             width: auto;
             opacity: 0.00000001;
@@ -392,12 +432,10 @@
         .checkbox input[type="checkbox"]:checked ~ label::before {
             color: ${themeColor_hex};
         }
-
         .checkbox input[type="checkbox"]:checked ~ label::after {
             -webkit-transform: rotate(-45deg) scale(1);
             transform: rotate(-45deg) scale(1);
         }
-
         .checkbox label {
             position: relative;
             display: block;
@@ -527,6 +565,11 @@
       mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, success_notice(i18n.retweet_list_identifier, i18n.block_success))
     })
 
+    waitForKeyElements('h2:has(> span:contains(' + i18n.list_members + '))', dom => {
+      const ancestor = get_ancestor(dom, 3)
+      mount_button(ancestor, i18n.mute_btn, mute_list_members, success_notice(i18n.list_members_identifier, i18n.mute_success))
+      mount_button(ancestor, i18n.block_btn, block_list_members, success_notice(i18n.list_members_identifier, i18n.block_success))
+    })
     // some languages do not need the 'mini' version
     if (i18n.mini_retweet_title) {
       waitForKeyElements('h2:has(> span:contains(' + i18n.mini_retweet_title + '))', dom => {
