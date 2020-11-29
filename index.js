@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Twitter Block With Love (Local test)
+// @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
 // @version     2.3
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
@@ -33,7 +33,7 @@
       retweet_title: 'Retweets',
       mini_retweet_title: 'Retweeted by',
       retweet_list_identifier: 'Timeline: Retweeted by',
-      block_btn: 'Block all(test)',
+      block_btn: 'Block all',
       block_success: 'All users blocked!',
       mute_btn: 'Mute all',
       mute_success: 'All users muted!',
@@ -230,14 +230,13 @@
     const users = await ajax.get(`/2/timeline/liked_by.json?tweet_id=${tweetId}`).then(
       res => res.data.globalObjects.users
     )
-
     let likers = []
     Object.keys(users).forEach(user => likers.push(user)) // keys of users are id strings
     return likers
   }
 
   async function fetch_no_comment_retweeters (tweetId) {
-    const users = (await ajax.get(`/2/timeline/retweeted_by.json?tweet_id=${tweetId}`)).data.globalObjects
+    const users = (await ajax.get(`/2/timeline/retweeted_by.json?tweet_id=${tweetId}`)).data.globalObjects.users
 
     let targets = []
     Object.keys(users).forEach(user => targets.push(user))
@@ -245,10 +244,9 @@
   }
 
   async function fetch_list_members (listId) {
-    const users = (await ajax.get(`/1.1/lists/members.json?list_id=${listId}`)).data.globalObjects.users
-
+    const users = (await ajax.get(`/1.1/lists/members.json?list_id=${listId}`)).data.users
     let members = []
-    Object.keys(users).forEach(user => members.push(user))
+    members = users.map(u => u.id_str)
     return members
   }
 
@@ -302,11 +300,9 @@
   }
 
   async function mute_all_likers () {
-    console.log("likers")
     const tweetId = get_tweet_id()
     const likers = await fetch_likers(tweetId)
     likers.forEach(id => mute_user(id))
-    console.log(likers);
   }
 
   async function block_no_comment_retweeters () {
@@ -327,7 +323,6 @@
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
     retweeters.forEach(id => mute_user(id))
-    console.log(retweeters)
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
       if (!block_no_comment_retweeters.hasAlerted) {
@@ -338,7 +333,6 @@
       }
     }
   }
-
   async function block_list_members () {
       const listId = get_list_id()
       const members = await fetch_list_members(listId)
@@ -346,7 +340,6 @@
   }
   async function mute_list_members () {
       const listId = get_list_id()
-      console.log(listId)
       const members = await fetch_list_members(listId)
       console.log(members)
       members.forEach(id => mute_user(id))
@@ -432,10 +425,12 @@
         .checkbox input[type="checkbox"]:checked ~ label::before {
             color: ${themeColor_hex};
         }
+
         .checkbox input[type="checkbox"]:checked ~ label::after {
             -webkit-transform: rotate(-45deg) scale(1);
             transform: rotate(-45deg) scale(1);
         }
+
         .checkbox label {
             position: relative;
             display: block;
