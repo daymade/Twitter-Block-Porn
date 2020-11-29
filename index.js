@@ -309,7 +309,6 @@
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
     retweeters.forEach(id => block_user(id))
-
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
       if (!block_no_comment_retweeters.hasAlerted) {
@@ -333,6 +332,7 @@
       }
     }
   }
+
   async function block_list_members () {
       const listId = get_list_id()
       const members = await fetch_list_members(listId)
@@ -388,6 +388,7 @@
             position: relative;
             display: block;
         }
+
         .checkbox input[type="checkbox"] {
             width: auto;
             opacity: 0.00000001;
