@@ -230,7 +230,7 @@
     const users = await ajax.get(`/2/timeline/liked_by.json?tweet_id=${tweetId}`).then(
       res => res.data.globalObjects.users
     )
-    
+
     let likers = []
     Object.keys(users).forEach(user => likers.push(user)) // keys of users are id strings
     return likers
