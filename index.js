@@ -230,6 +230,7 @@
     const users = await ajax.get(`/2/timeline/liked_by.json?tweet_id=${tweetId}`).then(
       res => res.data.globalObjects.users
     )
+    
     let likers = []
     Object.keys(users).forEach(user => likers.push(user)) // keys of users are id strings
     return likers
@@ -309,6 +310,7 @@
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
     retweeters.forEach(id => block_user(id))
+
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
       if (!block_no_comment_retweeters.hasAlerted) {
@@ -322,6 +324,7 @@
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
     retweeters.forEach(id => mute_user(id))
+
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
       if (!block_no_comment_retweeters.hasAlerted) {
