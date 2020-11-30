@@ -344,7 +344,6 @@
   async function mute_list_members () {
       const listId = get_list_id()
       const members = await fetch_list_members(listId)
-      console.log(members)
       members.forEach(id => mute_user(id))
   }
   function success_notice (identifier, success_msg) {
