@@ -125,7 +125,7 @@
       logs: 'Lịch sử',
       list_members: 'Thành viên trong danh sách',
       list_members_identifier: 'Dòng thời gian: Thành viên trong danh sách',
-      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually. [HELP US TRANSLATE]'
+      block_retweets_notice: 'TBWL chỉ chặn tài khoản đã retweet không bình luận. Những tài khoản retweet bằng bình luận thì xin hãy chặn bằng tay.'
     },
     'ko': {
       // translation by hellojo011
