@@ -40,7 +40,8 @@
       include_original_tweeter: 'Include the original Tweeter',
       logs: 'Logs',
       list_members: 'List members',
-      list_members_identifier: 'Timeline: List members'
+      list_members_identifier: 'Timeline: List members',
+      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually.'
     },
     'en-GB': {
       lang_name: 'British English',
@@ -58,7 +59,8 @@
       include_original_tweeter: 'Include the original Tweeter',
       logs: 'Logs',
       list_members: 'List members',
-      list_members_identifier: 'Timeline: List members'
+      list_members_identifier: 'Timeline: List members',
+      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually.'
     },
     'zh': {
       lang_name: '简体中文',
@@ -73,7 +75,8 @@
       include_original_tweeter: '包括推主',
       logs: '操作记录',
       list_members: '列表成员',
-      list_members_identifier: '时间线：列表成员'
+      list_members_identifier: '时间线：列表成员',
+      block_retweets_notice: 'Twitter Block with Love 仅屏蔽了不带评论转推的用户。\n请手动屏蔽引用推文的用户。'
     },
     'zh-Hant': {
       lang_name: '正體中文',
@@ -88,7 +91,8 @@
       include_original_tweeter: '包括推主',
       logs: '活動記錄',
       list_members: '列表成員',
-      list_members_identifier: '時間軸：列表成員'
+      list_members_identifier: '時間軸：列表成員',
+      block_retweets_notice: 'Twitter Block with Love 僅封鎖了不帶評論轉推的使用者。\n請手動封鎖引用推文的使用者。'
     },
     'ja': {
       lang_name: '日本語',
@@ -103,7 +107,8 @@
       include_original_tweeter: 'スレ主',
       logs: '操作履歴を表示',
       list_members: 'リストに追加されているユーザー',
-      list_members_identifier: 'タイムライン: リストに追加されているユーザー'
+      list_members_identifier: 'タイムライン: リストに追加されているユーザー',
+      block_retweets_notice: 'TBWLは、コメントなしでリツイートしたユーザーのみをブロックしました。\n引用ツイートしたユーザーを手動でブロックしてください。'
     },
     'vi': {
       // translation by Ly Hương
@@ -119,7 +124,8 @@
       include_original_tweeter: 'Tweeter gốc',
       logs: 'Lịch sử',
       list_members: 'Thành viên trong danh sách',
-      list_members_identifier: 'Dòng thời gian: Thành viên trong danh sách'
+      list_members_identifier: 'Dòng thời gian: Thành viên trong danh sách',
+      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually. [HELP US TRANSLATE]'
     },
     'ko': {
       // translation by hellojo011
@@ -135,8 +141,28 @@
       include_original_tweeter: '글쓴이',
       logs: '활동',
       list_members: '리스트 멤버',
-      list_members_identifier: '타임라인: 리스트 멤버'
-    }
+      list_members_identifier: '타임라인: 리스트 멤버',
+      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually. [HELP US TRANSLATE]'
+    },
+    'de': {
+      // translation by Wassermäuserich Lúcio
+      lang_name: 'Deutsch',
+      like_title: 'Gefällt',
+      like_list_identifier: 'Timeline: Gefällt',
+      retweet_title: 'Retweetet von',
+      retweet_list_identifier: 'Timeline: Retweetet von',
+      block_btn: 'Alle blockieren',
+      mute_btn: 'Alle stummschalten',
+      block_success: 'Alle wurden blockiert!',
+      mute_success: 'Alle wurden stummgeschaltet!',
+      include_original_tweeter: 'Original-Hochlader einschließen',
+      logs: 'Betriebsaufzeichnung',
+      list_members: 'Listenmitglieder',
+      list_members_identifier: 'Timeline: Listenmitglieder',
+      block_retweets_notice: 'TBWL hat nur Benutzer blockiert, die ohne Kommentare retweetet haben.\nBitte blockieren Sie Benutzer, die mit Kommentaren retweetet haben, manuell.',
+      enabled: 'Aktiviert!',
+      disabled: 'Behindert!',
+    },
   }
   let i18n = translations[lang]
   // lang is empty in some error pages, so check lang first
@@ -281,41 +307,58 @@
     })
   }
 
-  // block_all_liker and block_no_comment_retweeters need to be merged
-  async function block_all_likers () {
+  async function get_tweeter(tweetId){
     const screen_name = location.href.split('twitter.com/')[1].split('/')[0]
-    const tweetId = get_tweet_id()
     const tweetData = (await ajax.get(`/2/timeline/conversation/${tweetId}.json`)).data
-
     // Find the tweeter by username
     const users = tweetData.globalObjects.users
-    let tweeterID
     for (let key in users) {
       if (users[key].screen_name === screen_name) {
-        tweeterID = key
-        break
+        return key
       }
     }
+    return undefined
+  }
+
+  function inlude_tweeter () {
+    return $("#bwl-include-tweeter").checked
+  }
+
+  // block_all_liker and block_no_comment_retweeters need to be merged
+  async function block_all_likers () {
+    const tweetId = get_tweet_id()
     const likers = await fetch_likers(tweetId)
+    if (inlude_tweeter()){
+      const tweeter = await get_tweeter(tweetId)
+      if (tweeter) likers.push(tweeter)
+    }
     likers.forEach(id => block_user(id))
   }
 
   async function mute_all_likers () {
     const tweetId = get_tweet_id()
     const likers = await fetch_likers(tweetId)
+    if (inlude_tweeter()){
+      const tweeter = await get_tweeter(tweetId)
+      if (tweeter) likers.push(tweeter)
+    }
     likers.forEach(id => mute_user(id))
   }
 
   async function block_no_comment_retweeters () {
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
+    if (inlude_tweeter()){
+      const tweeter = await get_tweeter(tweetId)
+      if (tweeter) retweeters.push(tweeter)
+    }
     retweeters.forEach(id => block_user(id))
 
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
       if (!block_no_comment_retweeters.hasAlerted) {
         block_no_comment_retweeters.hasAlerted = true
-        alert('TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually.')
+        alert(i18n.block_rt_notice)
       }
     }
   }
@@ -323,6 +366,10 @@
   async function mute_no_comment_retweeters () {
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
+    if (inlude_tweeter()){
+      const tweeter = await get_tweeter(tweetId)
+      if (tweeter) retweeters.push(tweeter)
+    }
     retweeters.forEach(id => mute_user(id))
 
     const tabName = location.href.split('retweets/')[1]
@@ -341,11 +388,13 @@
       const members = await fetch_list_members(listId)
       members.forEach(id => block_user(id))
   }
+
   async function mute_list_members () {
       const listId = get_list_id()
       const members = await fetch_list_members(listId)
       members.forEach(id => mute_user(id))
   }
+
   function success_notice (identifier, success_msg) {
     return _ => {
       const alertColor = 'rgb(224, 36, 94)'
@@ -460,8 +509,8 @@
     const button = $(`
       <div class="container">
         <div class="checkbox">
-          <input type="checkbox" id="includeTweeter" name="" value="">
-          <label for="includeTweeter"><span>${name}</span></label>
+          <input type="checkbox" id="bwl-include-tweeter" name="" value="">
+          <label for="bwl-include-tweeter"><span>${name}</span></label>
         </div>
       </div>
     `)
@@ -553,12 +602,14 @@
   function main () {
     waitForKeyElements('h2:has(> span:contains(' + i18n.like_title + '))', dom => {
       const ancestor = get_ancestor(dom, 3)
+      mount_switch(ancestor, i18n.include_original_tweeter)
       mount_button(ancestor, i18n.mute_btn, mute_all_likers, success_notice(i18n.like_list_identifier, i18n.mute_success))
       mount_button(ancestor, i18n.block_btn, block_all_likers, success_notice(i18n.like_list_identifier, i18n.block_success))
     })
 
     waitForKeyElements('h2:has(> span:contains(' + i18n.retweet_title + '))', dom => {
       const ancestor = get_ancestor(dom, 3)
+      mount_switch(ancestor, i18n.include_original_tweeter)
       mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, success_notice(i18n.retweet_list_identifier, i18n.mute_success))
       mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, success_notice(i18n.retweet_list_identifier, i18n.block_success))
     })
