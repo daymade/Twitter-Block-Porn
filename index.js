@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.4
+// @version     2.5
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @author      Eol, OverflowCat, yuanLeeMidori
 // @run-at      document-end
