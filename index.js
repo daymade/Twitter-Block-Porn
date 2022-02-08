@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.5
+// @version     2.5.1
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @author      Eol, OverflowCat, yuanLeeMidori
 // @run-at      document-end
@@ -10,16 +10,111 @@
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
 // @exclude     https://twitter.com/account/*
-// @require     https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
-// @require     https://cdn.jsdelivr.net/npm/qs/dist/qs.min.js
+// @require     https://cdn.jsdelivr.net/npm/axios@0.25.0/dist/axios.min.js
+// @require     https://cdn.jsdelivr.net/npm/qs@6.10.3/dist/qs.min.js
 // @require     https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
-// @require     https://greasyfork.org/scripts/2199-waitforkeyelements/code/waitForKeyElements.js?version=6349
-// @require     https://cdnjs.cloudflare.com/ajax/libs/nedb/1.8.0/nedb.min.js
 // ==/UserScript==
 
-/* global axios $ Qs waitForKeyElements Nedb*/
+/* global axios $ Qs */
 
 (_ => {
+  /* Begin of Dependencies */
+
+  // https://gist.githubusercontent.com/BrockA/2625891/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
+  /*--- waitForKeyElements():  A utility function, for Greasemonkey scripts,
+      that detects and handles AJAXed content.
+
+      Usage example:
+
+          waitForKeyElements (
+              "div.comments"
+              , commentCallbackFunction
+          );
+
+          //--- Page-specific function to do what we want when the node is found.
+          function commentCallbackFunction (jNode) {
+              jNode.text ("This comment changed by waitForKeyElements().");
+          }
+
+      IMPORTANT: This function requires your script to have loaded jQuery.
+  */
+  function waitForKeyElements (
+      selectorTxt,    /* Required: The jQuery selector string that
+                          specifies the desired element(s).
+                      */
+      actionFunction, /* Required: The code to run when elements are
+                          found. It is passed a jNode to the matched
+                          element.
+                      */
+      bWaitOnce,      /* Optional: If false, will continue to scan for
+                          new elements even after the first match is
+                          found.
+                      */
+      iframeSelector  /* Optional: If set, identifies the iframe to
+                          search.
+                      */
+  ) {
+      var targetNodes, btargetsFound;
+
+      if (typeof iframeSelector == "undefined")
+          targetNodes     = $(selectorTxt);
+      else
+          targetNodes     = $(iframeSelector).contents ()
+                                            .find (selectorTxt);
+
+      if (targetNodes  &&  targetNodes.length > 0) {
+          btargetsFound   = true;
+          /*--- Found target node(s).  Go through each and act if they
+              are new.
+          */
+          targetNodes.each ( function () {
+              var jThis        = $(this);
+              var alreadyFound = jThis.data ('alreadyFound')  ||  false;
+
+              if (!alreadyFound) {
+                  //--- Call the payload function.
+                  var cancelFound     = actionFunction (jThis);
+                  if (cancelFound)
+                      btargetsFound   = false;
+                  else
+                      jThis.data ('alreadyFound', true);
+              }
+          } );
+      }
+      else {
+          btargetsFound   = false;
+      }
+
+      //--- Get the timer-control variable for this selector.
+      var controlObj      = waitForKeyElements.controlObj  ||  {};
+      var controlKey      = selectorTxt.replace (/[^\w]/g, "_");
+      var timeControl     = controlObj [controlKey];
+
+      //--- Now set or clear the timer as appropriate.
+      if (btargetsFound  &&  bWaitOnce  &&  timeControl) {
+          //--- The only condition where we need to clear the timer.
+          clearInterval (timeControl);
+          delete controlObj [controlKey]
+      }
+      else {
+          //--- Set a timer, if needed.
+          if ( ! timeControl) {
+              timeControl = setInterval ( function () {
+                      waitForKeyElements (    selectorTxt,
+                                              actionFunction,
+                                              bWaitOnce,
+                                              iframeSelector
+                                          );
+                  },
+                  300
+              );
+              controlObj [controlKey] = timeControl;
+          }
+      }
+      waitForKeyElements.controlObj   = controlObj;
+  }
+  /* End of Dependencies */
+
   let lang = document.documentElement.lang
   if (lang == 'en-US') {
     lang = 'en' // TweetDeck
@@ -181,21 +276,6 @@
     }
   }
 
-  const db = new Nedb()
-  db.insert({
-    type: 'START',
-    ua: navigator.userAgent,
-    time: new Date().getTime()
-  })
-
-  function open_logs () {
-    db.find().sort({ firstField: 'Date' }).exec((err, docs) => {
-      let logs = JSON.stringify(docs.reverse())
-      alert(logs)
-    })
-  }
-  GM_registerMenuCommand(i18n.logs, open_logs, 'L')
-
   function get_theme_color (){
     const close_icon = $('div[aria-label] > div[dir="auto"] > svg[viewBox="0 0 24 24"]')[0]
     return window.getComputedStyle(close_icon).color
@@ -285,11 +365,6 @@
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    db.insert({
-      type: 'B',
-      uid: id,
-      time: new Date().getTime()
-    })
   }
 
   function mute_user (id) {
@@ -299,11 +374,6 @@
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
-    })
-    db.insert({
-      type: 'M',
-      uid: id,
-      time: new Date().getTime()
     })
   }
 
