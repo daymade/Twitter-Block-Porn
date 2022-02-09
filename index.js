@@ -237,7 +237,7 @@
       logs: '활동',
       list_members: '리스트 멤버',
       list_members_identifier: '타임라인: 리스트 멤버',
-      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually. [HELP US TRANSLATE]'
+      block_retweets_notice: '저희는 리트윗하신 사용자분들을 차단 했으나 트윗 인용하신 사용자분들은 직접 차단하셔야 합니다.'
     },
     'de': {
       // translation by Wassermäuserich Lúcio
