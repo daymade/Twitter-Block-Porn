@@ -255,7 +255,23 @@
       block_retweets_notice: 'TBWL hat nur Benutzer blockiert, die ohne Kommentare retweetet haben.\nBitte blockieren Sie Benutzer, die mit Kommentaren retweetet haben, manuell.',
       enabled: 'Aktiviert!',
       disabled: 'Behindert!',
-    }
+    },
+    'fr': {
+      lang_name: 'French',
+      like_title: 'Aimé par',
+      like_list_identifier: 'Fil d\'actualités : Aimé par',
+      retweet_title: 'Retweeté par',
+      retweet_list_identifier: 'Fil d\'actualités : Retweeté par',
+      block_btn: 'Bloquer tous',
+      block_success: 'Tous les utilisateurs sont bloqués !',
+      mute_btn: 'Masquer tous',
+      mute_success: 'Tous les utilisateurs sont masqués !',
+      include_original_tweeter: 'Inclure l’auteur original',
+      logs: 'Logs',
+      list_members: 'Membres de la liste',
+      list_members_identifier: 'Fil d\'actualités : Membres de la liste',
+      block_retweets_notice: 'TBWL a seulement bloqué les utilisateurs qui ont retweeté sans commenter.\n Vous devez bloquer manuellement les retweets avec commentaire.'
+    },
   }
   let i18n = translations[lang]
   // lang is empty in some error pages, so check lang first
