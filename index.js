@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.5.1
+// @version     2.6.0
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @author      Eol, OverflowCat, yuanLeeMidori
 // @run-at      document-end
@@ -125,8 +125,7 @@
       lang_name: 'English',
       like_title: 'Liked by',
       like_list_identifier: 'Timeline: Liked by',
-      retweet_title: 'Retweets',
-      mini_retweet_title: 'Retweeted by',
+      retweet_title: 'Retweeted by',
       retweet_list_identifier: 'Timeline: Retweeted by',
       block_btn: 'Block all',
       block_success: 'All users blocked!',
@@ -142,8 +141,7 @@
       lang_name: 'British English',
       like_title: 'Liked by',
       like_list_identifier: 'Timeline: Liked by',
-      retweet_title: 'Retweets',
-      mini_retweet_title: 'Retweeted by',
+      retweet_title: 'Retweeted by',
       retweet_list_identifier: 'Timeline: Retweeted by',
       block_btn: 'Block all',
       block_success: 'All users blocked!',
@@ -257,7 +255,7 @@
       block_retweets_notice: 'TBWL hat nur Benutzer blockiert, die ohne Kommentare retweetet haben.\nBitte blockieren Sie Benutzer, die mit Kommentaren retweetet haben, manuell.',
       enabled: 'Aktiviert!',
       disabled: 'Behindert!',
-    },
+    }
   }
   let i18n = translations[lang]
   // lang is empty in some error pages, so check lang first
@@ -689,12 +687,6 @@
       mount_button(ancestor, i18n.mute_btn, mute_list_members, success_notice(i18n.list_members_identifier, i18n.mute_success))
       mount_button(ancestor, i18n.block_btn, block_list_members, success_notice(i18n.list_members_identifier, i18n.block_success))
     })
-    // some languages do not need the 'mini' version
-    if (i18n.mini_retweet_title) {
-      waitForKeyElements('h2:has(> span:contains(' + i18n.mini_retweet_title + '))', dom => {
-        mount_button(get_ancestor(dom, 3), i18n.block_btn, block_no_comment_retweeters, success_notice(i18n.retweet_list_identifier, i18n.block_success))
-      })
-    }
   }
 
   main()
