@@ -1,0 +1,13 @@
+{
+  "name": "Twitter-Block-With-Love",
+  "version": "0.0.1",
+  "description": "Block or mute all the Twitter users who like or RT a specific tweet, with love. (package.json only for development.)",
+  "main": "index.js",
+  "repository": "git@github.com:E011011101001/Twitter-Block-With-Love",
+  "author": "Eol <eol@eolstudy.com>",
+  "license": "MIT",
+  "private": "true",
+  "devDependencies": {
+    "eslint": "^8.11.0"
+  }
+}

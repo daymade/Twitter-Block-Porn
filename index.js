@@ -19,6 +19,7 @@
 
 (_ => {
   /* Begin of Dependencies */
+  /* eslint-disable */
 
   // https://gist.githubusercontent.com/BrockA/2625891/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
   /*--- waitForKeyElements():  A utility function, for Greasemonkey scripts,
@@ -113,6 +114,7 @@
       }
       waitForKeyElements.controlObj   = controlObj;
   }
+  /* eslint-enable */
   /* End of Dependencies */
 
   let lang = document.documentElement.lang
@@ -121,7 +123,7 @@
   }
   const translations = {
     // Please submit a feedback on Greasyfork.com if your language is not in the list bellow
-    'en': {
+    en: {
       lang_name: 'English',
       like_title: 'Liked by',
       like_list_identifier: 'Timeline: Liked by',
@@ -155,7 +157,7 @@
       list_members_identifier: 'Timeline: List members',
       block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually.'
     },
-    'zh': {
+    zh: {
       lang_name: '简体中文',
       like_title: '喜欢者',
       like_list_identifier: '时间线：喜欢者',
@@ -187,7 +189,7 @@
       list_members_identifier: '時間軸：列表成員',
       block_retweets_notice: 'Twitter Block with Love 僅封鎖了不帶評論轉推的使用者。\n請手動封鎖引用推文的使用者。'
     },
-    'ja': {
+    ja: {
       lang_name: '日本語',
       like_list_identifier: 'タイムライン: いいねしたユーザー',
       like_title: 'いいねしたユーザー',
@@ -203,7 +205,7 @@
       list_members_identifier: 'タイムライン: リストに追加されているユーザー',
       block_retweets_notice: 'TBWLは、コメントなしでリツイートしたユーザーのみをブロックしました。\n引用ツイートしたユーザーを手動でブロックしてください。'
     },
-    'vi': {
+    vi: {
       // translation by Ly Hương
       lang_name: 'Tiếng Việt',
       like_list_identifier: 'Dòng thời gian: Được thích bởi',
@@ -220,7 +222,7 @@
       list_members_identifier: 'Dòng thời gian: Thành viên trong danh sách',
       block_retweets_notice: 'TBWL chỉ chặn tài khoản đã retweet không bình luận. Những tài khoản retweet bằng bình luận thì xin hãy chặn bằng tay.'
     },
-    'ko': {
+    ko: {
       // translation by hellojo011
       lang_name: '한국어',
       like_list_identifier: '타임라인: 마음에 들어 함',
@@ -237,7 +239,7 @@
       list_members_identifier: '타임라인: 리스트 멤버',
       block_retweets_notice: '저희는 리트윗하신 사용자분들을 차단 했으나 트윗 인용하신 사용자분들은 직접 차단하셔야 합니다.'
     },
-    'de': {
+    de: {
       // translation by Wassermäuserich Lúcio
       lang_name: 'Deutsch',
       like_title: 'Gefällt',
@@ -256,7 +258,7 @@
       enabled: 'Aktiviert!',
       disabled: 'Behindert!',
     },
-    'fr': {
+    fr: {
       lang_name: 'French',
       like_title: 'Aimé par',
       like_list_identifier: 'Fil d\'actualités : Aimé par',
@@ -295,19 +297,19 @@
     }
   }
 
-  function get_theme_color (){
+  function get_theme_color () {
     const close_icon = $('div[aria-label] > div[dir="auto"] > svg[viewBox="0 0 24 24"]')[0]
     return window.getComputedStyle(close_icon).color
   }
 
   function component_to_hex (c) {
     if (typeof(c) === 'string') c = Number(c)
-    const hex = c.toString(16);
-    return hex.length === 1 ? ("0" + hex) : hex;
+    const hex = c.toString(16)
+    return hex.length === 1 ? ("0" + hex) : hex
   }
 
   function rgb_to_hex (r, g, b) {
-    return "#" + component_to_hex(r) + component_to_hex(g) + component_to_hex(b);
+    return "#" + component_to_hex(r) + component_to_hex(g) + component_to_hex(b)
   }
 
   function get_cookie (cname) {
@@ -333,7 +335,7 @@
     baseURL: 'https://api.twitter.com',
     withCredentials: true,
     headers: {
-      'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+      Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
       'X-Twitter-Auth-Type': 'OAuth2Session',
       'X-Twitter-Active-User': 'yes',
       'X-Csrf-Token': get_cookie('ct0')
@@ -396,7 +398,7 @@
     })
   }
 
-  async function get_tweeter(tweetId){
+  async function get_tweeter (tweetId) {
     const screen_name = location.href.split('twitter.com/')[1].split('/')[0]
     const tweetData = (await ajax.get(`/2/timeline/conversation/${tweetId}.json`)).data
     // Find the tweeter by username
@@ -417,7 +419,7 @@
   async function block_all_likers () {
     const tweetId = get_tweet_id()
     const likers = await fetch_likers(tweetId)
-    if (inlude_tweeter()){
+    if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) likers.push(tweeter)
     }
@@ -427,7 +429,7 @@
   async function mute_all_likers () {
     const tweetId = get_tweet_id()
     const likers = await fetch_likers(tweetId)
-    if (inlude_tweeter()){
+    if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) likers.push(tweeter)
     }
@@ -437,7 +439,7 @@
   async function block_no_comment_retweeters () {
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
-    if (inlude_tweeter()){
+    if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) retweeters.push(tweeter)
     }
@@ -455,7 +457,7 @@
   async function mute_no_comment_retweeters () {
     const tweetId = get_tweet_id()
     const retweeters = await fetch_no_comment_retweeters(tweetId)
-    if (inlude_tweeter()){
+    if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) retweeters.push(tweeter)
     }
@@ -473,15 +475,15 @@
   }
 
   async function block_list_members () {
-      const listId = get_list_id()
-      const members = await fetch_list_members(listId)
-      members.forEach(id => block_user(id))
+    const listId = get_list_id()
+    const members = await fetch_list_members(listId)
+    members.forEach(id => block_user(id))
   }
 
   async function mute_list_members () {
-      const listId = get_list_id()
-      const members = await fetch_list_members(listId)
-      members.forEach(id => mute_user(id))
+    const listId = get_list_id()
+    const members = await fetch_list_members(listId)
+    members.forEach(id => mute_user(id))
   }
 
   function success_notice (identifier, success_msg) {
@@ -662,34 +664,34 @@
         </div>
       </div>
     `)
-    .addClass(parentDom.prop('classList')[0])
-    .hover(function () {
-      $(this).addClass(btn_hover)
-    }, function () {
-      $(this).removeClass(btn_hover)
-      $(this).removeClass(btn_mousedown)
-    })
-    .on('selectstart', function () {
-      return false
-    })
-    .mousedown(function () {
-      $(this).removeClass(btn_hover)
-      $(this).addClass(btn_mousedown)
-    })
-    .mouseup(function () {
-      $(this).removeClass(btn_mousedown)
-      if ($(this).is(':hover')) {
+      .addClass(parentDom.prop('classList')[0])
+      .hover(function () {
         $(this).addClass(btn_hover)
-      }
-    })
-    .click(executer)
-    .click(success_notifier)
+      }, function () {
+        $(this).removeClass(btn_hover)
+        $(this).removeClass(btn_mousedown)
+      })
+      .on('selectstart', function () {
+        return false
+      })
+      .mousedown(function () {
+        $(this).removeClass(btn_hover)
+        $(this).addClass(btn_mousedown)
+      })
+      .mouseup(function () {
+        $(this).removeClass(btn_mousedown)
+        if ($(this).is(':hover')) {
+          $(this).addClass(btn_hover)
+        }
+      })
+      .click(executer)
+      .click(success_notifier)
 
     parentDom.append(button)
   }
 
-  function main() {
-    const DEFAULT_IDENTIFIER = '#layers > div:nth-child(2) > div > div > div > div > div > div > div > div > div > div > section > h1[dir="auto"][aria-level="1"][role="heading"] + div[aria-label]';
+  function main () {
+    const DEFAULT_IDENTIFIER = '#layers > div:nth-child(2) > div > div > div > div > div > div > div > div > div > div > section > h1[dir="auto"][aria-level="1"][role="heading"] + div[aria-label]'
     if (no_local) {
       /**
        * Two results: Tweet, Retweeters/Likers popup
