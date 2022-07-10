@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.7.0
+// @version     2.8.0-beta
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @author      Eol, OverflowCat, yuanLeeMidori
 // @run-at      document-end
@@ -486,23 +486,26 @@
     members.forEach(id => mute_user(id))
   }
 
-  function success_notice (identifier, success_msg) {
+  function get_notifier_of (msg) {
     return _ => {
-      const alertColor = 'rgb(224, 36, 94)'
-      const container = $(identifier)
-      container.children().fadeOut(400, _ => {
-        const notice = $(`
-          <div style="
-            color: ${alertColor};
-            text-align: center;
-            margin-top: 3em;
-            font-size: x-large;
-          ">
-            <span>${success_msg}</span>
+      const banner = $(`
+        <div id="bwl-notice" style="right:0px; position:fixed; left:0px; bottom:0px; display:flex; flex-direction:column;">
+          <div class="tbwl-notice">
+            <span>${msg}</span>
           </div>
-        `)
-        container.append(notice)
-      })
+        </div>
+      `)
+      const closeButton = $(`
+        <span id="bwl-close-button" style="font-weight:700; margin-left:12px; margin-right:12px; cursor:pointer;">
+          Close
+        </span>
+      `)
+      closeButton.click(_ => banner.remove())
+      $(banner).children('.tbwl-notice').append(closeButton)
+
+      $('#layers').append(banner)
+      setTimeout(() => banner.remove(), 5000)
+      $('div[data-testid="app-bar-close"]').click()
     }
   }
 
@@ -690,8 +693,32 @@
     parentDom.append(button)
   }
 
+  function insert_css () {
+    // TODO: Move all CSS classes here
+    $('head').append(`<style>
+      .tbwl-notice {
+        align-self: center;
+        display: flex;
+        flex-direction: row;
+        padding: 12px;
+        margin-bottom: 32px;
+        border-radius: 4px;
+        color:rgb(255, 255, 255);
+        background-color: rgb(29, 155, 240);
+        font-family:TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size:15px;
+        line-height:20px;
+        overflow-wrap: break-word;
+      }
+    </style>`)
+  }
+
   function main () {
-    const DEFAULT_IDENTIFIER = '#layers > div:nth-child(2) > div > div > div > div > div > div > div > div > div > div > section > h1[dir="auto"][aria-level="1"][role="heading"] + div[aria-label]'
+    insert_css()
+
+    const notice_block_success = get_notifier_of ('Successfully blocked.')
+    const notice_mute_success = get_notifier_of ('Successfully muted.')
+
     if (no_local) {
       /**
        * Two results: Tweet, Retweeters/Likers popup
@@ -704,21 +731,21 @@
        *   window.onpopstate = () => console.log(new Date().toLocaleDateString())
        * It will only be triggered when the user clicks the back button, though, and that is of no use for us.
        */
-      waitForKeyElements('div > div > div > div > div > h2#modal-header[dir="auto"][aria-level="2"][role="heading"] > span', ele => {
-        const ancestor = get_ancestor(ele, 3 + 1) // ele is span, not h2
+      waitForKeyElements('h2#modal-header[dir="auto"][aria-level="2"][role="heading"]', ele => {
+        const ancestor = get_ancestor(ele, 3)
         const currentURL = window.location.href
         if (/\/status\/[0-9]+\/likes$/.test(currentURL)) {
           mount_switch(ancestor, i18n.include_original_tweeter)
-          mount_button(ancestor, i18n.mute_btn, mute_all_likers, success_notice(DEFAULT_IDENTIFIER, i18n.mute_success))
-          mount_button(ancestor, i18n.block_btn, block_all_likers, success_notice(DEFAULT_IDENTIFIER, i18n.block_success))
+          mount_button(ancestor, i18n.mute_btn, mute_all_likers, notice_mute_success)
+          mount_button(ancestor, i18n.block_btn, block_all_likers, notice_block_success)
         } else if (currentURL.endsWith("/retweets")) {
           mount_switch(ancestor, i18n.include_original_tweeter)
-          mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, success_notice(DEFAULT_IDENTIFIER, i18n.mute_success))
-          mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, success_notice(DEFAULT_IDENTIFIER, i18n.block_success))
+          mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, notice_mute_success)
+          mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, notice_block_success)
         } else if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
           mount_switch(ancestor, i18n.include_original_tweeter)
-          mount_button(ancestor, i18n.mute_btn, mute_list_members, success_notice(DEFAULT_IDENTIFIER, i18n.mute_success))
-          mount_button(ancestor, i18n.block_btn, block_list_members, success_notice(DEFAULT_IDENTIFIER, i18n.block_success))
+          mount_button(ancestor, i18n.mute_btn, mute_list_members, notice_mute_success)
+          mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
         }
       })
     } else {
@@ -726,25 +753,22 @@
       waitForKeyElements('h2:has(> span:contains(' + i18n.like_title + '))', ele => {
         const ancestor = get_ancestor(ele, 3) // ele is h2
         mount_switch(ancestor, i18n.include_original_tweeter)
-        const like_list_identifier = 'div[aria-label="' + i18n.like_list_identifier + '"]'
-        mount_button(ancestor, i18n.mute_btn, mute_all_likers, success_notice(like_list_identifier, i18n.mute_success))
-        mount_button(ancestor, i18n.block_btn, block_all_likers, success_notice(like_list_identifier, i18n.block_success))
+        mount_button(ancestor, i18n.mute_btn, mute_all_likers, notice_mute_success)
+        mount_button(ancestor, i18n.block_btn, block_all_likers, notice_block_success)
       })
 
       waitForKeyElements('h2:has(> span:contains(' + i18n.retweet_title + '))', ele => {
         const ancestor = get_ancestor(ele, 3)
         mount_switch(ancestor, i18n.include_original_tweeter)
-        const retweet_list_identifier = 'div[aria-label="' + i18n.retweet_list_identifier + '"]'
-        mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, success_notice(retweet_list_identifier, i18n.mute_success))
-        mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, success_notice(retweet_list_identifier, i18n.block_success))
+        mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, notice_mute_success)
+        mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, notice_block_success)
       })
     }
 
     waitForKeyElements('h2:has(> span:contains(' + i18n.list_members + '))', ele => {
       const ancestor = get_ancestor(ele, 3)
-      const list_members_identifier = 'div[aria-label="' + i18n.list_members_identifier + '"]'
-      mount_button(ancestor, i18n.mute_btn, mute_list_members, success_notice(list_members_identifier, i18n.mute_success))
-      mount_button(ancestor, i18n.block_btn, block_list_members, success_notice(list_members_identifier, i18n.block_success))
+      mount_button(ancestor, i18n.mute_btn, mute_list_members, notice_mute_success)
+      mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
     })
   }
 
