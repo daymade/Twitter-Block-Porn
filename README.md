@@ -25,7 +25,8 @@ If you are using Tampermonkey on Firefox and run into unexcepted problems, pleas
    - Go to the "List members" page, and click "Block all".
 
 After the above actions, the list page will close, and a success notice like this will show up at the bottom.
- ![](https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/after.png)
+
+![](https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/after.png)
 
 You may need to refresh the page if you want to check the effects immediately.
 
