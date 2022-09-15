@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.8.0
+// @version     2.8.1
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @author      Eol, OverflowCat, yuanLeeMidori
 // @run-at      document-end
@@ -276,11 +276,9 @@
     },
   }
   let i18n = translations[lang]
-  let no_local = false
   // lang is empty in some error pages, so check lang first
   if (lang && !i18n) {
-    i18n = translations['en']
-    no_local = true
+    i18n = translations.en
     if (false) {
       let langnames = []
       Object.values(translations).forEach(language => langnames.push(language.lang_name))
@@ -716,59 +714,25 @@
   function main () {
     insert_css()
 
-    const notice_block_success = get_notifier_of ('Successfully blocked.')
-    const notice_mute_success = get_notifier_of ('Successfully muted.')
+    const notice_block_success = get_notifier_of('Successfully blocked.')
+    const notice_mute_success = get_notifier_of('Successfully muted.')
 
-    if (no_local) {
-      /**
-       * Two results: Tweet, Retweeters/Likers popup
-       * document.querySelectorAll('div > div > div > div > div > h2[dir="auto"][aria-level="2"][role="heading"] > span')
-       * The exact popup:
-       * document.querySelectorAll('div > div > div > div > div > h2#modal-header[dir="auto"][aria-level="2"][role="heading"] > span')
-       * But now we still do not know whether it is a "retweeters" popup or a "likers" one and cannot mount the correct button. However, we can check the current page URL! While doing such a check can be done when clicking buttons, let's to do it here in case we want to use different styles, labels, etc. for buttons.
-
-       * P.S. there is a window.onpopstate event, and since Twitter does not use that, we can set a trigger like this:
-       *   window.onpopstate = () => console.log(new Date().toLocaleDateString())
-       * It will only be triggered when the user clicks the back button, though, and that is of no use for us.
-       */
-      waitForKeyElements('h2#modal-header[dir="auto"][aria-level="2"][role="heading"]', ele => {
-        const ancestor = get_ancestor(ele, 3)
-        const currentURL = window.location.href
-        if (/\/status\/[0-9]+\/likes$/.test(currentURL)) {
-          mount_switch(ancestor, i18n.include_original_tweeter)
-          mount_button(ancestor, i18n.mute_btn, mute_all_likers, notice_mute_success)
-          mount_button(ancestor, i18n.block_btn, block_all_likers, notice_block_success)
-        } else if (currentURL.endsWith("/retweets")) {
-          mount_switch(ancestor, i18n.include_original_tweeter)
-          mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, notice_mute_success)
-          mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, notice_block_success)
-        } else if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
-          mount_switch(ancestor, i18n.include_original_tweeter)
-          mount_button(ancestor, i18n.mute_btn, mute_list_members, notice_mute_success)
-          mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
-        }
-      })
-    } else {
-      // Old approach when lang is supported
-      waitForKeyElements('h2:has(> span:contains(' + i18n.like_title + '))', ele => {
-        const ancestor = get_ancestor(ele, 3) // ele is h2
+    waitForKeyElements('h2#modal-header[dir="auto"][aria-level="2"][role="heading"]', ele => {
+      const ancestor = get_ancestor(ele, 3)
+      const currentURL = window.location.href
+      if (/\/status\/[0-9]+\/likes$/.test(currentURL)) {
         mount_switch(ancestor, i18n.include_original_tweeter)
         mount_button(ancestor, i18n.mute_btn, mute_all_likers, notice_mute_success)
         mount_button(ancestor, i18n.block_btn, block_all_likers, notice_block_success)
-      })
-
-      waitForKeyElements('h2:has(> span:contains(' + i18n.retweet_title + '))', ele => {
-        const ancestor = get_ancestor(ele, 3)
+      } else if (currentURL.endsWith("/retweets")) {
         mount_switch(ancestor, i18n.include_original_tweeter)
         mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, notice_mute_success)
         mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, notice_block_success)
-      })
-    }
-
-    waitForKeyElements('h2:has(> span:contains(' + i18n.list_members + '))', ele => {
-      const ancestor = get_ancestor(ele, 3)
-      mount_button(ancestor, i18n.mute_btn, mute_list_members, notice_mute_success)
-      mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
+      } else if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
+        mount_switch(ancestor, i18n.include_original_tweeter)
+        mount_button(ancestor, i18n.mute_btn, mute_list_members, notice_mute_success)
+        mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
+      }
     })
   }
 
