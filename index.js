@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
-// @version     2.8.1
+// @version     2.8.2
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @author      Eol, OverflowCat, yuanLeeMidori
 // @run-at      document-end
@@ -295,9 +295,11 @@
     }
   }
 
+  // TODO
   function get_theme_color () {
-    const close_icon = $('div[aria-label] > div[dir="auto"] > svg[viewBox="0 0 24 24"]')[0]
-    return window.getComputedStyle(close_icon).color
+    // const close_icon = $('div[aria-label] > div > svg[viewBox="0 0 24 24"]')[0]
+    // return window.getComputedStyle(close_icon).color
+    return 'rgb(0, 0, 0)'
   }
 
   function component_to_hex (c) {
@@ -717,7 +719,7 @@
     const notice_block_success = get_notifier_of('Successfully blocked.')
     const notice_mute_success = get_notifier_of('Successfully muted.')
 
-    waitForKeyElements('h2#modal-header[dir="auto"][aria-level="2"][role="heading"]', ele => {
+    waitForKeyElements('h2#modal-header[aria-level="2"][role="heading"]', ele => {
       const ancestor = get_ancestor(ele, 3)
       const currentURL = window.location.href
       if (/\/status\/[0-9]+\/likes$/.test(currentURL)) {
