@@ -1,9 +1,24 @@
 // ==UserScript==
-// @name        Twitter Block With Love
+// @name        Twitter Block with Love
+// @name:zh-CN  Twitter Block with Love
+// @name:zh-TW  Twitter Block with Love
+// @name:ja     Twitter Block with Love
+// @name:ko     Twitter Block with Love
+// @name:vi     Chặn bằng tình yêu trên Twitter
+// @name:fr     Twitter Block with Love
+// @name:de     Blockieren mit Liebe auf Twitter
 // @namespace   https://www.eolstudy.com
+// @homepage    https://github.com/E011011101001/Twitter-Block-With-Love
+// @icon        https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/icon.svg
 // @version     2.8.2
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
+// @description:zh-CN 屏蔽或隐藏所有转发或点赞某条推文的推特用户
+// @description:zh-TW 封鎖或靜音所有轉推或喜歡某則推文的推特使用者
+// @description:ja あるツイートに「いいね」や「リツイート」をしたTwitterユーザー全員をブロックまたはミュートする機能を追加する
+// @description:ko 특정 트윗을 좋아하거나 리트윗하는 모든 트위터 사용자 차단 또는 음소거
+// @description:de Blockieren Sie alle Twitter-Nutzer, denen ein bestimmter Tweet gefällt oder die ihn retweeten, oder schalten Sie sie stumm - mit Liebe.
 // @author      Eol, OverflowCat, yuanLeeMidori
+// @license     MIT
 // @run-at      document-end
 // @grant       GM_registerMenuCommand
 // @match       https://twitter.com/*
@@ -148,8 +163,6 @@
       block_btn: 'Block all',
       block_success: 'All users blocked!',
       mute_btn: 'Mute all',
-      mute_btn: 'Mute all',
-      mute_success: 'All users muted!',
       mute_success: 'All users muted!',
       include_original_tweeter: 'Include the original Tweeter',
       logs: 'Logs',
@@ -212,8 +225,8 @@
       like_title: 'Được thích bởi',
       retweet_list_identifier: 'Dòng thời gian: Được Tweet lại bởi',
       retweet_title: 'Được Tweet lại bởi',
-      block_btn: 'Tắt tiếng tất cả',
-      mute_btn: 'Chặn tất cả',
+      block_btn: 'Chặn tất cả',
+      mute_btn: 'Tắt tiếng tất cả',
       block_success: 'Tất cả tài khoản đã bị chặn!',
       mute_success: 'Tất cả tài khoản đã bị tắt tiếng!',
       include_original_tweeter: 'Tweeter gốc',
@@ -283,33 +296,57 @@
       let langnames = []
       Object.values(translations).forEach(language => langnames.push(language.lang_name))
       langnames = langnames.join(', ')
-      let issue = confirm(
+      confirm(
         'Twitter Block With Love userscript does not support your language (language code: "' + lang + '").\n' +
         'Please send feedback at Greasyfork.com or open an issue at Github.com.\n' +
         'Before that, you can edit the userscript yourself or just switch the language of Twitter Web App to any of the following languages: ' +
         langnames + '.\n\nDo you want to open an issue?'
-      )
-      if (issue) {
-        window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/")
-      }
+      ) && window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/")
     }
   }
 
-  // TODO
   function get_theme_color () {
-    // const close_icon = $('div[aria-label] > div > svg[viewBox="0 0 24 24"]')[0]
-    // return window.getComputedStyle(close_icon).color
-    return 'rgb(0, 0, 0)'
+    let backgroundColor = getComputedStyle(document.querySelector("#modal-header > span")).color || "rgb(128, 128, 128)";
+    let textColor = hex_to_rgb(invert_hex(rgba_to_hex(backgroundColor)));
+    for (const ele of document.querySelectorAll("div[role='button']")) {
+      let color = ele?.style?.backgroundColor
+      if (color != '') {
+        backgroundColor = color;
+        let span = ele.querySelector('span');
+        textColor = getComputedStyle(span)?.color || textColor
+      }
+    }
+    return {backgroundColor, textColor}
+}
+
+const FALLBACK_FONT_FAMILY = `TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;`;
+function get_font_family () {
+  for (const ele of document.querySelectorAll("div[role='button']")) {
+      let font_family = getComputedStyle(ele)?.backgroundColor
+      if (font_family) return font_family + ", " + FALLBACK_FONT_FAMILY
+  }
+  return FALLBACK_FONT_FAMILY;
+}
+
+  function rgba_to_hex(rgba_str, force_remove_alpha) {
+    return "#" + rgba_str.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
+    .split(',') // splits them at ","
+    .filter((_, index) => !force_remove_alpha || index !== 3)
+    .map(string => parseFloat(string)) // Converts them to numbers
+    .map((number, index) => index === 3 ? Math.round(number * 255) : number) // Converts alpha to 255 number
+    .map(number => number.toString(16)) // Converts numbers to hex
+    .map(string => string.length === 1 ? "0" + string : string) // Adds 0 when length of one number is 1
+    .join("")
+    .toUpperCase()
   }
 
-  function component_to_hex (c) {
-    if (typeof(c) === 'string') c = Number(c)
-    const hex = c.toString(16)
-    return hex.length === 1 ? ("0" + hex) : hex
+  function hex_to_rgb(hex_str) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})/i.exec(hex_str)
+    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : ""
   }
 
-  function rgb_to_hex (r, g, b) {
-    return "#" + component_to_hex(r) + component_to_hex(g) + component_to_hex(b)
+  function invert_hex(hex) {
+    return '#' + (Number(`0x1${hex.substring(1)}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
   }
 
   function get_cookie (cname) {
@@ -357,24 +394,19 @@
     const users = await ajax.get(`/2/timeline/liked_by.json?tweet_id=${tweetId}`).then(
       res => res.data.globalObjects.users
     )
-
-    let likers = []
-    Object.keys(users).forEach(user => likers.push(user)) // keys of users are id strings
+    const likers = Object.keys(users) // keys of users are id strings
     return likers
   }
 
   async function fetch_no_comment_retweeters (tweetId) {
     const users = (await ajax.get(`/2/timeline/retweeted_by.json?tweet_id=${tweetId}`)).data.globalObjects.users
-
-    let targets = []
-    Object.keys(users).forEach(user => targets.push(user))
+    const targets = Object.keys(users)
     return targets
   }
 
   async function fetch_list_members (listId) {
     const users = (await ajax.get(`/1.1/lists/members.json?list_id=${listId}`)).data.users
-    let members = []
-    members = users.map(u => u.id_str)
+    const members = users.map(u => u.id_str)
     return members
   }
 
@@ -403,7 +435,7 @@
     const tweetData = (await ajax.get(`/2/timeline/conversation/${tweetId}.json`)).data
     // Find the tweeter by username
     const users = tweetData.globalObjects.users
-    for (let key in users) {
+    for (const key in users) {
       if (users[key].screen_name === screen_name) {
         return key
       }
@@ -423,7 +455,7 @@
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) likers.push(tweeter)
     }
-    likers.forEach(id => block_user(id))
+    likers.forEach(block_user)
   }
 
   async function mute_all_likers () {
@@ -433,17 +465,17 @@
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) likers.push(tweeter)
     }
-    likers.forEach(id => mute_user(id))
+    likers.forEach(mute_user)
   }
 
   async function block_no_comment_retweeters () {
     const tweetId = get_tweet_id()
-    const retweeters = await fetch_no_comment_retweeters(tweetId)
+    let retweeters = await fetch_no_comment_retweeters(tweetId)
     if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) retweeters.push(tweeter)
     }
-    retweeters.forEach(id => block_user(id))
+    retweeters.forEach(block_user)
 
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
@@ -456,12 +488,12 @@
 
   async function mute_no_comment_retweeters () {
     const tweetId = get_tweet_id()
-    const retweeters = await fetch_no_comment_retweeters(tweetId)
+    let retweeters = await fetch_no_comment_retweeters(tweetId)
     if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
       if (tweeter) retweeters.push(tweeter)
     }
-    retweeters.forEach(id => mute_user(id))
+    retweeters.forEach(mute_user)
 
     const tabName = location.href.split('retweets/')[1]
     if (tabName === 'with_comments') {
@@ -477,13 +509,13 @@
   async function block_list_members () {
     const listId = get_list_id()
     const members = await fetch_list_members(listId)
-    members.forEach(id => block_user(id))
+    members.forEach(block_user)
   }
 
   async function mute_list_members () {
     const listId = get_list_id()
     const members = await fetch_list_members(listId)
-    members.forEach(id => mute_user(id))
+    members.forEach(mute_user)
   }
 
   function get_notifier_of (msg) {
@@ -517,9 +549,7 @@
       'rgb(0, 0, 0)': '#ffffff'
     }
     const textColor = textColors[backgroundColor] || '#000000'
-    let themeColor = get_theme_color()
-    let _rgb = themeColor.replace('rgb(', '').replace(')', '').split(', ')
-    let themeColor_hex = rgb_to_hex(_rgb[0], _rgb[1], _rgb[2])
+    let themeColor = get_theme_color().backgroundColor
     $('head').append(`
       <style>
         .container {
@@ -551,15 +581,15 @@
             height: 22px;
             transition: transform 0.2s ease;
             border-radius: 3px;
-            border: 2px solid ${themeColor_hex};
+            border: 2px solid ${themeColor};
         }
         .checkbox label:after {
           content: '';
             display: block;
             width: 10px;
             height: 5px;
-            border-bottom: 2px solid ${themeColor_hex};
-            border-left: 2px solid ${themeColor_hex};
+            border-bottom: 2px solid ${themeColor};
+            border-left: 2px solid ${themeColor};
             -webkit-transform: rotate(-45deg) scale(0);
             transform: rotate(-45deg) scale(0);
             transition: transform ease 0.2s;
@@ -569,7 +599,7 @@
             left: 6px;
         }
         .checkbox input[type="checkbox"]:checked ~ label::before {
-            color: ${themeColor_hex};
+            color: ${themeColor};
         }
 
         .checkbox input[type="checkbox"]:checked ~ label::after {
@@ -613,9 +643,9 @@
   }
 
   function mount_button (parentDom, name, executer, success_notifier) {
-    let themeColor = get_theme_color()
-    const hoverColor = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.1)')
-    const mousedownColor = themeColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.2)')
+    let {backgroundColor, textColor} = get_theme_color()
+    const hoverColor = backgroundColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.9)')
+    const mousedownColor = backgroundColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.8)')
     const btn_mousedown = 'bwl-btn-mousedown'
     const btn_hover = 'bwl-btn-hover'
 
@@ -625,8 +655,9 @@
           min-height: 30px;
           padding-left: 1em;
           padding-right: 1em;
-          border: 1px solid ${themeColor} !important;
+          border: 1px solid ${backgroundColor} !important;
           border-radius: 9999px;
+          background-color: ${backgroundColor};
         }
         .${btn_mousedown} {
           background-color: ${mousedownColor};
@@ -642,12 +673,12 @@
           align-items: center;
           -webkit-box-flex: 1;
           flex-grow: 1;
-          color: ${themeColor};
+          color: ${backgroundColor};
           display: flex;
         }
         .bwl-text-font {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
-          color: ${themeColor};
+          font-family: ${get_font_family};
+          color: ${textColor};
         }
       </style>
     `)
@@ -705,7 +736,7 @@
         border-radius: 4px;
         color:rgb(255, 255, 255);
         background-color: rgb(29, 155, 240);
-        font-family:TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-family: ${FALLBACK_FONT_FAMILY};
         font-size:15px;
         line-height:20px;
         overflow-wrap: break-word;
