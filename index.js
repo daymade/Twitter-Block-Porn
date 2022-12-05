@@ -617,6 +617,7 @@
     $('head').append(`<style>
     </style>`)
 
+    // TODO: reduce repeated styles
     $('head').append(`<style>
       .tbwl-notice {
         align-self: center;
@@ -662,89 +663,93 @@
         color: ${textColor};
       }
       .container {
-          margin-top: 0px;
-          margin-left: 0px;
-          margin-right: 5px;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 5px;
       }
       .checkbox {
-          width: 100%;
-          margin: 0px auto;
-          position: relative;
-          display: block;
+        width: 100%;
+        margin: 0px auto;
+        position: relative;
+        display: block;
       }
       .checkbox input[type="checkbox"] {
-          width: auto;
-          opacity: 0.00000001;
-          position: absolute;
-          left: 0;
-          margin-left: 0px;
+        width: auto;
+        opacity: 0.00000001;
+        position: absolute;
+        left: 0;
+        margin-left: 0px;
       }
       .checkbox label:before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          margin: 0px;
-          width: 22px;
-          height: 22px;
-          transition: transform 0.2s ease;
-          border-radius: 3px;
-          border: 2px solid ${backgroundColor};
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0px;
+        width: 22px;
+        height: 22px;
+        transition: transform 0.2s ease;
+        border-radius: 3px;
+        border: 2px solid ${backgroundColor};
       }
       .checkbox label:after {
         content: '';
-          display: block;
-          width: 10px;
-          height: 5px;
-          border-bottom: 2px solid ${backgroundColor};
-          border-left: 2px solid ${backgroundColor};
-          -webkit-transform: rotate(-45deg) scale(0);
-          transform: rotate(-45deg) scale(0);
-          transition: transform ease 0.2s;
-          will-change: transform;
-          position: absolute;
-          top: 8px;
-          left: 6px;
+        display: block;
+        width: 10px;
+        height: 5px;
+        border-bottom: 2px solid ${backgroundColor};
+        border-left: 2px solid ${backgroundColor};
+        -webkit-transform: rotate(-45deg) scale(0);
+        transform: rotate(-45deg) scale(0);
+        transition: transform ease 0.2s;
+        will-change: transform;
+        position: absolute;
+        top: 8px;
+        left: 6px;
       }
       .checkbox input[type="checkbox"]:checked ~ label::before {
-          color: ${backgroundColor};
+        color: ${backgroundColor};
       }
       .checkbox input[type="checkbox"]:checked ~ label::after {
-          -webkit-transform: rotate(-45deg) scale(1);
-          transform: rotate(-45deg) scale(1);
+        -webkit-transform: rotate(-45deg) scale(1);
+        transform: rotate(-45deg) scale(1);
       }
       .checkbox label {
-          position: relative;
-          display: block;
-          padding-left: 31px;
-          margin-bottom: 0;
-          font-weight: normal;
-          cursor: pointer;
-          vertical-align: sub;
-          width:fit-content;
-          width:-webkit-fit-content;
-          width:-moz-fit-content;
+        position: relative;
+        display: block;
+        padding-left: 31px;
+        margin-bottom: 0;
+        font-weight: normal;
+        cursor: pointer;
+        vertical-align: sub;
+        width:fit-content;
+        width:-webkit-fit-content;
+        width:-moz-fit-content;
       }
       .checkbox label span {
-          position: relative;
-          top: 50%;
-          color: ${textColor};
-          -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+        position: relative;
+        top: 50%;
+        color: ${textColor};
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
       }
       .checkbox input[type="checkbox"]:focus + label::before {
-          outline: 0;
+        outline: 0;
       }
     </style>`)
   }
 
   function main () {
-    insert_css()
+    let inited = false
 
     const notice_block_success = get_notifier_of('Successfully blocked.')
     const notice_mute_success = get_notifier_of('Successfully muted.')
 
     waitForKeyElements('h2#modal-header[aria-level="2"][role="heading"]', ele => {
+      if (!inited) {
+        insert_css()
+        inited = true
+      }
       const ancestor = get_ancestor(ele, 3)
       const currentURL = window.location.href
       if (/\/status\/[0-9]+\/likes$/.test(currentURL)) {
