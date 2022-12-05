@@ -52,6 +52,9 @@ module.exports = {
         after: true
       }
     ],
-    'eol-last': ['warn', 'always']
+    'eol-last': ['warn', 'always'],
+    'prefer-const': 'error',
+    'no-restricted-syntax': ['error', 'IfStatement[consequent.type!="BlockStatement"]'],
+    quotes: ['error', 'single']
   }
 }

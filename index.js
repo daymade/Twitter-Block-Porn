@@ -10,7 +10,7 @@
 // @namespace   https://www.eolstudy.com
 // @homepage    https://github.com/E011011101001/Twitter-Block-With-Love
 // @icon        https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/icon.svg
-// @version     2.8.2
+// @version     2.8.3-beta
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @description:zh-CN 屏蔽或隐藏所有转发或点赞某条推文的推特用户
 // @description:zh-TW 封鎖或靜音所有轉推或喜歡某則推文的推特使用者
@@ -301,59 +301,36 @@
         'Please send feedback at Greasyfork.com or open an issue at Github.com.\n' +
         'Before that, you can edit the userscript yourself or just switch the language of Twitter Web App to any of the following languages: ' +
         langnames + '.\n\nDo you want to open an issue?'
-      ) && window.location.replace("https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/")
+      ) && window.location.replace('https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/')
     }
   }
 
-  function get_theme_color () {
-    let backgroundColor = getComputedStyle(document.querySelector("#modal-header > span")).color || "rgb(128, 128, 128)";
-    let textColor = hex_to_rgb(invert_hex(rgba_to_hex(backgroundColor)));
-    for (const ele of document.querySelectorAll("div[role='button']")) {
-      let color = ele?.style?.backgroundColor
-      if (color != '') {
-        backgroundColor = color;
-        let span = ele.querySelector('span');
-        textColor = getComputedStyle(span)?.color || textColor
-      }
-    }
-    return {backgroundColor, textColor}
-}
-
-const FALLBACK_FONT_FAMILY = `TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;`;
-function get_font_family () {
-  for (const ele of document.querySelectorAll("div[role='button']")) {
-      let font_family = getComputedStyle(ele)?.backgroundColor
-      if (font_family) return font_family + ", " + FALLBACK_FONT_FAMILY
-  }
-  return FALLBACK_FONT_FAMILY;
-}
-
-  function rgba_to_hex(rgba_str, force_remove_alpha) {
-    return "#" + rgba_str.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
-    .split(',') // splits them at ","
-    .filter((_, index) => !force_remove_alpha || index !== 3)
-    .map(string => parseFloat(string)) // Converts them to numbers
-    .map((number, index) => index === 3 ? Math.round(number * 255) : number) // Converts alpha to 255 number
-    .map(number => number.toString(16)) // Converts numbers to hex
-    .map(string => string.length === 1 ? "0" + string : string) // Adds 0 when length of one number is 1
-    .join("")
-    .toUpperCase()
+  function rgba_to_hex (rgba_str, force_remove_alpha) {
+    return '#' + rgba_str.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
+      .split(',') // splits them at ","
+      .filter((_, index) => !force_remove_alpha || index !== 3)
+      .map(string => parseFloat(string)) // Converts them to numbers
+      .map((number, index) => index === 3 ? Math.round(number * 255) : number) // Converts alpha to 255 number
+      .map(number => number.toString(16)) // Converts numbers to hex
+      .map(string => string.length === 1 ? '0' + string : string) // Adds 0 when length of one number is 1
+      .join('')
+      .toUpperCase()
   }
 
-  function hex_to_rgb(hex_str) {
+  function hex_to_rgb (hex_str) {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})/i.exec(hex_str)
-    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : ""
+    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : ''
   }
 
-  function invert_hex(hex) {
+  function invert_hex (hex) {
     return '#' + (Number(`0x1${hex.substring(1)}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
   }
 
   function get_cookie (cname) {
-    let name = cname + '='
-    let ca = document.cookie.split(';')
+    const name = cname + '='
+    const ca = document.cookie.split(';')
     for (let i = 0; i < ca.length; ++i) {
-      let c = ca[i].trim()
+      const c = ca[i].trim()
       if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length)
       }
@@ -444,7 +421,7 @@ function get_font_family () {
   }
 
   function inlude_tweeter () {
-    return $("#bwl-include-tweeter").checked
+    return $('#bwl-include-tweeter').checked
   }
 
   // block_all_liker and block_no_comment_retweeters need to be merged
@@ -453,7 +430,9 @@ function get_font_family () {
     const likers = await fetch_likers(tweetId)
     if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
-      if (tweeter) likers.push(tweeter)
+      if (tweeter) {
+        likers.push(tweeter)
+      }
     }
     likers.forEach(block_user)
   }
@@ -463,17 +442,21 @@ function get_font_family () {
     const likers = await fetch_likers(tweetId)
     if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
-      if (tweeter) likers.push(tweeter)
+      if (tweeter) {
+        likers.push(tweeter)
+      }
     }
     likers.forEach(mute_user)
   }
 
   async function block_no_comment_retweeters () {
     const tweetId = get_tweet_id()
-    let retweeters = await fetch_no_comment_retweeters(tweetId)
+    const retweeters = await fetch_no_comment_retweeters(tweetId)
     if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
-      if (tweeter) retweeters.push(tweeter)
+      if (tweeter) {
+        retweeters.push(tweeter)
+      }
     }
     retweeters.forEach(block_user)
 
@@ -488,10 +471,12 @@ function get_font_family () {
 
   async function mute_no_comment_retweeters () {
     const tweetId = get_tweet_id()
-    let retweeters = await fetch_no_comment_retweeters(tweetId)
+    const retweeters = await fetch_no_comment_retweeters(tweetId)
     if (inlude_tweeter()) {
       const tweeter = await get_tweeter(tweetId)
-      if (tweeter) retweeters.push(tweeter)
+      if (tweeter) {
+        retweeters.push(tweeter)
+      }
     }
     retweeters.forEach(mute_user)
 
@@ -542,94 +527,6 @@ function get_font_family () {
   }
 
   function mount_switch (parentDom, name) {
-    const backgroundColor = $('body').css('background-color')
-    const textColors = {
-      'rgb(255, 255, 255)': '#000000',
-      'rgb(21, 32, 43)': '#ffffff',
-      'rgb(0, 0, 0)': '#ffffff'
-    }
-    const textColor = textColors[backgroundColor] || '#000000'
-    let themeColor = get_theme_color().backgroundColor
-    $('head').append(`
-      <style>
-        .container {
-            margin-top: 0px;
-            margin-left: 0px;
-            margin-right: 5px;
-        }
-        .checkbox {
-            width: 100%;
-            margin: 0px auto;
-            position: relative;
-            display: block;
-        }
-
-        .checkbox input[type="checkbox"] {
-            width: auto;
-            opacity: 0.00000001;
-            position: absolute;
-            left: 0;
-            margin-left: 0px;
-        }
-        .checkbox label:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            margin: 0px;
-            width: 22px;
-            height: 22px;
-            transition: transform 0.2s ease;
-            border-radius: 3px;
-            border: 2px solid ${themeColor};
-        }
-        .checkbox label:after {
-          content: '';
-            display: block;
-            width: 10px;
-            height: 5px;
-            border-bottom: 2px solid ${themeColor};
-            border-left: 2px solid ${themeColor};
-            -webkit-transform: rotate(-45deg) scale(0);
-            transform: rotate(-45deg) scale(0);
-            transition: transform ease 0.2s;
-            will-change: transform;
-            position: absolute;
-            top: 8px;
-            left: 6px;
-        }
-        .checkbox input[type="checkbox"]:checked ~ label::before {
-            color: ${themeColor};
-        }
-
-        .checkbox input[type="checkbox"]:checked ~ label::after {
-            -webkit-transform: rotate(-45deg) scale(1);
-            transform: rotate(-45deg) scale(1);
-        }
-
-        .checkbox label {
-            position: relative;
-            display: block;
-            padding-left: 31px;
-            margin-bottom: 0;
-            font-weight: normal;
-            cursor: pointer;
-            vertical-align: sub;
-            width:fit-content;
-            width:-webkit-fit-content;
-            width:-moz-fit-content;
-        }
-        .checkbox label span {
-            position: relative;
-            top: 50%;
-            color: ${textColor};
-            -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-        }
-        .checkbox input[type="checkbox"]:focus + label::before {
-            outline: 0;
-        }
-      </style>`)
     const button = $(`
       <div class="container">
         <div class="checkbox">
@@ -643,45 +540,8 @@ function get_font_family () {
   }
 
   function mount_button (parentDom, name, executer, success_notifier) {
-    let {backgroundColor, textColor} = get_theme_color()
-    const hoverColor = backgroundColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.9)')
-    const mousedownColor = backgroundColor.replace(/rgb/i, "rgba").replace(/\)/, ', 0.8)')
     const btn_mousedown = 'bwl-btn-mousedown'
     const btn_hover = 'bwl-btn-hover'
-
-    $('head').append(`
-      <style>
-        .bwl-btn-base {
-          min-height: 30px;
-          padding-left: 1em;
-          padding-right: 1em;
-          border: 1px solid ${backgroundColor} !important;
-          border-radius: 9999px;
-          background-color: ${backgroundColor};
-        }
-        .${btn_mousedown} {
-          background-color: ${mousedownColor};
-          cursor: pointer;
-        }
-        .${btn_hover} {
-          background-color: ${hoverColor};
-          cursor: pointer;
-        }
-        .bwl-btn-inner-wrapper {
-          font-weight: bold;
-          -webkit-box-align: center;
-          align-items: center;
-          -webkit-box-flex: 1;
-          flex-grow: 1;
-          color: ${backgroundColor};
-          display: flex;
-        }
-        .bwl-text-font {
-          font-family: ${get_font_family};
-          color: ${textColor};
-        }
-      </style>
-    `)
 
     const button = $(`
       <div
@@ -697,8 +557,7 @@ function get_font_family () {
           </span>
         </div>
       </div>
-    `)
-      .addClass(parentDom.prop('classList')[0])
+    `).addClass(parentDom.prop('classList')[0])
       .hover(function () {
         $(this).addClass(btn_hover)
       }, function () {
@@ -725,7 +584,39 @@ function get_font_family () {
   }
 
   function insert_css () {
-    // TODO: Move all CSS classes here
+    const FALLBACK_FONT_FAMILY = 'TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;'
+    const FALLBACK_COLOR = 'rgb(128, 128, 128)'
+    function get_theme_color () {
+      let backgroundColor = getComputedStyle(document.querySelector('#modal-header > span')).color || FALLBACK_COLOR
+      let textColor = hex_to_rgb(invert_hex(rgba_to_hex(backgroundColor)))
+      for (const ele of document.querySelectorAll('div[role=\'button\']')) {
+        const color = ele?.style?.backgroundColor
+        if (color != '') {
+          backgroundColor = color
+          const span = ele.querySelector('span')
+          textColor = getComputedStyle(span)?.color || textColor
+        }
+      }
+      return {backgroundColor, textColor}
+    }
+    function get_font_family () {
+      for (const ele of document.querySelectorAll('div[role=\'button\']')) {
+        const font_family = getComputedStyle(ele).fontFamily
+        if (font_family) {
+          return font_family + ', ' + FALLBACK_FONT_FAMILY
+        }
+      }
+      return FALLBACK_FONT_FAMILY
+    }
+
+    const {backgroundColor, textColor} = get_theme_color()
+    const hoverColor = backgroundColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.9)')
+    const mousedownColor = backgroundColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.8)')
+
+    // switch related
+    $('head').append(`<style>
+    </style>`)
+
     $('head').append(`<style>
       .tbwl-notice {
         align-self: center;
@@ -740,6 +631,109 @@ function get_font_family () {
         font-size:15px;
         line-height:20px;
         overflow-wrap: break-word;
+      }
+      .bwl-btn-base {
+        min-height: 30px;
+        padding-left: 1em;
+        padding-right: 1em;
+        border: 1px solid ${backgroundColor} !important;
+        border-radius: 9999px;
+        background-color: ${backgroundColor};
+      }
+      .bwl-btn-mousedown {
+        background-color: ${mousedownColor};
+        cursor: pointer;
+      }
+      .bwl-btn-hover {
+        background-color: ${hoverColor};
+        cursor: pointer;
+      }
+      .bwl-btn-inner-wrapper {
+        font-weight: bold;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        color: ${backgroundColor};
+        display: flex;
+      }
+      .bwl-text-font {
+        font-family: ${get_font_family()};
+        color: ${textColor};
+      }
+      .container {
+          margin-top: 0px;
+          margin-left: 0px;
+          margin-right: 5px;
+      }
+      .checkbox {
+          width: 100%;
+          margin: 0px auto;
+          position: relative;
+          display: block;
+      }
+      .checkbox input[type="checkbox"] {
+          width: auto;
+          opacity: 0.00000001;
+          position: absolute;
+          left: 0;
+          margin-left: 0px;
+      }
+      .checkbox label:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin: 0px;
+          width: 22px;
+          height: 22px;
+          transition: transform 0.2s ease;
+          border-radius: 3px;
+          border: 2px solid ${backgroundColor};
+      }
+      .checkbox label:after {
+        content: '';
+          display: block;
+          width: 10px;
+          height: 5px;
+          border-bottom: 2px solid ${backgroundColor};
+          border-left: 2px solid ${backgroundColor};
+          -webkit-transform: rotate(-45deg) scale(0);
+          transform: rotate(-45deg) scale(0);
+          transition: transform ease 0.2s;
+          will-change: transform;
+          position: absolute;
+          top: 8px;
+          left: 6px;
+      }
+      .checkbox input[type="checkbox"]:checked ~ label::before {
+          color: ${backgroundColor};
+      }
+      .checkbox input[type="checkbox"]:checked ~ label::after {
+          -webkit-transform: rotate(-45deg) scale(1);
+          transform: rotate(-45deg) scale(1);
+      }
+      .checkbox label {
+          position: relative;
+          display: block;
+          padding-left: 31px;
+          margin-bottom: 0;
+          font-weight: normal;
+          cursor: pointer;
+          vertical-align: sub;
+          width:fit-content;
+          width:-webkit-fit-content;
+          width:-moz-fit-content;
+      }
+      .checkbox label span {
+          position: relative;
+          top: 50%;
+          color: ${textColor};
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+      }
+      .checkbox input[type="checkbox"]:focus + label::before {
+          outline: 0;
       }
     </style>`)
   }
@@ -757,7 +751,7 @@ function get_font_family () {
         mount_switch(ancestor, i18n.include_original_tweeter)
         mount_button(ancestor, i18n.mute_btn, mute_all_likers, notice_mute_success)
         mount_button(ancestor, i18n.block_btn, block_all_likers, notice_block_success)
-      } else if (currentURL.endsWith("/retweets")) {
+      } else if (currentURL.endsWith('/retweets')) {
         mount_switch(ancestor, i18n.include_original_tweeter)
         mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, notice_mute_success)
         mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, notice_block_success)
