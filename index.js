@@ -326,6 +326,28 @@
     return '#' + (Number(`0x1${hex.substring(1)}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
   }
 
+  function get_theme_color () {
+    const FALLBACK_COLOR = 'rgb(128, 128, 128)'
+    let bgColor = getComputedStyle(document.querySelector('#modal-header > span')).color || FALLBACK_COLOR
+    let buttonTextColor = hex_to_rgb(invert_hex(rgba_to_hex(bgColor)))
+    for (const ele of document.querySelectorAll('div[role=\'button\']')) {
+      const color = ele?.style?.backgroundColor
+      if (color != '') {
+        bgColor = color
+        const span = ele.querySelector('span')
+        buttonTextColor = getComputedStyle(span)?.color || buttonTextColor
+      }
+    }
+
+    return {
+      bgColor,
+      buttonTextColor,
+      plainTextColor: $('span').css('color'),
+      hoverColor: bgColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.9)'),
+      mousedownColor: bgColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.8)')
+    }
+  }
+
   function get_cookie (cname) {
     const name = cname + '='
     const ca = document.cookie.split(';')
@@ -585,20 +607,6 @@
 
   function insert_css () {
     const FALLBACK_FONT_FAMILY = 'TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;'
-    const FALLBACK_COLOR = 'rgb(128, 128, 128)'
-    function get_theme_color () {
-      let backgroundColor = getComputedStyle(document.querySelector('#modal-header > span')).color || FALLBACK_COLOR
-      let textColor = hex_to_rgb(invert_hex(rgba_to_hex(backgroundColor)))
-      for (const ele of document.querySelectorAll('div[role=\'button\']')) {
-        const color = ele?.style?.backgroundColor
-        if (color != '') {
-          backgroundColor = color
-          const span = ele.querySelector('span')
-          textColor = getComputedStyle(span)?.color || textColor
-        }
-      }
-      return {backgroundColor, textColor}
-    }
     function get_font_family () {
       for (const ele of document.querySelectorAll('div[role=\'button\']')) {
         const font_family = getComputedStyle(ele).fontFamily
@@ -609,9 +617,7 @@
       return FALLBACK_FONT_FAMILY
     }
 
-    const {backgroundColor, textColor} = get_theme_color()
-    const hoverColor = backgroundColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.9)')
-    const mousedownColor = backgroundColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.8)')
+    const colors = get_theme_color()
 
     // switch related
     $('head').append(`<style>
@@ -637,16 +643,16 @@
         min-height: 30px;
         padding-left: 1em;
         padding-right: 1em;
-        border: 1px solid ${backgroundColor} !important;
+        border: 1px solid ${colors.bgColor} !important;
         border-radius: 9999px;
-        background-color: ${backgroundColor};
+        background-color: ${colors.bgColor};
       }
       .bwl-btn-mousedown {
-        background-color: ${mousedownColor};
+        background-color: ${colors.mousedownColor};
         cursor: pointer;
       }
       .bwl-btn-hover {
-        background-color: ${hoverColor};
+        background-color: ${colors.hoverColor};
         cursor: pointer;
       }
       .bwl-btn-inner-wrapper {
@@ -655,12 +661,12 @@
         align-items: center;
         -webkit-box-flex: 1;
         flex-grow: 1;
-        color: ${backgroundColor};
+        color: ${colors.bgColor};
         display: flex;
       }
       .bwl-text-font {
         font-family: ${get_font_family()};
-        color: ${textColor};
+        color: ${colors.buttonTextColor};
       }
       .container {
         margin-top: 0px;
@@ -672,6 +678,7 @@
         margin: 0px auto;
         position: relative;
         display: block;
+        color: ${colors.plainTextColor};
       }
       .checkbox input[type="checkbox"] {
         width: auto;
@@ -690,15 +697,15 @@
         height: 22px;
         transition: transform 0.2s ease;
         border-radius: 3px;
-        border: 2px solid ${backgroundColor};
+        border: 2px solid ${colors.bgColor};
       }
       .checkbox label:after {
         content: '';
         display: block;
         width: 10px;
         height: 5px;
-        border-bottom: 2px solid ${backgroundColor};
-        border-left: 2px solid ${backgroundColor};
+        border-bottom: 2px solid ${colors.bgColor};
+        border-left: 2px solid ${colors.bgColor};
         -webkit-transform: rotate(-45deg) scale(0);
         transform: rotate(-45deg) scale(0);
         transition: transform ease 0.2s;
@@ -708,7 +715,7 @@
         left: 6px;
       }
       .checkbox input[type="checkbox"]:checked ~ label::before {
-        color: ${backgroundColor};
+        color: ${colors.bgColor};
       }
       .checkbox input[type="checkbox"]:checked ~ label::after {
         -webkit-transform: rotate(-45deg) scale(1);
@@ -729,7 +736,6 @@
       .checkbox label span {
         position: relative;
         top: 50%;
-        color: ${textColor};
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
       }
