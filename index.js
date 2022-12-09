@@ -4,13 +4,13 @@
 // @name:zh-TW  Twitter Block with Love
 // @name:ja     Twitter Block with Love
 // @name:ko     Twitter Block with Love
-// @name:vi     Chặn bằng tình yêu trên Twitter
+// @name:vi     Twitter Block with Love
 // @name:fr     Twitter Block with Love
-// @name:de     Blockieren mit Liebe auf Twitter
+// @name:de     Twitter Block with Love
 // @namespace   https://www.eolstudy.com
 // @homepage    https://github.com/E011011101001/Twitter-Block-With-Love
 // @icon        https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/icon.svg
-// @version     2.8.3-beta
+// @version     2.8.3
 // @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
 // @description:zh-CN 屏蔽或隐藏所有转发或点赞某条推文的推特用户
 // @description:zh-TW 封鎖或靜音所有轉推或喜歡某則推文的推特使用者
