@@ -1,12 +1,5 @@
 // ==UserScript==
-// @name        Twitter Block with Love
-// @name:zh-CN  Twitter Block with Love
-// @name:zh-TW  Twitter Block with Love
-// @name:ja     Twitter Block with Love
-// @name:ko     Twitter Block with Love
-// @name:vi     Twitter Block with Love
-// @name:fr     Twitter Block with Love
-// @name:de     Twitter Block with Love
+// @name        Twitter Block With Love
 // @namespace   https://www.eolstudy.com
 // @homepage    https://github.com/E011011101001/Twitter-Block-With-Love
 // @icon        https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/icon.svg
