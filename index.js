@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name        Twitter Block With Love
-// @namespace   https://www.eolstudy.com
-// @homepage    https://github.com/E011011101001/Twitter-Block-With-Love
-// @icon        https://raw.githubusercontent.com/E011011101001/Twitter-Block-With-Love/master/imgs/icon.svg
-// @version     2.8.3
-// @description Block or mute all the Twitter users who like or RT a specific tweet, with love.
-// @description:zh-CN 屏蔽或隐藏所有转发或点赞某条推文的推特用户
-// @description:zh-TW 封鎖或靜音所有轉推或喜歡某則推文的推特使用者
-// @description:ja あるツイートに「いいね」や「リツイート」をしたTwitterユーザー全員をブロックまたはミュートする機能を追加する
-// @description:ko 특정 트윗을 좋아하거나 리트윗하는 모든 트위터 사용자 차단 또는 음소거
-// @description:de Blockieren Sie alle Twitter-Nutzer, denen ein bestimmter Tweet gefällt oder die ihn retweeten, oder schalten Sie sie stumm - mit Liebe.
-// @author      Eol, OverflowCat, yuanLeeMidori
+// @name        Twitter Block Porn
+// @homepage    https://github.com/daymade/Twitter-Block-Porn
+// @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
+// @version     1.0.0
+// @description One-click block all the yellow scammers in the comment area.
+// @description:zh-CN 一键拉黑评论区的黄色诈骗犯
+// @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
+// @description:ja コメントエリアのイエロースキャマーを一括ブロック
+// @description:ko 댓글 영역의 노란색 사기꾼을 한 번에 차단
+// @description:de Alle gelben Betrüger im Kommentarbereich mit einem Klick blockieren.
+// @author      daymade
+// @source      forked from https://github.com/E011011101001/Twitter-Block-With-Love
 // @license     MIT
 // @run-at      document-end
 // @grant       GM_registerMenuCommand
@@ -129,174 +129,101 @@
   if (lang == 'en-US') {
     lang = 'en' // TweetDeck
   }
+
   const translations = {
-    // Please submit a feedback on Greasyfork.com if your language is not in the list bellow
     en: {
       lang_name: 'English',
-      like_title: 'Liked by',
-      like_list_identifier: 'Timeline: Liked by',
-      retweet_title: 'Retweeted by',
-      retweet_list_identifier: 'Timeline: Retweeted by',
-      block_btn: 'Block all',
-      block_success: 'All users blocked!',
-      mute_btn: 'Mute all',
-      mute_success: 'All users muted!',
-      include_original_tweeter: 'Include the original Tweeter',
+      block_btn: 'Block all Scammers',
+      block_test_btn: 'Test block top 10 Scammers',
+      block_success: 'All scammers blocked!',
+      block_test_success: 'Top 10 scammers test blocked successfully!',
       logs: 'Logs',
-      list_members: 'List members',
-      list_members_identifier: 'Timeline: List members',
-      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually.'
+      list_members: 'List Scammers',
+      list_members_identifier: 'Timeline: List Scammers',
     },
     'en-GB': {
       lang_name: 'British English',
-      like_title: 'Liked by',
-      like_list_identifier: 'Timeline: Liked by',
-      retweet_title: 'Retweeted by',
-      retweet_list_identifier: 'Timeline: Retweeted by',
-      block_btn: 'Block all',
-      block_success: 'All users blocked!',
-      mute_btn: 'Mute all',
-      mute_success: 'All users muted!',
-      include_original_tweeter: 'Include the original Tweeter',
+      block_btn: 'Block all Scammers',
+      block_test_btn: 'Test block top 10 Scammers',
+      block_success: 'All scammers blocked!',
+      block_test_success: 'Top 10 scammers test blocked successfully!',
       logs: 'Logs',
-      list_members: 'List members',
-      list_members_identifier: 'Timeline: List members',
-      block_retweets_notice: 'TBWL has only blocked users that retweeted without comments.\n Please block users retweeting with comments manually.'
+      list_members: 'List Scammers',
+      list_members_identifier: 'Timeline: List Scammers',
     },
     zh: {
       lang_name: '简体中文',
-      like_title: '喜欢者',
-      like_list_identifier: '时间线：喜欢者',
-      retweet_title: '转推',
-      retweet_list_identifier: '时间线：转推者',
-      block_btn: '全部屏蔽',
-      mute_btn: '全部隐藏',
-      block_success: '列表用户已全部屏蔽！',
-      mute_success: '列表用户已全部隐藏！',
-      include_original_tweeter: '包括推主',
+      block_btn: '屏蔽所有诈骗犯',
+      block_test_btn: '测试屏蔽前10名诈骗犯',
+      block_success: '诈骗犯已全部被屏蔽！',
+      block_test_success: '前10名诈骗犯测试屏蔽成功！',
       logs: '操作记录',
-      list_members: '列表成员',
-      list_members_identifier: '时间线：列表成员',
-      block_retweets_notice: 'Twitter Block with Love 仅屏蔽了不带评论转推的用户。\n请手动屏蔽引用推文的用户。'
+      list_members: '列表诈骗犯',
+      list_members_identifier: '时间线：列表诈骗犯',
     },
     'zh-Hant': {
       lang_name: '正體中文',
-      like_title: '已被喜歡',
-      like_list_identifier: '時間軸：已被喜歡',
-      retweet_title: '轉推',
-      retweet_list_identifier: '時間軸：已被轉推',
-      block_btn: '全部封鎖',
-      mute_btn: '全部靜音',
-      block_success: '列表用戶已全部封鎖！',
-      mute_success: '列表用戶已全部靜音！',
-      include_original_tweeter: '包括推主',
+      block_btn: '封鎖所有詐騙犯',
+      block_test_btn: '測試封鎖前10名詐騙犯',
+      block_success: '詐騙犯已全部被封鎖！',
+      block_test_success: '前10名詐騙犯測試封鎖成功！',
       logs: '活動記錄',
-      list_members: '列表成員',
-      list_members_identifier: '時間軸：列表成員',
-      block_retweets_notice: 'Twitter Block with Love 僅封鎖了不帶評論轉推的使用者。\n請手動封鎖引用推文的使用者。'
+      list_members: '列表詐騙犯',
+      list_members_identifier: '時間軸：列表詐騙犯',
     },
     ja: {
       lang_name: '日本語',
-      like_list_identifier: 'タイムライン: いいねしたユーザー',
-      like_title: 'いいねしたユーザー',
-      retweet_list_identifier: 'タイムライン: リツイートしたユーザー',
-      retweet_title: 'リツイート',
-      block_btn: '全部ブロック',
-      mute_btn: '全部ミュート',
-      block_success: '全てブロックしました！',
-      mute_success: '全てミュートしました！',
-      include_original_tweeter: 'スレ主',
+      block_btn: 'すべての詐欺師をブロック',
+      block_test_btn: 'トップ10詐欺師をテストブロック',
+      block_success: 'すべての詐欺師がブロックされました！',
+      block_test_success: 'トップ10の詐欺師がテストブロックされました！',
       logs: '操作履歴を表示',
-      list_members: 'リストに追加されているユーザー',
-      list_members_identifier: 'タイムライン: リストに追加されているユーザー',
-      block_retweets_notice: 'TBWLは、コメントなしでリツイートしたユーザーのみをブロックしました。\n引用ツイートしたユーザーを手動でブロックしてください。'
+      list_members: 'リストに追加されている詐欺師',
+      list_members_identifier: 'タイムライン: リストに追加されている詐欺師',
     },
     vi: {
-      // translation by Ly Hương
       lang_name: 'Tiếng Việt',
-      like_list_identifier: 'Dòng thời gian: Được thích bởi',
-      like_title: 'Được thích bởi',
-      retweet_list_identifier: 'Dòng thời gian: Được Tweet lại bởi',
-      retweet_title: 'Được Tweet lại bởi',
-      block_btn: 'Chặn tất cả',
-      mute_btn: 'Tắt tiếng tất cả',
-      block_success: 'Tất cả tài khoản đã bị chặn!',
-      mute_success: 'Tất cả tài khoản đã bị tắt tiếng!',
-      include_original_tweeter: 'Tweeter gốc',
+      block_btn: 'Chặn tất cả scammers',
+      block_test_btn: 'Thử chặn top 10 scammers',
+      block_success: 'Tất cả scammers đã bị chặn!',
+      block_test_success: 'Đã thành công chặn thử top 10 scammers!',
       logs: 'Lịch sử',
-      list_members: 'Thành viên trong danh sách',
-      list_members_identifier: 'Dòng thời gian: Thành viên trong danh sách',
-      block_retweets_notice: 'TBWL chỉ chặn tài khoản đã retweet không bình luận. Những tài khoản retweet bằng bình luận thì xin hãy chặn bằng tay.'
+      list_members: 'Scammers trong danh sách',
+      list_members_identifier: 'Dòng thời gian: Scammers trong danh sách',
     },
     ko: {
-      // translation by hellojo011
       lang_name: '한국어',
-      like_list_identifier: '타임라인: 마음에 들어 함',
-      like_title: '마음에 들어 함',
-      retweet_list_identifier: '타임라인: 리트윗함',
-      retweet_title: '리트윗',
-      block_btn: '모두 차단',
-      mute_btn: '모두 뮤트',
-      block_success: '모두 차단했습니다!',
-      mute_success: '모두 뮤트했습니다!',
-      include_original_tweeter: '글쓴이',
+      block_btn: '모든 사기꾼을 차단',
+      block_test_btn: '테스트 차단 사기꾼 상위 10',
+      block_success: '모든 사기꾼이 차단되었습니다!',
+      block_test_success: '상위 10 사기꾼 테스트 차단 성공!',
       logs: '활동',
-      list_members: '리스트 멤버',
-      list_members_identifier: '타임라인: 리스트 멤버',
-      block_retweets_notice: '저희는 리트윗하신 사용자분들을 차단 했으나 트윗 인용하신 사용자분들은 직접 차단하셔야 합니다.'
+      list_members: '리스트 사기꾼',
+      list_members_identifier: '타임라인: 리스트 사기꾼',
     },
     de: {
-      // translation by Wassermäuserich Lúcio
       lang_name: 'Deutsch',
-      like_title: 'Gefällt',
-      like_list_identifier: 'Timeline: Gefällt',
-      retweet_title: 'Retweetet von',
-      retweet_list_identifier: 'Timeline: Retweetet von',
-      block_btn: 'Alle blockieren',
-      mute_btn: 'Alle stummschalten',
-      block_success: 'Alle wurden blockiert!',
-      mute_success: 'Alle wurden stummgeschaltet!',
-      include_original_tweeter: 'Original-Hochlader einschließen',
+      block_btn: 'Alle Betrüger blockieren',
+      block_test_btn: 'Testblock Top 10 Betrüger',
+      block_success: 'Alle Betrüger wurden blockiert!',
+      block_test_success: 'Top 10 Betrüger erfolgreich getestet und blockiert!',
       logs: 'Betriebsaufzeichnung',
-      list_members: 'Listenmitglieder',
-      list_members_identifier: 'Timeline: Listenmitglieder',
-      block_retweets_notice: 'TBWL hat nur Benutzer blockiert, die ohne Kommentare retweetet haben.\nBitte blockieren Sie Benutzer, die mit Kommentaren retweetet haben, manuell.',
-      enabled: 'Aktiviert!',
-      disabled: 'Behindert!',
+      list_members: 'Listenbetrüger',
+      list_members_identifier: 'Timeline: Listenbetrüger',
     },
     fr: {
       lang_name: 'French',
-      like_title: 'Aimé par',
-      like_list_identifier: 'Fil d\'actualités : Aimé par',
-      retweet_title: 'Retweeté par',
-      retweet_list_identifier: 'Fil d\'actualités : Retweeté par',
-      block_btn: 'Bloquer tous',
-      block_success: 'Tous les utilisateurs sont bloqués !',
-      mute_btn: 'Masquer tous',
-      mute_success: 'Tous les utilisateurs sont masqués !',
-      include_original_tweeter: 'Inclure l’auteur original',
+      block_btn: 'Bloquer tous les escrocs',
+      block_test_btn: 'Test de blocage top 10 escrocs',
+      block_success: 'Tous les escrocs sont bloqués !',
+      block_test_success: 'Test de blocage des 10 premiers escrocs réussi !',
       logs: 'Logs',
-      list_members: 'Membres de la liste',
-      list_members_identifier: 'Fil d\'actualités : Membres de la liste',
-      block_retweets_notice: 'TBWL a seulement bloqué les utilisateurs qui ont retweeté sans commenter.\n Vous devez bloquer manuellement les retweets avec commentaire.'
+      list_members: 'Escrocs de la liste',
+      list_members_identifier: 'Fil d\'actualités : Escrocs de la liste',
     },
   }
+
   let i18n = translations[lang]
-  // lang is empty in some error pages, so check lang first
-  if (lang && !i18n) {
-    i18n = translations.en
-    if (false) {
-      let langnames = []
-      Object.values(translations).forEach(language => langnames.push(language.lang_name))
-      langnames = langnames.join(', ')
-      confirm(
-        'Twitter Block With Love userscript does not support your language (language code: "' + lang + '").\n' +
-        'Please send feedback at Greasyfork.com or open an issue at Github.com.\n' +
-        'Before that, you can edit the userscript yourself or just switch the language of Twitter Web App to any of the following languages: ' +
-        langnames + '.\n\nDo you want to open an issue?'
-      ) && window.location.replace('https://github.com/E011011101001/Twitter-Block-With-Love/issues/new/')
-    }
-  }
 
   function rgba_to_hex (rgba_str, force_remove_alpha) {
     return '#' + rgba_str.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
@@ -371,29 +298,9 @@
     }
   })
 
-  function get_tweet_id () {
-    // https://twitter.com/any/thing/status/1234567/anything => 1234567/anything => 1234567
-    return location.href.split('status/')[1].split('/')[0]
-  }
-
   function get_list_id () {
     // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
     return location.href.split('lists/')[1].split('/')[0]
-  }
-
-  // fetch_likers and fetch_no_comment_retweeters need to be merged into one function
-  async function fetch_likers (tweetId) {
-    const users = await ajax.get(`/2/timeline/liked_by.json?tweet_id=${tweetId}`).then(
-      res => res.data.globalObjects.users
-    )
-    const likers = Object.keys(users) // keys of users are id strings
-    return likers
-  }
-
-  async function fetch_no_comment_retweeters (tweetId) {
-    const users = (await ajax.get(`/2/timeline/retweeted_by.json?tweet_id=${tweetId}`)).data.globalObjects.users
-    const targets = Object.keys(users)
-    return targets
   }
 
   async function fetch_list_members (listId) {
@@ -403,6 +310,8 @@
   }
 
   function block_user (id) {
+    // alert(id);
+    // return;
     ajax.post('/1.1/blocks/create.json', Qs.stringify({
       user_id: id
     }), {
@@ -412,110 +321,17 @@
     })
   }
 
-  function mute_user (id) {
-    ajax.post('/1.1/mutes/users/create.json', Qs.stringify({
-      user_id: id
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-  }
+  async function block_list_test_members () {
+    const listId = get_list_id()
+    const members = await fetch_list_members(listId)
 
-  async function get_tweeter (tweetId) {
-    const screen_name = location.href.split('twitter.com/')[1].split('/')[0]
-    const tweetData = (await ajax.get(`/2/timeline/conversation/${tweetId}.json`)).data
-    // Find the tweeter by username
-    const users = tweetData.globalObjects.users
-    for (const key in users) {
-      if (users[key].screen_name === screen_name) {
-        return key
-      }
-    }
-    return undefined
-  }
-
-  function inlude_tweeter () {
-    return $('#bwl-include-tweeter').checked
-  }
-
-  // block_all_liker and block_no_comment_retweeters need to be merged
-  async function block_all_likers () {
-    const tweetId = get_tweet_id()
-    const likers = await fetch_likers(tweetId)
-    if (inlude_tweeter()) {
-      const tweeter = await get_tweeter(tweetId)
-      if (tweeter) {
-        likers.push(tweeter)
-      }
-    }
-    likers.forEach(block_user)
-  }
-
-  async function mute_all_likers () {
-    const tweetId = get_tweet_id()
-    const likers = await fetch_likers(tweetId)
-    if (inlude_tweeter()) {
-      const tweeter = await get_tweeter(tweetId)
-      if (tweeter) {
-        likers.push(tweeter)
-      }
-    }
-    likers.forEach(mute_user)
-  }
-
-  async function block_no_comment_retweeters () {
-    const tweetId = get_tweet_id()
-    const retweeters = await fetch_no_comment_retweeters(tweetId)
-    if (inlude_tweeter()) {
-      const tweeter = await get_tweeter(tweetId)
-      if (tweeter) {
-        retweeters.push(tweeter)
-      }
-    }
-    retweeters.forEach(block_user)
-
-    const tabName = location.href.split('retweets/')[1]
-    if (tabName === 'with_comments') {
-      if (!block_no_comment_retweeters.hasAlerted) {
-        block_no_comment_retweeters.hasAlerted = true
-        alert(i18n.block_rt_notice)
-      }
-    }
-  }
-
-  async function mute_no_comment_retweeters () {
-    const tweetId = get_tweet_id()
-    const retweeters = await fetch_no_comment_retweeters(tweetId)
-    if (inlude_tweeter()) {
-      const tweeter = await get_tweeter(tweetId)
-      if (tweeter) {
-        retweeters.push(tweeter)
-      }
-    }
-    retweeters.forEach(mute_user)
-
-    const tabName = location.href.split('retweets/')[1]
-    if (tabName === 'with_comments') {
-      if (!block_no_comment_retweeters.hasAlerted) {
-        block_no_comment_retweeters.hasAlerted = true
-        alert(
-          'TBWL has only muted users that retweeted without comments.\n Please mute users retweeting with comments manually.'
-        )
-      }
-    }
+    members.slice(0, 10).forEach(block_user)
   }
 
   async function block_list_members () {
     const listId = get_list_id()
     const members = await fetch_list_members(listId)
-    members.forEach(block_user)
-  }
-
-  async function mute_list_members () {
-    const listId = get_list_id()
-    const members = await fetch_list_members(listId)
-    members.forEach(mute_user)
+    members.slice(0, 100).forEach(block_user)
   }
 
   function get_notifier_of (msg) {
@@ -741,8 +557,8 @@
   function main () {
     let inited = false
 
-    const notice_block_success = get_notifier_of('Successfully blocked.')
-    const notice_mute_success = get_notifier_of('Successfully muted.')
+    const notice_block_test_success = get_notifier_of(i18n.block_test_success)
+    const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑100个`)
 
     waitForKeyElements('h2#modal-header[aria-level="2"][role="heading"]', ele => {
       if (!inited) {
@@ -751,17 +567,8 @@
       }
       const ancestor = get_ancestor(ele, 3)
       const currentURL = window.location.href
-      if (/\/status\/[0-9]+\/likes$/.test(currentURL)) {
-        mount_switch(ancestor, i18n.include_original_tweeter)
-        mount_button(ancestor, i18n.mute_btn, mute_all_likers, notice_mute_success)
-        mount_button(ancestor, i18n.block_btn, block_all_likers, notice_block_success)
-      } else if (currentURL.endsWith('/retweets')) {
-        mount_switch(ancestor, i18n.include_original_tweeter)
-        mount_button(ancestor, i18n.mute_btn, mute_no_comment_retweeters, notice_mute_success)
-        mount_button(ancestor, i18n.block_btn, block_no_comment_retweeters, notice_block_success)
-      } else if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
-        mount_switch(ancestor, i18n.include_original_tweeter)
-        mount_button(ancestor, i18n.mute_btn, mute_list_members, notice_mute_success)
+      if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
+        mount_button(ancestor, i18n.block_test_btn, block_list_test_members, notice_block_test_success)
         mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
       }
     })

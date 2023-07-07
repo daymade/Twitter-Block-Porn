@@ -1,10 +1,10 @@
 {
-  "name": "Twitter-Block-With-Love",
-  "version": "0.0.1",
-  "description": "Block or mute all the Twitter users who like or RT a specific tweet, with love. (package.json only for development.)",
+  "name": "Twitter-Block-Porn",
+  "version": "1.0.0",
+  "description": "One-click block all the yellow scammers in the comment area",
   "main": "index.js",
-  "repository": "git@github.com:E011011101001/Twitter-Block-With-Love",
-  "author": "Eol <eol@eolstudy.com>",
+  "repository": "https://github.com/daymade/Twitter-Block-Porn",
+  "author": "daymade <tiansheng@outlook.com>",
   "license": "MIT",
   "private": "true",
   "devDependencies": {
