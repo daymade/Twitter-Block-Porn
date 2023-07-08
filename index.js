@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.0.1
+// @version     1.0.2
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -303,10 +303,19 @@
     return location.href.split('lists/')[1].split('/')[0]
   }
 
-  async function fetch_list_members (listId) {
-    const users = (await ajax.get(`/1.1/lists/members.json?list_id=${listId}`)).data.users
-    const members = users.map(u => u.id_str)
-    return members
+  async function fetch_list_members(listId) {
+    let cursor = -1;
+    let allMembers = [];
+    
+    while (cursor != 0) {
+      let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
+      let users = response.data.users;
+      let members = users.map(u => u.id_str);
+      allMembers = allMembers.concat(members);
+      cursor = response.data.next_cursor;
+    }
+    
+    return allMembers;
   }
 
   function block_user (id) {
@@ -329,6 +338,7 @@
   async function block_list_members () {
     const listId = get_list_id()
     const members = await fetch_list_members(listId)
+    debugger
     members.slice(0, 100).forEach(block_user)
   }
 
