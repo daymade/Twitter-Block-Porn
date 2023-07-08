@@ -2,9 +2,9 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.0.0
+// @version     1.0.1
 // @description One-click block all the yellow scammers in the comment area.
-// @description:zh-CN 一键拉黑评论区的黄色诈骗犯
+// @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
 // @description:ja コメントエリアのイエロースキャマーを一括ブロック
 // @description:ko 댓글 영역의 노란색 사기꾼을 한 번에 차단
@@ -310,8 +310,6 @@
   }
 
   function block_user (id) {
-    // alert(id);
-    // return;
     ajax.post('/1.1/blocks/create.json', Qs.stringify({
       user_id: id
     }), {
