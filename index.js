@@ -338,7 +338,6 @@
   async function block_list_members () {
     const listId = get_list_id()
     const members = await fetch_list_members(listId)
-    debugger
     members.slice(0, 100).forEach(block_user)
   }
 
