@@ -338,7 +338,7 @@
   async function block_list_members () {
     const listId = get_list_id()
     const members = await fetch_list_members(listId)
-    members.slice(0, 100).forEach(block_user)
+    members.slice(0, 200).forEach(block_user)
   }
 
   function get_notifier_of (msg) {
@@ -565,7 +565,7 @@
     let inited = false
 
     const notice_block_test_success = get_notifier_of(i18n.block_test_success)
-    const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑100个`)
+    const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑200个`)
 
     waitForKeyElements('h2#modal-header[aria-level="2"][role="heading"]', ele => {
       if (!inited) {
