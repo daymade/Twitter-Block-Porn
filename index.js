@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.0.3
+// @version     1.1.0
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -26,10 +26,14 @@
 
 /* global axios $ Qs */
 
-const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', function () {
+const menu_command_list = GM_registerMenuCommand('前往共享黑名单', function () {
+  const url = 'https://twitter.com/i/lists/1677334530754248706'
+  GM_openInTab(url, {active: true})
+}, '');
+const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员', function () {
   const url = 'https://twitter.com/i/lists/1677334530754248706/members'
   GM_openInTab(url, {active: true})
-}, 'a');
+}, '');
 
 (_ => {
   /* Begin of Dependencies */
@@ -135,6 +139,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
   if (lang == 'en-US') {
     lang = 'en' // TweetDeck
   }
+  
+  lang = 'zh'
 
   const translations = {
     en: {
@@ -143,9 +149,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: 'Test block top 10 Scammers',
       block_success: 'All scammers blocked!',
       block_test_success: 'Top 10 scammers test blocked successfully!',
-      logs: 'Logs',
-      list_members: 'List Scammers',
-      list_members_identifier: 'Timeline: List Scammers',
+      export_btn: 'Export',
+      export_success: 'Export successful!',
     },
     'en-GB': {
       lang_name: 'British English',
@@ -153,19 +158,17 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: 'Test block top 10 Scammers',
       block_success: 'All scammers blocked!',
       block_test_success: 'Top 10 scammers test blocked successfully!',
-      logs: 'Logs',
-      list_members: 'List Scammers',
-      list_members_identifier: 'Timeline: List Scammers',
+      export_btn: 'Export',
+      export_success: 'Export successful!',
     },
     zh: {
       lang_name: '简体中文',
       block_btn: '屏蔽所有诈骗犯',
-      block_test_btn: '测试屏蔽前10名诈骗犯',
+      block_test_btn: '屏蔽前10名',
       block_success: '诈骗犯已全部被屏蔽！',
       block_test_success: '前10名诈骗犯测试屏蔽成功！',
-      logs: '操作记录',
-      list_members: '列表诈骗犯',
-      list_members_identifier: '时间线：列表诈骗犯',
+      export_btn: '导出',
+      export_success: '导出成功！',
     },
     'zh-Hant': {
       lang_name: '正體中文',
@@ -173,9 +176,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: '測試封鎖前10名詐騙犯',
       block_success: '詐騙犯已全部被封鎖！',
       block_test_success: '前10名詐騙犯測試封鎖成功！',
-      logs: '活動記錄',
-      list_members: '列表詐騙犯',
-      list_members_identifier: '時間軸：列表詐騙犯',
+      export_btn: '導出',
+      export_success: '導出成功！',
     },
     ja: {
       lang_name: '日本語',
@@ -183,9 +185,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: 'トップ10詐欺師をテストブロック',
       block_success: 'すべての詐欺師がブロックされました！',
       block_test_success: 'トップ10の詐欺師がテストブロックされました！',
-      logs: '操作履歴を表示',
-      list_members: 'リストに追加されている詐欺師',
-      list_members_identifier: 'タイムライン: リストに追加されている詐欺師',
+      export_btn: 'エクスポート',
+      export_success: 'エクスポート成功！',
     },
     vi: {
       lang_name: 'Tiếng Việt',
@@ -193,9 +194,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: 'Thử chặn top 10 scammers',
       block_success: 'Tất cả scammers đã bị chặn!',
       block_test_success: 'Đã thành công chặn thử top 10 scammers!',
-      logs: 'Lịch sử',
-      list_members: 'Scammers trong danh sách',
-      list_members_identifier: 'Dòng thời gian: Scammers trong danh sách',
+      export_btn: 'Xuất',
+      export_success: 'Xuất thành công!',
     },
     ko: {
       lang_name: '한국어',
@@ -203,9 +203,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: '테스트 차단 사기꾼 상위 10',
       block_success: '모든 사기꾼이 차단되었습니다!',
       block_test_success: '상위 10 사기꾼 테스트 차단 성공!',
-      logs: '활동',
-      list_members: '리스트 사기꾼',
-      list_members_identifier: '타임라인: 리스트 사기꾼',
+      export_btn: '내보내기',
+      export_success: '내보내기 성공!',
     },
     de: {
       lang_name: 'Deutsch',
@@ -213,9 +212,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: 'Testblock Top 10 Betrüger',
       block_success: 'Alle Betrüger wurden blockiert!',
       block_test_success: 'Top 10 Betrüger erfolgreich getestet und blockiert!',
-      logs: 'Betriebsaufzeichnung',
-      list_members: 'Listenbetrüger',
-      list_members_identifier: 'Timeline: Listenbetrüger',
+      export_btn: 'Exportieren',
+      export_success: 'Export erfolgreich!',
     },
     fr: {
       lang_name: 'French',
@@ -223,9 +221,8 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       block_test_btn: 'Test de blocage top 10 escrocs',
       block_success: 'Tous les escrocs sont bloqués !',
       block_test_success: 'Test de blocage des 10 premiers escrocs réussi !',
-      logs: 'Logs',
-      list_members: 'Escrocs de la liste',
-      list_members_identifier: 'Fil d\'actualités : Escrocs de la liste',
+      export_btn: 'Exporter',
+      export_success: 'Exportation réussie !',
     },
   }
 
@@ -309,7 +306,7 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
     return location.href.split('lists/')[1].split('/')[0]
   }
 
-  async function fetch_list_members(listId) {
+  async function fetch_list_members_id(listId) {
     let cursor = -1;
     let allMembers = [];
 
@@ -321,6 +318,20 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       cursor = response.data.next_cursor;
     }
 
+    return allMembers;
+  }
+
+  async function fetch_list_members_info(listId) {
+    let cursor = -1;
+    let allMembers = [];
+    
+    while (cursor != 0) {
+      let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
+      let users = response.data.users;
+      allMembers = allMembers.concat(users);
+      cursor = response.data.next_cursor;
+    }
+    
     return allMembers;
   }
 
@@ -336,15 +347,39 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
 
   async function block_list_test_members () {
     const listId = get_list_id()
-    const members = await fetch_list_members(listId)
+    const members = await fetch_list_members_id(listId)
 
     members.slice(0, 10).forEach(block_user)
   }
 
   async function block_list_members () {
     const listId = get_list_id()
-    const members = await fetch_list_members(listId)
-    members.slice(0, 200).forEach(block_user)
+    const members = await fetch_list_members_id(listId)
+
+    // 加急名单: 特别活跃/拉黑我/来挑衅的黄推
+    const special_scammers = [
+      "1651248919815532544",
+      "707799803",
+      "2169405224",
+      "1640266734895521794",
+      "2592579935"
+    ]
+
+    members.concat(special_scammers).slice(0, 300).forEach(block_user)
+  }
+
+  async function export_list_members () {
+    const listId = get_list_id();
+    const members = await fetch_list_members_info(listId);
+    
+    // 创建一个 Blob 实例，包含 JSON 字符串的成员信息
+    const blob = new Blob([JSON.stringify(members, null, 2)], {type : 'application/json'});
+  
+    // 创建一个下载链接并点击它来下载文件
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "members.json";
+    link.click();
   }
 
   function get_notifier_of (msg) {
@@ -570,6 +605,7 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
   function main () {
     let inited = false
 
+    const notice_export_success = get_notifier_of(i18n.export_success)
     const notice_block_test_success = get_notifier_of(i18n.block_test_success)
     const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑200个`)
 
@@ -581,6 +617,7 @@ const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', fu
       const ancestor = get_ancestor(ele, 3)
       const currentURL = window.location.href
       if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
+        mount_button(ancestor, i18n.export_btn, export_list_members, notice_export_success)
         mount_button(ancestor, i18n.block_test_btn, block_list_test_members, notice_block_test_success)
         mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
       }
