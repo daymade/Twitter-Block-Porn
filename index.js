@@ -140,8 +140,6 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
     lang = 'en' // TweetDeck
   }
   
-  lang = 'zh'
-
   const translations = {
     en: {
       lang_name: 'English',
