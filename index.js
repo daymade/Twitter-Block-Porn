@@ -14,6 +14,7 @@
 // @license     MIT
 // @run-at      document-end
 // @grant       GM_registerMenuCommand
+// @grant       GM_openInTab
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
@@ -24,6 +25,11 @@
 // ==/UserScript==
 
 /* global axios $ Qs */
+
+const menu_command_id = GM_registerMenuCommand('点击跳转到屏蔽列表', function () {
+  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
+  GM_openInTab(url, {active: true})
+}, 'a');
 
 (_ => {
   /* Begin of Dependencies */
@@ -306,7 +312,7 @@
   async function fetch_list_members(listId) {
     let cursor = -1;
     let allMembers = [];
-    
+
     while (cursor != 0) {
       let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
       let users = response.data.users;
@@ -314,7 +320,7 @@
       allMembers = allMembers.concat(members);
       cursor = response.data.next_cursor;
     }
-    
+
     return allMembers;
   }
 
