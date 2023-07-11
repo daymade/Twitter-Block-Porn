@@ -356,6 +356,7 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
 
     // 加急名单: 特别活跃/拉黑我/来挑衅的黄推
     const special_scammers = [
+      "1588494438888013824",
       "1651248919815532544",
       "707799803",
       "2169405224",
