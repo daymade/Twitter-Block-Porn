@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.1.0
+// @version     1.1.1
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -361,7 +361,14 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
       "707799803",
       "2169405224",
       "1640266734895521794",
-      "2592579935"
+      "2592579935",
+      "1655966818715025408",
+      "1056599336",
+      "2697243901",
+      "1349896547870367747",
+      "1661096624934862848",
+      "1401414397021417472",
+      "1519117582112108544"
     ]
 
     members.concat(special_scammers).slice(0, 300).forEach(block_user)
@@ -402,19 +409,6 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
       setTimeout(() => banner.remove(), 5000)
       $('div[data-testid="app-bar-close"]').click()
     }
-  }
-
-  function mount_switch (parentDom, name) {
-    const button = $(`
-      <div class="container">
-        <div class="checkbox">
-          <input type="checkbox" id="bwl-include-tweeter" name="" value="">
-          <label for="bwl-include-tweeter"><span>${name}</span></label>
-        </div>
-      </div>
-    `)
-
-    parentDom.append(button)
   }
 
   function mount_button (parentDom, name, executer, success_notifier) {
@@ -606,7 +600,7 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
 
     const notice_export_success = get_notifier_of(i18n.export_success)
     const notice_block_test_success = get_notifier_of(i18n.block_test_success)
-    const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑200个`)
+    const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑300个`)
 
     waitForKeyElements('h2#modal-header[aria-level="2"][role="heading"]', ele => {
       if (!inited) {
