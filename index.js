@@ -139,6 +139,9 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
   if (lang == 'en-US') {
     lang = 'en' // TweetDeck
   }
+  if (lang == 'zh-CN') {
+    lang = 'zh'
+  }
   
   const translations = {
     en: {
@@ -358,6 +361,7 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
     const special_scammers = [
       "1588494438888013824",
       "1651248919815532544",
+      "2972451170",
       "707799803",
       "2169405224",
       "1640266734895521794",
