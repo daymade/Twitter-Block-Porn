@@ -374,7 +374,8 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
       "1401414397021417472",
       "1519117582112108544",
       "3187289986",
-      "1596351809156575232"
+      "1596351809156575232",
+      "1082326572"
     ]
 
     members.concat(special_scammers).slice(0, 300).forEach(block_user)
