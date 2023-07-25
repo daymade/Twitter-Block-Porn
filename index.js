@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.1.2
+// @version     1.2.0
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -26,12 +26,12 @@
 
 /* global axios $ Qs */
 
-const menu_command_list = GM_registerMenuCommand('前往共享黑名单', function () {
-  const url = 'https://twitter.com/i/lists/1677334530754248706'
+const menu_command_list = GM_registerMenuCommand('打开共享黑名单 ①', function () {
+  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
   GM_openInTab(url, {active: true})
 }, '');
-const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员', function () {
-  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
+const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', function () {
+  const url = 'https://twitter.com/i/lists/1683810394287079426/members'
   GM_openInTab(url, {active: true})
 }, '');
 
@@ -668,6 +668,78 @@ const menu_command_member = GM_registerMenuCommand('查看共享黑名单成员'
       }
     })
   }
+
+  (function bonus () {
+    // Constants for URL and SVG content
+    const TWITTER_ICON_URL = `https://abs.twimg.com/favicons/twitter.ico`;
+    const TWITTER_SVG_CONTENT = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1d9bf0" class="bi bi-twitter" viewBox="0 0 16 16">
+        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+    </svg>`;
+    const TOOLTIP_TEXT = "已被 Twitter-Block-Porn 替换为纯净版";
+    const TOOLTIP_ID = "tooltip42";
+
+    // Function to create new SVG element
+    function createTwitterSvgElement() {
+      let div = document.createElement('div');
+      div.innerHTML = TWITTER_SVG_CONTENT;
+      return div.querySelector('svg');
+    }
+
+    // Function to create tooltip element
+    function createTooltipElement() {
+      let tooltip = document.createElement('div');
+      tooltip.textContent = TOOLTIP_TEXT;
+      tooltip.style.position = 'absolute';
+      tooltip.style.background = 'white';
+      tooltip.style.border = '1px solid black';
+      tooltip.style.padding = '5px';
+      tooltip.id = TOOLTIP_ID;
+      return tooltip;
+    }
+
+    // Function to reset favicon
+    function resetFavicon() {
+        let favicon = document.querySelector(`head>link[rel="shortcut icon"]`);
+        if (favicon !== null) {
+            favicon.href = TWITTER_ICON_URL;
+        }
+    }
+
+    // Function to replace Twitter logo
+    function replaceTwitterLogo() {
+      let twitterLogo = document.querySelector('h1[role="heading"] svg');
+      if (twitterLogo === null) {
+          return;
+      }
+      let newSvgElement = createTwitterSvgElement();
+      twitterLogo.replaceWith(newSvgElement);
+
+      // Add mouseover and mouseout events to the SVG element
+      newSvgElement.parentNode.addEventListener('mouseover', function(event) {
+          // Remove existing tooltip if exists
+          let existingTooltip = document.getElementById(TOOLTIP_ID);
+          if (existingTooltip) {
+              existingTooltip.remove();
+          }
+
+          let tooltip = createTooltipElement();
+          tooltip.style.top = (event.clientY + 10) + 'px';
+          tooltip.style.left = (event.clientX + 10) + 'px';
+          document.body.appendChild(tooltip);
+      });
+      newSvgElement.parentNode.addEventListener('mouseout', function() {
+          let tooltip = document.getElementById(TOOLTIP_ID);
+          if (tooltip) {
+              tooltip.remove();
+          }
+      });
+    }
+
+    // Reset favicon immediately
+    resetFavicon();
+
+    setInterval(replaceTwitterLogo, 1000);
+  })()
 
   main()
 })()
