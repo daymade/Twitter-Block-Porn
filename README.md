@@ -1,7 +1,25 @@
+## Twitter-Bock-Porn
+
+受不了评论区黄推了? 打开[共享黑名单](https://twitter.com/i/lists/1677334530754248706), 用 [Twitter-Bock-Porn](https://greasyfork.org/zh-CN/scripts/470359-twitter-block-porn) 一键批量拉黑黄推, 手机上也能生效, 普通人拉黑受益的是自己, 大V拉黑受益的是所有人.
+
+## 功能
+
+- 共享黑名单, 一键拉黑所有黄推诈骗犯
+- 熟悉的小蓝鸟又飞回来了! 将 Logo 还原为 Twitter 原始的小鸟. 效果: 
+
+![替换 logo](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeC9BQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f05c18d96183f1c8de51bcd322b9dd476e555da0/F14jEjkWIAEg3wS.png?locale=zh-CN)
+
+
 ## 使用方式：
-1. 安装脚本后, 推特**列表**的查看成员界面多出两个按钮。
-2. 用电脑打开列表 [点击跳转到列表地址](https://twitter.com/i/lists/1677334530754248706)，
+1. 安装脚本后, 推特**列表**的查看成员界面会增加两个按钮。
+2. 用电脑打开列表, 点击跳转到 [列表①](https://twitter.com/i/lists/1677334530754248706) [列表②](https://twitter.com/i/lists/1683810394287079426)，或者直接点击插件图标可以跳转到各个黑名单. ![跳转方式](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeUhBQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--c18f0ede035ed893ee1d14deefe350bf0a5e364a/WX20230729-201219@2x.png?locale=zh-CN)
 3. 点列表**封面图下方**的查看成员（members），打开列表成员弹框, 在弹框的右上角有"全部屏蔽"按钮
+
+## 贡献方式
+
+有两种方式:
+1. 去 github 上提 issue([示例](https://github.com/daymade/Twitter-Block-Porn/issues/4)), 附上 screen_name 或者 id_str 或者任何可以定位的链接, 我来添加, 你也可以直接 fork 代码后提 PR 给我.
+2. 给我一个 List 链接, 我可以直接让用户跳转到你维护的列表.
 
 ## 源码地址:
 
