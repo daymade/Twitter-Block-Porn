@@ -11,7 +11,7 @@
 
 
 ## 使用方式：
-1. 安装脚本后, 推特**列表**的查看成员界面会增加两个按钮。
+1. 打开脚本[主页](https://greasyfork.org/zh-CN/scripts/470359-twitter-block-porn), 安装脚本后, 推特**列表**的查看成员界面会增加两个按钮。
 2. 用电脑打开列表, 点击跳转到 [列表①](https://twitter.com/i/lists/1677334530754248706) [列表②](https://twitter.com/i/lists/1683810394287079426)，或者直接点击插件图标可以跳转到各个黑名单. ![跳转方式](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeUhBQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--c18f0ede035ed893ee1d14deefe350bf0a5e364a/WX20230729-201219@2x.png?locale=zh-CN)
 3. 点列表**封面图下方**的查看成员（members），打开列表成员弹框, 在弹框的右上角有"全部屏蔽"按钮
 
