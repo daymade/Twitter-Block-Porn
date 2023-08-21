@@ -15,6 +15,8 @@
 // @run-at      document-end
 // @grant       GM_registerMenuCommand
 // @grant       GM_openInTab
+// @grant       GM_getValue
+// @grant       GM_setValue
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
@@ -26,111 +28,113 @@
 
 /* global axios $ Qs */
 
-const menu_command_list = GM_registerMenuCommand('打开共享黑名单 ①', function () {
-  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
-  GM_openInTab(url, {active: true})
-}, '');
-const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', function () {
-  const url = 'https://twitter.com/i/lists/1683810394287079426/members'
-  GM_openInTab(url, {active: true})
-}, '');
+(() => {
+  GM_registerMenuCommand('打开共享黑名单 ①', function () {
+    const url = 'https://twitter.com/i/lists/1677334530754248706/members'
+    GM_openInTab(url, { active: true })
+  }, '');
 
-(_ => {
+  GM_registerMenuCommand('打开共享黑名单 ②', function () {
+    const url = 'https://twitter.com/i/lists/1683810394287079426/members'
+    GM_openInTab(url, { active: true })
+  }, '');
+
+  GM_registerMenuCommand('⚙️ 设置', () => { showSetting() })
   /* Begin of Dependencies */
   /* eslint-disable */
 
   // https://gist.githubusercontent.com/BrockA/2625891/raw/9c97aa67ff9c5d56be34a55ad6c18a314e5eb548/waitForKeyElements.js
   /*--- waitForKeyElements():  A utility function, for Greasemonkey scripts,
       that detects and handles AJAXed content.
-
+ 
       Usage example:
-
+ 
           waitForKeyElements (
               "div.comments"
               , commentCallbackFunction
           );
-
+ 
           //--- Page-specific function to do what we want when the node is found.
           function commentCallbackFunction (jNode) {
               jNode.text ("This comment changed by waitForKeyElements().");
           }
-
+ 
       IMPORTANT: This function requires your script to have loaded jQuery.
   */
-  function waitForKeyElements (
-      selectorTxt,    /* Required: The jQuery selector string that
+  function waitForKeyElements(
+    selectorTxt,    /* Required: The jQuery selector string that
                           specifies the desired element(s).
                       */
-      actionFunction, /* Required: The code to run when elements are
+    actionFunction, /* Required: The code to run when elements are
                           found. It is passed a jNode to the matched
                           element.
                       */
-      bWaitOnce,      /* Optional: If false, will continue to scan for
+    bWaitOnce,      /* Optional: If false, will continue to scan for
                           new elements even after the first match is
                           found.
                       */
-      iframeSelector  /* Optional: If set, identifies the iframe to
+    iframeSelector  /* Optional: If set, identifies the iframe to
                           search.
                       */
   ) {
-      var targetNodes, btargetsFound;
+    var targetNodes, btargetsFound;
 
-      if (typeof iframeSelector == "undefined")
-          targetNodes     = $(selectorTxt);
-      else
-          targetNodes     = $(iframeSelector).contents ()
-                                            .find (selectorTxt);
+    if (typeof iframeSelector == "undefined")
+      targetNodes = $(selectorTxt);
+    else
+      targetNodes = $(iframeSelector).contents()
+        .find(selectorTxt);
 
-      if (targetNodes  &&  targetNodes.length > 0) {
-          btargetsFound   = true;
-          /*--- Found target node(s).  Go through each and act if they
-              are new.
-          */
-          targetNodes.each ( function () {
-              var jThis        = $(this);
-              var alreadyFound = jThis.data ('alreadyFound')  ||  false;
+    if (targetNodes && targetNodes.length > 0) {
+      btargetsFound = true;
+      /*--- Found target node(s).  Go through each and act if they
+          are new.
+      */
+      targetNodes.each(function () {
+        var jThis = $(this);
+        var alreadyFound = jThis.data('alreadyFound') || false;
 
-              if (!alreadyFound) {
-                  //--- Call the payload function.
-                  var cancelFound     = actionFunction (jThis);
-                  if (cancelFound)
-                      btargetsFound   = false;
-                  else
-                      jThis.data ('alreadyFound', true);
-              }
-          } );
+        if (!alreadyFound) {
+          //--- Call the payload function.
+          var cancelFound = actionFunction(jThis);
+          if (cancelFound)
+            btargetsFound = false;
+          else
+            jThis.data('alreadyFound', true);
+        }
+      });
+    }
+    else {
+      btargetsFound = false;
+    }
+
+    //--- Get the timer-control variable for this selector.
+    var controlObj = waitForKeyElements.controlObj || {};
+    var controlKey = selectorTxt.replace(/[^\w]/g, "_");
+    var timeControl = controlObj[controlKey];
+
+    //--- Now set or clear the timer as appropriate.
+    if (btargetsFound && bWaitOnce && timeControl) {
+      //--- The only condition where we need to clear the timer.
+      clearInterval(timeControl);
+      delete controlObj[controlKey]
+    }
+    else {
+      //--- Set a timer, if needed.
+      if (!timeControl) {
+        timeControl = setInterval(function () {
+          waitForKeyElements(selectorTxt,
+            actionFunction,
+            bWaitOnce,
+            iframeSelector
+          );
+        },
+          300
+        );
+        controlObj[controlKey] = timeControl;
       }
-      else {
-          btargetsFound   = false;
-      }
-
-      //--- Get the timer-control variable for this selector.
-      var controlObj      = waitForKeyElements.controlObj  ||  {};
-      var controlKey      = selectorTxt.replace (/[^\w]/g, "_");
-      var timeControl     = controlObj [controlKey];
-
-      //--- Now set or clear the timer as appropriate.
-      if (btargetsFound  &&  bWaitOnce  &&  timeControl) {
-          //--- The only condition where we need to clear the timer.
-          clearInterval (timeControl);
-          delete controlObj [controlKey]
-      }
-      else {
-          //--- Set a timer, if needed.
-          if ( ! timeControl) {
-              timeControl = setInterval ( function () {
-                      waitForKeyElements (    selectorTxt,
-                                              actionFunction,
-                                              bWaitOnce,
-                                              iframeSelector
-                                          );
-                  },
-                  300
-              );
-              controlObj [controlKey] = timeControl;
-          }
-      }
-      waitForKeyElements.controlObj   = controlObj;
+    }
+    waitForKeyElements.controlObj = controlObj;
   }
   /* eslint-enable */
   /* End of Dependencies */
@@ -142,7 +146,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
   if (lang == 'zh-CN') {
     lang = 'zh'
   }
-  
+
   const translations = {
     en: {
       lang_name: 'English',
@@ -229,7 +233,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
 
   let i18n = translations[lang]
 
-  function rgba_to_hex (rgba_str, force_remove_alpha) {
+  function rgba_to_hex(rgba_str, force_remove_alpha) {
     return '#' + rgba_str.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
       .split(',') // splits them at ","
       .filter((_, index) => !force_remove_alpha || index !== 3)
@@ -241,16 +245,16 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
       .toUpperCase()
   }
 
-  function hex_to_rgb (hex_str) {
+  function hex_to_rgb(hex_str) {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})/i.exec(hex_str)
     return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : ''
   }
 
-  function invert_hex (hex) {
+  function invert_hex(hex) {
     return '#' + (Number(`0x1${hex.substring(1)}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
   }
 
-  function get_theme_color () {
+  function get_theme_color() {
     const FALLBACK_COLOR = 'rgb(128, 128, 128)'
     let bgColor = getComputedStyle(document.querySelector('#modal-header > span')).color || FALLBACK_COLOR
     let buttonTextColor = hex_to_rgb(invert_hex(rgba_to_hex(bgColor)))
@@ -272,7 +276,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     }
   }
 
-  function get_cookie (cname) {
+  function get_cookie(cname) {
     const name = cname + '='
     const ca = document.cookie.split(';')
     for (let i = 0; i < ca.length; ++i) {
@@ -284,7 +288,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     return ''
   }
 
-  function get_ancestor (dom, level) {
+  function get_ancestor(dom, level) {
     for (let i = 0; i < level; ++i) {
       dom = dom.parent()
     }
@@ -302,7 +306,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     }
   })
 
-  function get_list_id () {
+  function get_list_id() {
     // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
     return location.href.split('lists/')[1].split('/')[0]
   }
@@ -325,18 +329,18 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
   async function fetch_list_members_info(listId) {
     let cursor = -1;
     let allMembers = [];
-    
+
     while (cursor != 0) {
       let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
       let users = response.data.users;
       allMembers = allMembers.concat(users);
       cursor = response.data.next_cursor;
     }
-    
+
     return allMembers;
   }
 
-  function block_user (id) {
+  function block_user(id) {
     ajax.post('/1.1/blocks/create.json', Qs.stringify({
       user_id: id
     }), {
@@ -346,14 +350,14 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     })
   }
 
-  async function block_list_test_members () {
+  async function block_list_test_members() {
     const listId = get_list_id()
     const members = await fetch_list_members_id(listId)
 
     members.slice(0, 10).forEach(block_user)
   }
 
-  async function block_list_members () {
+  async function block_list_members() {
     const listId = get_list_id()
     const members = await fetch_list_members_id(listId)
 
@@ -448,19 +452,19 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
 
     // 去重
     const unique_scammers = [...new Set(special_scammers)];
-    
+
     members.concat(unique_scammers)
-          .slice(0, 300)
-          .forEach(block_user)
+      .slice(0, 300)
+      .forEach(block_user)
   }
 
-  async function export_list_members () {
+  async function export_list_members() {
     const listId = get_list_id();
     const members = await fetch_list_members_info(listId);
-    
+
     // 创建一个 Blob 实例，包含 JSON 字符串的成员信息
-    const blob = new Blob([JSON.stringify(members, null, 2)], {type : 'application/json'});
-  
+    const blob = new Blob([JSON.stringify(members, null, 2)], { type: 'application/json' });
+
     // 创建一个下载链接并点击它来下载文件
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -468,7 +472,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     link.click();
   }
 
-  function get_notifier_of (msg) {
+  function get_notifier_of(msg) {
     return _ => {
       const banner = $(`
         <div id="bwl-notice" style="right:0px; position:fixed; left:0px; bottom:0px; display:flex; flex-direction:column;">
@@ -491,7 +495,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     }
   }
 
-  function mount_button (parentDom, name, executer, success_notifier) {
+  function mount_button(parentDom, name, executer, success_notifier) {
     const btn_mousedown = 'bwl-btn-mousedown'
     const btn_hover = 'bwl-btn-hover'
 
@@ -535,9 +539,9 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     parentDom.append(button)
   }
 
-  function insert_css () {
+  function insert_css() {
     const FALLBACK_FONT_FAMILY = 'TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;'
-    function get_font_family () {
+    function get_font_family() {
       for (const ele of document.querySelectorAll('div[role=\'button\']')) {
         const font_family = getComputedStyle(ele).fontFamily
         if (font_family) {
@@ -675,7 +679,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     </style>`)
   }
 
-  function main () {
+  function main() {
     let inited = false
 
     const notice_export_success = get_notifier_of(i18n.export_success)
@@ -697,77 +701,29 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     })
   }
 
-  (function bonus () {
-    // Constants for URL and SVG content
-    const TWITTER_ICON_URL = `https://abs.twimg.com/favicons/twitter.ico`;
-    const TWITTER_SVG_CONTENT = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1d9bf0" class="bi bi-twitter" viewBox="0 0 16 16">
-        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-    </svg>`;
-    const TOOLTIP_TEXT = "已被 Twitter-Block-Porn 替换为纯净版";
-    const TOOLTIP_ID = "tooltip42";
-
-    // Function to create new SVG element
-    function createTwitterSvgElement() {
-      let div = document.createElement('div');
-      div.innerHTML = TWITTER_SVG_CONTENT;
-      return div.querySelector('svg');
+  ((flag) => {
+    if (!flag) return
+    // 矢量图标
+    let makeBlueBirdGreatAgain = (e) => {
+      let ele = document.querySelector(e)
+      if (ele == null) return
+      ele.setAttribute('d', 'M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z')
     }
 
-    // Function to create tooltip element
-    function createTooltipElement() {
-      let tooltip = document.createElement('div');
-      tooltip.textContent = TOOLTIP_TEXT;
-      tooltip.style.position = 'absolute';
-      tooltip.style.background = 'white';
-      tooltip.style.border = '1px solid black';
-      tooltip.style.padding = '5px';
-      tooltip.id = TOOLTIP_ID;
-      return tooltip;
-    }
+    // 替换标签页图标
+    document.querySelector('head>link[rel="shortcut icon"]').setAttribute('href', 'https://abs.twimg.com/favicons/twitter.ico')
 
-    // Function to reset favicon
-    function resetFavicon() {
-        let favicon = document.querySelector(`head>link[rel="shortcut icon"]`);
-        if (favicon !== null) {
-            favicon.href = TWITTER_ICON_URL;
-        }
-    }
+    // 颜色在外层, 改不动了....
+    setInterval(() => makeBlueBirdGreatAgain('a[aria-label="Twitter"] path'), 300);
+    setInterval(() => makeBlueBirdGreatAgain('div[data-testid="TopNavBar"] path'), 300);
+  })(GM_getValue('blueBird', ''));
 
-    // Function to replace Twitter logo
-    function replaceTwitterLogo() {
-      let twitterLogo = document.querySelector('h1[role="heading"] svg');
-      if (twitterLogo === null) {
-          return;
-      }
-      let newSvgElement = createTwitterSvgElement();
-      twitterLogo.replaceWith(newSvgElement);
-
-      // Add mouseover and mouseout events to the SVG element
-      newSvgElement.parentNode.addEventListener('mouseover', function(event) {
-          // Remove existing tooltip if exists
-          let existingTooltip = document.getElementById(TOOLTIP_ID);
-          if (existingTooltip) {
-              existingTooltip.remove();
-          }
-
-          let tooltip = createTooltipElement();
-          tooltip.style.top = (event.clientY + 10) + 'px';
-          tooltip.style.left = (event.clientX + 10) + 'px';
-          document.body.appendChild(tooltip);
-      });
-      newSvgElement.parentNode.addEventListener('mouseout', function() {
-          let tooltip = document.getElementById(TOOLTIP_ID);
-          if (tooltip) {
-              tooltip.remove();
-          }
-      });
-    }
-
-    // Reset favicon immediately
-    resetFavicon();
-
-    setInterval(replaceTwitterLogo, 1000);
-  })()
+  let showSetting = () => {
+    const blueBird = GM_getValue('blueBird', '');
+    let inputValue = prompt("是否修改 logo?\n如果不需要留空即可!", blueBird);
+    GM_setValue('blueBird', inputValue);
+    if ((blueBird || inputValue) && !(blueBird && inputValue)) alert('刷新页面后生效!');
+  }
 
   main()
 })()
