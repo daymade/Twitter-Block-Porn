@@ -42,6 +42,32 @@
 
 方便的话给个免费的 STAR 吧 (*╹▽╹*) !
 
+## 实现原理
+
+1. 怎么批量 Block 账号?
+
+   抓包可以看出来在用户点击拉黑某个账号时, 会向 twitter 服务器发送 `/1.1/blocks/create.json` 请求, 用 js 携带用户自己的 cookie 模拟这个请求, 就可以达到自动拉黑的效果.
+
+2. `/1.1/blocks/create.json` 需要 id 参数, 怎么查询账号的 id?
+
+   ```
+   # 填入你在 https://developer.twitter.com 申请的 API KEY, 替换 XXX
+   export TWITTER_API_KEY="XXX"
+
+   # 调用推特开发者 API, 修改 screen_name 为你要查询的用户名, 可传入多个用逗号分隔
+   curl -s -X GET "https://api.twitter.com/1.1/users/lookup.json?screen_name=va77735,annegaga09" \
+      -H "Authorization: Bearer $TWITTER_API_KEY" \
+      | jq '[.[] | .id_str]'
+   ```
+
+3. 怎么自动识别诈骗黄推? 
+
+   使用 https://github.com/daymade/Block-Pornographic-Replies 插件, 用关键字识别
+
+4. 怎么批量管理 twitter 的 List, 自动将诈骗账号添加到 List?
+
+    魔改了 https://github.com/daymade/Block-Pornographic-Replies 插件, 代码见 https://github.com/slarkvan/Block-Pornographic-Replies/compare/main...daymade:Block-Pornographic-Replies:main
+
 ---
 李老师最可爱
 <pre>
