@@ -15,6 +15,9 @@
 // @run-at      document-end
 // @grant       GM_registerMenuCommand
 // @grant       GM_openInTab
+// @grant       GM_addStyle
+// @grant       GM_setValue
+// @grant       GM_getValue
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
@@ -34,6 +37,12 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
   const url = 'https://twitter.com/i/lists/1683810394287079426/members'
   GM_openInTab(url, {active: true})
 }, '');
+
+const ChangeLogo = GM_getValue('change_logo', true)
+GM_registerMenuCommand(`将 Logo 还原为小蓝鸟: 已${ChangeLogo?'开启':'关闭'}`, function () {
+  GM_setValue('change_logo', !ChangeLogo)
+  location.reload()
+});
 
 (_ => {
   /* Begin of Dependencies */
@@ -619,76 +628,39 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
     })
   }
 
-  (function bonus () {
-    // Constants for URL and SVG content
-    const TWITTER_ICON_URL = `https://abs.twimg.com/favicons/twitter.ico`;
-    const TWITTER_SVG_CONTENT = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1d9bf0" class="bi bi-twitter" viewBox="0 0 16 16">
-        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-    </svg>`;
-    const TOOLTIP_TEXT = "已被 Twitter-Block-Porn 替换为纯净版";
-    const TOOLTIP_ID = "tooltip42";
 
-    // Function to create new SVG element
-    function createTwitterSvgElement() {
-      let div = document.createElement('div');
-      div.innerHTML = TWITTER_SVG_CONTENT;
-      return div.querySelector('svg');
-    }
+  (function bonus() {
+    if(!ChangeLogo) return;
 
-    // Function to create tooltip element
-    function createTooltipElement() {
-      let tooltip = document.createElement('div');
-      tooltip.textContent = TOOLTIP_TEXT;
-      tooltip.style.position = 'absolute';
-      tooltip.style.background = 'white';
-      tooltip.style.border = '1px solid black';
-      tooltip.style.padding = '5px';
-      tooltip.id = TOOLTIP_ID;
-      return tooltip;
-    }
+    // Twitter logo
+    const SVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 335 276' fill='%233ba9ee'%3E%3Cpath d='m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35'/%3E%3C/svg%3E"
 
     // Function to reset favicon
-    function resetFavicon() {
-        let favicon = document.querySelector(`head>link[rel="shortcut icon"]`);
-        if (favicon !== null) {
-            favicon.href = TWITTER_ICON_URL;
-        }
-    }
+    document.querySelector(`head>link[rel="shortcut icon"]`).href = `//abs.twimg.com/favicons/twitter.ico`
 
-    // Function to replace Twitter logo
-    function replaceTwitterLogo() {
-      let twitterLogo = document.querySelector('h1[role="heading"] svg');
-      if (twitterLogo === null) {
-          return;
+    // Add style
+    GM_addStyle(
+      `header h1 a[href="/home"] {
+        margin: 6px 4px 2px;
       }
-      let newSvgElement = createTwitterSvgElement();
-      twitterLogo.replaceWith(newSvgElement);
-
-      // Add mouseover and mouseout events to the SVG element
-      newSvgElement.parentNode.addEventListener('mouseover', function(event) {
-          // Remove existing tooltip if exists
-          let existingTooltip = document.getElementById(TOOLTIP_ID);
-          if (existingTooltip) {
-              existingTooltip.remove();
-          }
-
-          let tooltip = createTooltipElement();
-          tooltip.style.top = (event.clientY + 10) + 'px';
-          tooltip.style.left = (event.clientX + 10) + 'px';
-          document.body.appendChild(tooltip);
-      });
-      newSvgElement.parentNode.addEventListener('mouseout', function() {
-          let tooltip = document.getElementById(TOOLTIP_ID);
-          if (tooltip) {
-              tooltip.remove();
-          }
-      });
-    }
-
-    // Reset favicon immediately
-    resetFavicon();
-
-    setInterval(replaceTwitterLogo, 1000);
+      header h1 a[href="/home"] div {
+          background-image: url("${SVG}");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          margin: 4px;
+      }
+      header h1 a[href="/home"] div svg {
+          display: none;
+      }
+      header h1 a[href="/home"] :hover :after {
+          content: "已被 Twitter-Block-Porn 替换";
+          font: message-box;
+          color: gary;
+          position: absolute;
+          left: 48px;
+      }`
+    )
   })()
 
   main()
