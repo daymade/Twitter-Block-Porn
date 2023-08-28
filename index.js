@@ -39,7 +39,7 @@ const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', 
 }, '');
 
 const ChangeLogo = GM_getValue('change_logo', true)
-GM_registerMenuCommand(`将 Logo 还原为小蓝鸟: 已${ChangeLogo?'开启':'关闭'}`, function () {
+GM_registerMenuCommand(`${ChangeLogo?'已将 Logo 还原为小蓝鸟, 点击可使用 \uD835\uDD4F':'点击唤回小蓝鸟'}`, function () {
   GM_setValue('change_logo', !ChangeLogo)
   location.reload()
 });
