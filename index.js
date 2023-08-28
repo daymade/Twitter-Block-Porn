@@ -656,7 +656,7 @@ GM_registerMenuCommand(`将 Logo 还原为小蓝鸟: 已${ChangeLogo?'开启':'�
       header h1 a[href="/home"] :hover :after {
           content: "已被 Twitter-Block-Porn 替换";
           font: message-box;
-          color: gary;
+          color: gray;
           position: absolute;
           left: 48px;
       }`
