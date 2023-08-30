@@ -68,6 +68,19 @@
 
     魔改了 https://github.com/daymade/Block-Pornographic-Replies 插件, 代码见 https://github.com/slarkvan/Block-Pornographic-Replies/compare/main...daymade:Block-Pornographic-Replies:main
 
+## 👨‍💻贡献者/Contributors
+
+我们欢迎任何形式的贡献，无论是提交错误报告，提出改进意见，或者是提供代码和文档。我们都欣赏你的帮助。
+
+贡献者列表：
+
+<a href="https://github.com/daymade/Twitter-Block-Porn/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=daymade/Twitter-Block-Porn" />
+</a>
+
+
+另外，感谢 @albaz64 提供了还原被替换 logo 的思路， 感谢 @aoxu 提供了很多黑名单
+
 ---
 李老师最可爱
 <pre>
