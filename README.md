@@ -4,7 +4,7 @@
 
 ## 功能
 
-- 共享黑名单, 一键拉黑所有黄推诈骗犯
+- 共享黑名单, 一键拉黑所有黄推诈骗犯, 被黄推提前拉黑了也能生效
 
   ![image](https://github.com/daymade/Twitter-Block-Porn/assets/4291901/b56331b2-368f-4716-b916-2654aefc9bca)
 
