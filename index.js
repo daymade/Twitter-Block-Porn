@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.3.6
+// @version     1.3.7
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -29,12 +29,18 @@
 
 /* global axios $ Qs */
 
-const menu_command_list = GM_registerMenuCommand('打开共享黑名单 ①', function () {
+const menu_command_list1 = GM_registerMenuCommand('打开共享黑名单 ①', function () {
   const url = 'https://twitter.com/i/lists/1677334530754248706/members'
   GM_openInTab(url, {active: true})
 }, '');
-const menu_command_member = GM_registerMenuCommand('打开共享黑名单 ②', function () {
+
+const menu_command_list2 = GM_registerMenuCommand('打开共享黑名单 ②', function () {
   const url = 'https://twitter.com/i/lists/1683810394287079426/members'
+  GM_openInTab(url, {active: true})
+}, '');
+
+const menu_command_list3 = GM_registerMenuCommand('打开共享黑名单 ③', function () {
+  const url = 'https://twitter.com/i/lists/1699049983159259593/members'
   GM_openInTab(url, {active: true})
 }, '');
 
