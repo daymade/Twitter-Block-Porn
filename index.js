@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.3.7
+// @version     1.3.8
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -461,7 +461,9 @@ GM_registerMenuCommand(`${ChangeLogo?'已将 Logo 还原为小蓝鸟, 点击可�
       "1572106376",
       "1695160338780409856",
       "1637733191673950208",
-      "1683682718863724544"
+      "1683682718863724544",
+      "1399167832001241088",
+      "1401414397021417472"
   ]
 
     // 去重
