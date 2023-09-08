@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.3.9
+// @version     1.4.0
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -18,6 +18,7 @@
 // @grant       GM_addStyle
 // @grant       GM_setValue
 // @grant       GM_getValue
+// @grant       GM_log
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
@@ -28,7 +29,6 @@
 // ==/UserScript==
 
 /* global axios $ Qs */
-
 const menu_command_list1 = GM_registerMenuCommand('打开共享黑名单 ①', function () {
   const url = 'https://twitter.com/i/lists/1677334530754248706/members'
   GM_openInTab(url, {active: true})
@@ -44,11 +44,262 @@ const menu_command_list3 = GM_registerMenuCommand('打开共享黑名单 ③', f
   GM_openInTab(url, {active: true})
 }, '');
 
+const menu_command_special_list = GM_registerMenuCommand('拉黑加急名单(点击即生效)', function () {
+  block_special_list()
+}, '');
+
 const ChangeLogo = GM_getValue('change_logo', true)
 GM_registerMenuCommand(`${ChangeLogo?'已将 Logo 还原为小蓝鸟, 点击可使用 \uD835\uDD4F':'点击唤回小蓝鸟'}`, function () {
   GM_setValue('change_logo', !ChangeLogo)
   location.reload()
 });
+
+function get_cookie (cname) {
+  const name = cname + '='
+  const ca = document.cookie.split(';')
+  for (let i = 0; i < ca.length; ++i) {
+    const c = ca[i].trim()
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length)
+    }
+  }
+  return ''
+}
+
+const ajax = axios.create({
+  baseURL: 'https://api.twitter.com',
+  withCredentials: true,
+  headers: {
+    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+    'X-Twitter-Auth-Type': 'OAuth2Session',
+    'X-Twitter-Active-User': 'yes',
+    'X-Csrf-Token': get_cookie('ct0')
+  }
+})
+
+function get_list_id () {
+  // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
+  return location.href.split('lists/')[1].split('/')[0]
+}
+
+async function fetch_list_members_id(listId) {
+  let users = await fetch_list_members_info(listId)
+  
+  return users.map(u => u.id_str);
+}
+
+async function fetch_list_members_info(listId) {
+  let cursor = -1;
+  let allMembers = [];
+  
+  while (cursor != 0) {
+    let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
+    let users = response.data.users;
+    allMembers = allMembers.concat(users);
+    cursor = response.data.next_cursor;
+  }
+  
+  return allMembers;
+}
+
+async function block_user (id, listId) {
+  try {
+    await ajax.post('/1.1/blocks/create.json', Qs.stringify({
+      user_id: id
+    }), {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });
+    
+    // Update blocked IDs list in GM storage
+    let blocked = GM_getValue('blockedIds', {});
+    if (!blocked[listId]) {
+      blocked[listId] = [];
+    }
+    blocked[listId].push(id);
+    GM_setValue('blockedIds', blocked);
+  } catch (err) {
+    // Handle errors as needed
+  }
+}
+
+
+async function block_by_ids (member_ids, listId) {
+  let blocked = GM_getValue('blockedIds', {});
+  GM_log(`blockedIds: ${JSON.stringify(blocked)}`)
+
+  let toBlock = member_ids.filter(id => !blocked[listId] || !blocked[listId].includes(id));
+
+  const ids = [...new Set(toBlock)];
+
+  GM_log(`block_by_ids: ${ids.length} users, detail: ${ids}`)
+
+  // Number of requests per batch
+  const batchSize = 10;
+  // 1000ms delay between batches
+  const delay = 1000;
+
+  let failedIds = [];
+
+  for (let i = 0; i < Math.ceil(ids.length / batchSize); i++) {
+    const batch = ids.slice(i * batchSize, (i + 1) * batchSize);
+    const results = await Promise.allSettled(batch.map(id => block_user(id, listId)));
+
+    for (const [index, result] of results.entries()) {
+      if (result.status === 'rejected') {
+        // Keep track of failed IDs
+        failedIds.push(batch[index]);
+      }
+    }
+
+    if (i < Math.ceil(ids.length / batchSize) - 1) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+
+  if (failedIds.length > 0) {
+    GM_log(`Failed to block these IDs: ${failedIds.join(', ')}`)
+  }
+}
+
+async function block_list_test_members () {
+  const listId = get_list_id()
+  const members = await fetch_list_members_id(listId)
+
+  block_by_ids(members.slice(0, 10), listId)
+}
+
+async function block_list_members () {
+  const listId = get_list_id()
+  const members = await fetch_list_members_id(listId)
+
+  block_by_ids(members, listId)
+}
+
+async function block_special_list () {
+  // 加急名单: 特别活跃/拉黑我/来挑衅的黄推
+  const special_scammers = [
+    "1626262000547377153",
+    "1083844806",
+    "1191513095774048256",
+    "1240432468995473411",
+    "1260746375010177033",
+    "1287994653388623875",
+    "1356533851250548737",
+    "1367769524657786883",
+    "1371653074217963522",
+    "1413745607466885121",
+    "1428063931130646531",
+    "1450954075084713986",
+    "1455789588392202241",
+    "1484792482357338113",
+    "1489964205310570498",
+    "1511380196",
+    "1559311298986393603",
+    "1562212902207033345",
+    "1572580165900767234",
+    "1578298585514668032",
+    "1580799004983508992",
+    "1583905468178567168",
+    "1585644302381694976",
+    "1589228466658250752",
+    "1592249768771977216",
+    "1592260043490983936",
+    "1592573920905166849",
+    "1592691909805604870",
+    "1593155334742618112",
+    "1593157357059837954",
+    "1593620049704628224",
+    "1593948516594102272",
+    "1602373747344048128",
+    "1616646252",
+    "1616785364462743553",
+    "1622437704159100929",
+    "1623320122978099201",
+    "1624527915663896576",
+    "1626772507910082562",
+    "1639847615981568001",
+    "1650736618293133313",
+    "1655041846790467585",
+    "1655821795272937472",
+    "1656797676820725761",
+    "1658357788249321472",
+    "1660685299930759168",
+    "1665333981951172608",
+    "1670444198586363904",
+    "1671941042776702976",
+    "1672954423663038466",
+    "1673741619634241536",
+    "1675179645870768128",
+    "1676435725942661121",
+    "1676489900021915648",
+    "1679909362335354880",
+    "1683326796488671232",
+    "1683330763167780864",
+    "1684583392665550850",
+    "1684659885726916609",
+    "1684743661853229056",
+    "1684859751119847424",
+    "1685367331013476352",
+    "1685884844885295104",
+    "1686221264023957504",
+    "1687807818831986688",
+    "1687816807766523905",
+    "1688494198331420672",
+    "1689943762531753985",
+    "1690427325001904128",
+    "175911002",
+    "2802758389",
+    "310749736",
+    "3183558127",
+    "532085468",
+    "593711290",
+    "769695361656991744",
+    "824376009029992456",
+    "976566332111179778",
+    "769695361656991744",
+    "3183558127",
+    "1690427325001904128",
+    "1675179645870768128",
+    "1572106376",
+    "1695160338780409856",
+    "1637733191673950208",
+    "1683682718863724544",
+    "1399167832001241088",
+    "1401414397021417472",
+    "1387838616202788865",
+    "1687365559355121665",
+    "1399167832001241088",
+    "1689962125169680384",
+    "1387838616202788865",
+    "1459187911329345538",
+    "771777233878933504",
+    "732529176805318661",
+    "1593953486592303104",
+    "1269873849568382981",
+    "1631995677742907393",
+    "837242544",
+    "1642503707165364225",
+    "1626262000547377153"
+  ]
+
+  block_by_ids(special_scammers, "special_scammers_list")
+}
+
+async function export_list_members () {
+  const listId = get_list_id();
+  const members = await fetch_list_members_info(listId);
+  
+  // 创建一个 Blob 实例，包含 JSON 字符串的成员信息
+  const blob = new Blob([JSON.stringify(members, null, 2)], {type : 'application/json'});
+
+  // 创建一个下载链接并点击它来下载文件
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `${listId}-${Date.now()}.json`;
+  link.click();
+}
 
 (_ => {
   /* Begin of Dependencies */
@@ -287,206 +538,11 @@ GM_registerMenuCommand(`${ChangeLogo?'已将 Logo 还原为小蓝鸟, 点击可�
     }
   }
 
-  function get_cookie (cname) {
-    const name = cname + '='
-    const ca = document.cookie.split(';')
-    for (let i = 0; i < ca.length; ++i) {
-      const c = ca[i].trim()
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length)
-      }
-    }
-    return ''
-  }
-
   function get_ancestor (dom, level) {
     for (let i = 0; i < level; ++i) {
       dom = dom.parent()
     }
     return dom
-  }
-
-  const ajax = axios.create({
-    baseURL: 'https://api.twitter.com',
-    withCredentials: true,
-    headers: {
-      Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-      'X-Twitter-Auth-Type': 'OAuth2Session',
-      'X-Twitter-Active-User': 'yes',
-      'X-Csrf-Token': get_cookie('ct0')
-    }
-  })
-
-  function get_list_id () {
-    // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
-    return location.href.split('lists/')[1].split('/')[0]
-  }
-
-  async function fetch_list_members_id(listId) {
-    let cursor = -1;
-    let allMembers = [];
-
-    while (cursor != 0) {
-      let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
-      let users = response.data.users;
-      let members = users.map(u => u.id_str);
-      allMembers = allMembers.concat(members);
-      cursor = response.data.next_cursor;
-    }
-
-    return allMembers;
-  }
-
-  async function fetch_list_members_info(listId) {
-    let cursor = -1;
-    let allMembers = [];
-    
-    while (cursor != 0) {
-      let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
-      let users = response.data.users;
-      allMembers = allMembers.concat(users);
-      cursor = response.data.next_cursor;
-    }
-    
-    return allMembers;
-  }
-
-  function block_user (id) {
-    ajax.post('/1.1/blocks/create.json', Qs.stringify({
-      user_id: id
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-  }
-
-  async function block_list_test_members () {
-    const listId = get_list_id()
-    const members = await fetch_list_members_id(listId)
-
-    members.slice(0, 10).forEach(block_user)
-  }
-
-  async function block_list_members () {
-    const listId = get_list_id()
-    const members = await fetch_list_members_id(listId)
-
-    // 要拉黑的 id 包括: 
-    // - 列表: https://twitter.com/i/lists/1677334530754248706
-    // - 列表: https://twitter.com/i/lists/1683810394287079426
-    // - 加急名单: 特别活跃/拉黑我/来挑衅的黄推
-    const special_scammers = [
-      "1083844806",
-      "1191513095774048256",
-      "1240432468995473411",
-      "1260746375010177033",
-      "1287994653388623875",
-      "1356533851250548737",
-      "1367769524657786883",
-      "1371653074217963522",
-      "1413745607466885121",
-      "1428063931130646531",
-      "1450954075084713986",
-      "1455789588392202241",
-      "1484792482357338113",
-      "1489964205310570498",
-      "1511380196",
-      "1559311298986393603",
-      "1562212902207033345",
-      "1572580165900767234",
-      "1578298585514668032",
-      "1580799004983508992",
-      "1583905468178567168",
-      "1585644302381694976",
-      "1589228466658250752",
-      "1592249768771977216",
-      "1592260043490983936",
-      "1592573920905166849",
-      "1592691909805604870",
-      "1593155334742618112",
-      "1593157357059837954",
-      "1593620049704628224",
-      "1593948516594102272",
-      "1602373747344048128",
-      "1616646252",
-      "1616785364462743553",
-      "1622437704159100929",
-      "1623320122978099201",
-      "1624527915663896576",
-      "1626772507910082562",
-      "1639847615981568001",
-      "1650736618293133313",
-      "1655041846790467585",
-      "1655821795272937472",
-      "1656797676820725761",
-      "1658357788249321472",
-      "1660685299930759168",
-      "1665333981951172608",
-      "1670444198586363904",
-      "1671941042776702976",
-      "1672954423663038466",
-      "1673741619634241536",
-      "1675179645870768128",
-      "1676435725942661121",
-      "1676489900021915648",
-      "1679909362335354880",
-      "1683326796488671232",
-      "1683330763167780864",
-      "1684583392665550850",
-      "1684659885726916609",
-      "1684743661853229056",
-      "1684859751119847424",
-      "1685367331013476352",
-      "1685884844885295104",
-      "1686221264023957504",
-      "1687807818831986688",
-      "1687816807766523905",
-      "1688494198331420672",
-      "1689943762531753985",
-      "1690427325001904128",
-      "175911002",
-      "2802758389",
-      "310749736",
-      "3183558127",
-      "532085468",
-      "593711290",
-      "769695361656991744",
-      "824376009029992456",
-      "976566332111179778",
-      "769695361656991744",
-      "3183558127",
-      "1690427325001904128",
-      "1675179645870768128",
-      "1572106376",
-      "1695160338780409856",
-      "1637733191673950208",
-      "1683682718863724544",
-      "1399167832001241088",
-      "1401414397021417472",
-      "1387838616202788865"
-  ]
-
-    // 去重
-    const unique_scammers = [...new Set(special_scammers)];
-    
-    members.concat(unique_scammers)
-          .slice(0, 300)
-          .forEach(block_user)
-  }
-
-  async function export_list_members () {
-    const listId = get_list_id();
-    const members = await fetch_list_members_info(listId);
-    
-    // 创建一个 Blob 实例，包含 JSON 字符串的成员信息
-    const blob = new Blob([JSON.stringify(members, null, 2)], {type : 'application/json'});
-  
-    // 创建一个下载链接并点击它来下载文件
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "members.json";
-    link.click();
   }
 
   function get_notifier_of (msg) {
