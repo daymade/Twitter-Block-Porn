@@ -157,6 +157,7 @@ async function block_special_list () {
     const data = await response.text();
     special_scammers = JSON.parse(data);
   }catch(error){
+    console.error('Failed to get block list from url:', error);
   }
 
   block_by_ids(special_scammers, "special_scammers_list");
