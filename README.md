@@ -78,8 +78,11 @@
   <img src="https://contrib.rocks/image?repo=daymade/Twitter-Block-Porn" />
 </a>
 
+## 致谢
 
-另外，感谢 @albaz64 提供了还原被替换 logo 的思路， 感谢 @aoxu 提供了很多黑名单
+- 感谢 [奥莉𝗢𝗹𝗹𝗶𝗲](https://twitter.com/MissOllie2020) 无私捐赠一个月蜜雪冰城
+- 感谢 @albaz64 提供了还原被替换 logo 的思路， 感谢 @aoxu 提供了很多黑名单
+- 感谢 E011011101001 的原始代码, 本仓库 forked from https://github.com/E011011101001/Twitter-Block-With-Love
 
 ---
 李老师最可爱
