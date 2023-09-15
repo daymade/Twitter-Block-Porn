@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.4.1
+// @version     1.5.0
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -19,37 +19,58 @@
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_log
+// @grant       GM_xmlhttpRequest
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
 // @exclude     https://twitter.com/account/*
+// @connect     raw.githubusercontent.com
 // @require     https://cdn.jsdelivr.net/npm/axios@0.25.0/dist/axios.min.js
 // @require     https://cdn.jsdelivr.net/npm/qs@6.10.3/dist/qs.min.js
 // @require     https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
 // ==/UserScript==
 
 /* global axios $ Qs */
-const menu_command_list1 = GM_registerMenuCommand('打开共享黑名单 ①', function () {
+const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
   const url = 'https://twitter.com/i/lists/1677334530754248706/members'
   GM_openInTab(url, {active: true})
 }, '');
 
-const menu_command_list2 = GM_registerMenuCommand('打开共享黑名单 ②', function () {
+const menu_command_list2 = GM_registerMenuCommand('🔗 打开共享黑名单 ②...', function () {
   const url = 'https://twitter.com/i/lists/1683810394287079426/members'
   GM_openInTab(url, {active: true})
 }, '');
 
-const menu_command_list3 = GM_registerMenuCommand('打开共享黑名单 ③', function () {
+const menu_command_list3 = GM_registerMenuCommand('🔗 打开共享黑名单 ③...', function () {
   const url = 'https://twitter.com/i/lists/1699049983159259593/members'
   GM_openInTab(url, {active: true})
 }, '');
 
-const menu_command_special_list = GM_registerMenuCommand('拉黑加急名单(点击即生效)', function () {
-  block_special_list()
+const menu_command_list4 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑤...', function () {
+  const url = 'https://twitter.com/i/lists/1702721627287371907/members'
+  GM_openInTab(url, {active: true})
+}, '');
+
+const menu_command_special_list = GM_registerMenuCommand('🚫 拉黑加急名单', function () {
+  if (window.confirm("加急名单里有一些爱主动拉黑人的诈骗犯，要一键屏蔽吗？")) {
+    block_special_list()
+  } else {
+    GM_log('user cancelled block special scammers')
+  }
+}, '');
+
+const menu_command_all_list = GM_registerMenuCommand('🔗 查看全部名单（举报前请先搜索）...', function () {
+  const url = 'https://github.com/daymade/Twitter-Block-Porn/blob/master/lists/all.json'
+  GM_openInTab(url, {active: true})
+}, '');
+
+const menu_command_report = GM_registerMenuCommand('🔗 我要举报...', function () {
+  const url = 'https://github.com/daymade/Twitter-Block-Porn/issues'
+  GM_openInTab(url, {active: true})
 }, '');
 
 const ChangeLogo = GM_getValue('change_logo', true)
-GM_registerMenuCommand(`${ChangeLogo?'已将 Logo 还原为小蓝鸟, 点击可使用 \uD835\uDD4F':'点击唤回小蓝鸟'}`, function () {
+GM_registerMenuCommand(`${ChangeLogo?'✅ 已将 Logo 还原为小蓝鸟, 点击可使用 \uD835\uDD4F':'🐤 点击唤回小蓝鸟'}`, function () {
   GM_setValue('change_logo', !ChangeLogo)
   location.reload()
 });
@@ -66,7 +87,8 @@ function get_cookie (cname) {
   return ''
 }
 
-const ajax = axios.create({
+// all apis send to twitter must use this client with cookie
+const apiClient = axios.create({
   baseURL: 'https://api.twitter.com',
   withCredentials: true,
   headers: {
@@ -77,9 +99,10 @@ const ajax = axios.create({
   }
 })
 
-function get_list_id () {
+// extract list id in url 
+function parseListId (url) {
   // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
-  return location.href.split('lists/')[1].split('/')[0]
+  return url.split('lists/')[1].split('/')[0]
 }
 
 async function fetch_list_members_id(listId) {
@@ -89,11 +112,46 @@ async function fetch_list_members_id(listId) {
 }
 
 async function fetch_list_members_info(listId) {
+  const merged = await fetchAndMergeLists(listId);
+  console.log(`merged: ${JSON.stringify(merged)}}`);
+  return merged;
+}
+
+async function fetchRemoteList(listId) {
+  return new Promise((resolve, reject) => {
+      GM_xmlhttpRequest({
+          method: "GET",
+          url: `https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/lists/${listId}.json`,
+          onload: function(response) {
+              if (response.status === 200) {
+                  resolve(JSON.parse(response.responseText));
+              } else {
+                  console.warn(`Remote list for listId ${listId} not found.`);
+                  resolve([]);
+              }
+          },
+          onerror: function() {
+              console.warn(`Error fetching remote list for listId ${listId}.`);
+              resolve([]);
+          }
+      });
+  });
+}
+
+async function fetchTwitterListMembers(listId) {
   let cursor = -1;
   let allMembers = [];
   
-  while (cursor != 0) {
-    let response = await ajax.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
+  while (cursor && cursor !== 0) {
+    // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members
+    // https://api.twitter.com/1.1/lists/members.json
+    // Endpoint	| Requests per user	| Requests per app
+    // GET lists/members | 900/15min | 75/15min
+    let response = await apiClient.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
+    if (!response.data.users) {
+      GM_log(`fetchTwitterListMembers errors: ${JSON.stringify(response.data)}`)
+      return allMembers;
+    }
     let users = response.data.users;
     allMembers = allMembers.concat(users);
     cursor = response.data.next_cursor;
@@ -102,9 +160,28 @@ async function fetch_list_members_info(listId) {
   return allMembers;
 }
 
+async function fetchAndMergeLists(listId) {
+  let [remoteList, twitterList] = await Promise.all([
+    fetchRemoteList(listId),
+    fetchTwitterListMembers(listId)
+  ]).catch(err => {
+    console.error('Promise.all error:', err)
+  });
+
+  // Merge lists. Ensure uniqueness by 'id_str'.
+  let merged = [...twitterList, ...remoteList];
+  let uniqueMembers = Array.from(new Map(merged.map(item => [item["id_str"], item])).values());
+  
+  return uniqueMembers;
+}
+
 async function block_user (id, listId) {
   try {
-    await ajax.post('/1.1/blocks/create.json', Qs.stringify({
+    // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create
+    // https://api.twitter.com/1.1/blocks/create.json
+    // Endpoint	| Requests per user	| Requests per app
+    // not mentioned in doc!!
+    await apiClient.post('/1.1/blocks/create.json', Qs.stringify({
       user_id: id
     }), {
       headers: {
@@ -164,14 +241,14 @@ async function block_by_ids (member_ids, listId) {
 }
 
 async function block_list_test_members () {
-  const listId = get_list_id()
+  const listId = parseListId(location.href)
   const members = await fetch_list_members_id(listId)
 
   block_by_ids(members.slice(0, 10), listId)
 }
 
 async function block_list_members () {
-  const listId = get_list_id()
+  const listId = parseListId(location.href)
   const members = await fetch_list_members_id(listId)
 
   block_by_ids(members, listId)
@@ -293,13 +370,17 @@ async function block_special_list () {
     "1688885999265361920"
   ]
 
-  block_by_ids(special_scammers, "special_scammers_list")
+  // `block` is a reserved listId for those sacmmers who has blocked me
+  // see block.json in `lists` folder
+  let blockedIds = await fetchRemoteList("block")
+
+  block_by_ids(special_scammers.concat(blockedIds), "block")
 }
 
 async function export_list_members () {
-  const listId = get_list_id();
-  const members = await fetch_list_members_info(listId);
-  
+  const listId = parseListId(location.href);
+  const members = await fetchTwitterListMembers(listId);
+
   // 创建一个 Blob 实例，包含 JSON 字符串的成员信息
   const blob = new Blob([JSON.stringify(members, null, 2)], {type : 'application/json'});
 
@@ -615,7 +696,7 @@ async function export_list_members () {
           $(this).addClass(btn_hover)
         }
       })
-      .click(executer)
+      .click(async () => await executer())
       .click(success_notifier)
 
     parentDom.append(button)
@@ -783,8 +864,8 @@ async function export_list_members () {
     })
   }
 
-
-  (function bonus() {
+  // 这个函数名字来自 @albaz64
+  (function makeBlueBirdGreatAgain() {
     if(!ChangeLogo) return;
 
     // Twitter logo
