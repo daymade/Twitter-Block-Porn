@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.5.0
+// @version     1.5.1
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -66,6 +66,11 @@ const menu_command_all_list = GM_registerMenuCommand('🔗 查看全部名单（
 
 const menu_command_report = GM_registerMenuCommand('🔗 我要举报...', function () {
   const url = 'https://github.com/daymade/Twitter-Block-Porn/issues'
+  GM_openInTab(url, {active: true})
+}, '');
+
+const menu_command_sponsor = GM_registerMenuCommand('🥤 请我喝蜜雪冰城...', function () {
+  const url = 'https://buymeacoffee.com/finetuning'
   GM_openInTab(url, {active: true})
 }, '');
 
