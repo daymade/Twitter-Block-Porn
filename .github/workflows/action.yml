@@ -14,6 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Pull latest changes
+        run: |
+          git pull origin master
+    
       - name: Init ENV
         run: |
           sudo apt install jq
