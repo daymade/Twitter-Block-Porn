@@ -51,6 +51,17 @@
 
 参见 [贡献方式.md](https://github.com/daymade/Twitter-Block-Porn/blob/master/CONTRIBUTING.md).
 
+## 支持
+
+### 捐助
+
+- 💝 请我喝蜜雪冰城😋 **[buymeacoffee.com/finetuning](https://www.buymeacoffee.com/finetuning)**
+- 👤 需要匿名请发送到 `0x3eccE113CA05350B2CefeE97b429EA1d3CBCd267`, 我嘴很严
+
+### 打分/评价
+
+⭐⭐⭐⭐⭐ 在 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/470359-twitter-block-porn/feedback#post-discussion) 给我打分
+
 ## 源码地址:
 
 [https://github.com/daymade/Twitter-Block-Porn](https://github.com/daymade/Twitter-Block-Porn)
