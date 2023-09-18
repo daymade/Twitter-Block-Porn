@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'lists/snapshot/**.json'
+      - 'lists/block.json'
 
 jobs:
   update:
