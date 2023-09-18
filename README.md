@@ -14,27 +14,42 @@
 
 
 ## 使用方式：
+
 1. 打开脚本[主页](https://greasyfork.org/zh-CN/scripts/470359-twitter-block-porn), 安装脚本.
 
    <img width="547" alt="image" src="https://github.com/daymade/Twitter-Block-Porn/assets/4291901/15d98829-8615-4ef7-9fbf-c2297cac8b23">
 
-3. 用电脑打开列表, 点击跳转到 [列表①](https://twitter.com/i/lists/1677334530754248706) [列表②](https://twitter.com/i/lists/1683810394287079426)，或者直接点击插件图标可以跳转到各个黑名单.
+2. 用电脑打开列表, 点击跳转到 [列表①](https://twitter.com/i/lists/1677334530754248706) [列表②](https://twitter.com/i/lists/1683810394287079426)，或者直接点击插件图标可以跳转到各个黑名单.
 
    <img width="256" alt="image" src="https://github.com/daymade/Twitter-Block-Porn/assets/4291901/2cc2baa9-e116-4d91-b8fa-6c5b1be887ac">
-4. 在推特**列表**的页面, 点列表**封面图下方**的查看成员（members），打开列表成员弹框
+3. 在推特**列表**的页面, 点列表**封面图下方**的查看成员（members），打开列表成员弹框
 
    <img width="591" alt="image" src="https://github.com/daymade/Twitter-Block-Porn/assets/4291901/a7f015a1-a34f-4dc6-9ad5-46d7c8655239">
 
-5. 在弹框的右上角有"全部屏蔽"按钮
+4. 在弹框的右上角有"全部屏蔽"按钮
 
    <img width="603" alt="image" src="https://github.com/daymade/Twitter-Block-Porn/assets/4291901/a1b5f482-f579-4764-9978-8feb0f1df970">
 
+### 风险提示
+
+请节制操作避免风控，建议屏蔽多个列表要间隔一段时间操作, 隔天再拉黑更安全。
+
+1. 不管是手动还是自动，如果一天 block 超过500个左右，就会被 Twitter 强制登出，需要重新登录。
+2. 这个插件呢，它并没有用到任何黑科技，和手动 block 是完全一样的实现，可以理解脚本只是帮你点击了屏蔽按钮。
+
+## Roadmap
+
+- [ ] 短时间内屏蔽多次时提示用户隔天再操作，记录上一次屏蔽时间。
+- [ ] 拉黑的批量操作改成前端入queue，在后台缓慢拉黑，期间显示进度
+- [ ] 跟踪列表的更新，持续自动拉黑offset以后的新账号
+- [ ] 增加举报功能
+
+
+参见 [路线图](https://github.com/users/daymade/projects/3)
 
 ## 贡献方式
 
-有两种方式:
-1. 去 github 上提 issue([示例](https://github.com/daymade/Twitter-Block-Porn/issues/4)), 附上 screen_name 或者 id_str 或者任何可以定位的链接, 我来添加, 你也可以直接 fork 代码后提 PR 给我.
-2. 给我一个 List 链接, 我可以直接让用户跳转到你维护的列表.
+参见 [贡献方式.md](https://github.com/daymade/Twitter-Block-Porn/CONTRIBUTION.md).
 
 ## 源码地址:
 
