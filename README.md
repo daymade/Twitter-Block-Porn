@@ -49,7 +49,7 @@
 
 ## 贡献方式
 
-参见 [贡献方式.md](https://github.com/daymade/Twitter-Block-Porn/CONTRIBUTION.md).
+参见 [贡献方式.md](https://github.com/daymade/Twitter-Block-Porn/blob/master/CONTRIBUTING.md).
 
 ## 源码地址:
 
