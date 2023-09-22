@@ -54,7 +54,9 @@
 ### 捐助
 
 - 💝 请我喝蜜雪冰城😋 **[buymeacoffee.com/finetuning](https://www.buymeacoffee.com/finetuning)**
-- 👤 需要匿名请发送到 `0x3eccE113CA05350B2CefeE97b429EA1d3CBCd267`，我嘴很严
+- 👤 需要匿名可以通过...
+  
+<a target="_blank" href="https://www.donate3.xyz/donateTo?cid=bafkreigwv7ctcfjlnc3ade6q3qjojveb43exqqspnn4mahabtj6otuhy5a"><img alt="Supported by LXDAO" src="https://www.donate3.xyz/Donate3ToMe.svg" width="180" /></a>
 
 ### 打分/评价
 
