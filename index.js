@@ -20,6 +20,14 @@
 // @grant       GM_getValue
 // @grant       GM_log
 // @grant       GM_xmlhttpRequest
+
+// @grant       GM.registerMenuCommand
+// @grant       GM.openInTab
+// @grant       GM.setValue
+// @grant       GM.getValue
+// @grant       GM.xmlHttpRequest
+// @require     https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
+
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
@@ -29,6 +37,26 @@
 // @require     https://cdn.jsdelivr.net/npm/qs@6.10.3/dist/qs.min.js
 // @require     https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
 // ==/UserScript==
+
+Object.entries({
+    'GM_addStyle': 'addStyle',
+    'GM_deleteValue': 'deleteValue',
+    'GM_getResourceURL': 'getResourceUrl',
+    'GM_getValue': 'getValue',
+    'GM_listValues': 'listValues',
+    'GM_notification': 'notification',
+    'GM_openInTab': 'openInTab',
+    'GM_registerMenuCommand': 'registerMenuCommand',
+    'GM_setClipboard': 'setClipboard',
+    'GM_setValue': 'setValue',
+    'GM_xmlhttpRequest': 'xmlHttpRequest',
+    'GM_getResourceText': 'getResourceText',
+    'GM_log': 'log',
+}).forEach(([oldKey, newKey]) => {
+    if(typeof this[oldKey] == 'undefined'){
+	this[oldKey] = GM[newKey]
+    }
+})
 
 /* global axios $ Qs */
 const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
