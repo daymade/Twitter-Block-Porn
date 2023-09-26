@@ -58,6 +58,35 @@ Object.entries({
     }
 })
 
+GM_addStyle(`
+#gm-registered-menu {
+  position:relative;
+  padding: 0;
+  z-index: 9999;
+}
+
+#gm-registered-menu menuitem{
+  display: block;
+  margin: 6px 0;
+  padding: 0 16px;
+  cursor: pointer;
+  height: 28px;
+  width: 2rem;
+  line-height: 28px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+#gm-registered-menu:hover menuitem{
+  height: auto;
+  width: auto;
+}
+
+#gm-registered-menu menuitem:hover{
+  background-color: rgba(15, 20, 25, 0.1);
+}
+`)
+
 /* global axios $ Qs */
 const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
   const url = 'https://twitter.com/i/lists/1677334530754248706/members'
@@ -895,6 +924,16 @@ async function export_list_members () {
         mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
       }
     })
+
+      waitForKeyElements('.r-1pn2ns4 > div:nth-child(1)', ele => {
+	  const sideMenu = ele[0]
+	  if (!sideMenu) return
+	  
+	  const menuEl = document.querySelector('#gm-registered-menu')
+	  if (menuEl && menuEl.parentNode != ele){
+	      sideMenu.appendChild(menuEl)
+	  }
+      }, true)
   }
 
   // 这个函数名字来自 @albaz64
