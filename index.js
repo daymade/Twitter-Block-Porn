@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.5.2
+// @version     1.5.3
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -224,8 +224,8 @@ async function block_by_ids (member_ids, listId) {
 
   // Number of requests per batch
   const batchSize = 10;
-  // 1000ms delay between batches
-  const delay = 1000;
+  // 5s delay between batches
+  const delay = 5000;
 
   let failedIds = [];
 
