@@ -104,9 +104,12 @@
 
 ## 致谢
 
-- 感谢 [奥莉𝗢𝗹𝗹𝗶𝗲](https://twitter.com/MissOllie2020) 无私捐赠一个月蜜雪冰城
-- 感谢 @albaz64 提供了还原被替换 logo 的思路，感谢 @aoxu 提供了很多黑名单
-- 感谢 E011011101001 的原始代码，本仓库 forked from https://github.com/E011011101001/Twitter-Block-With-Love
+- 感谢 [@奥莉𝗢𝗹𝗹𝗶𝗲](https://twitter.com/MissOllie2020) 无私捐赠一个月蜜雪冰城, 祝富婆生意兴隆, 和00后如胶似漆!
+- 感谢 [Manjusaka_Lee](https://github.com/Zheaoli) 无私捐赠 50 杯蜜雪冰城, 祝老板事业有成, 单元测试全绿!
+- 感谢 [@taresky](https://twitter.com/taresky) [@kefan_ManesLAB](https://twitter.com/kefan_ManesLAB) [@tennisatw](https://twitter.com/tennisatw) [@hengdm](https://twitter.com/hengdm) [@betajerks](https://twitter.com/betajerks) [@yum_707](https://twitter.com/yum_707) 等 	𝕏 友的投喂!
+- 感谢 [@aoxu](https://twitter.com/Blind___Gamer) 数十日如一日提供了很多高质量黑名单
+- 感谢 [albaz64](https://github.com/albaz64) 提供了还原被替换 logo 的思路
+- 感谢 [E011011101001](https://github.com/E011011101001) 的原始代码，本仓库 forked from [Twitter-Block-With-Love](https://github.com/E011011101001/Twitter-Block-With-Love)
 
 ---
 李老师最可爱
