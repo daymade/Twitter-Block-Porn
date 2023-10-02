@@ -1,0 +1,13 @@
+{
+  "name": "twitter-block-porn",
+  "version": "1.0.0",
+  "description": "One-click block all the yellow scammers in the comment area",
+  "main": "index.js",
+  "repository": "https://github.com/daymade/Twitter-Block-Porn",
+  "author": "daymade <daymadev89@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "devDependencies": {
+    "eslint": "^8.11.0"
+  }
+}
