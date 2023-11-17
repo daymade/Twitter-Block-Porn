@@ -132,9 +132,9 @@
       }
     },
     "protected": false,
-    "followers_count": 51344,
+    "followers_count": 51343,
     "fast_followers_count": 0,
-    "normal_followers_count": 51344,
+    "normal_followers_count": 51343,
     "friends_count": 0,
     "listed_count": 80,
     "created_at": "Sat Oct 14 11:13:36 +0000 2023",
@@ -196,9 +196,9 @@
       }
     },
     "protected": false,
-    "followers_count": 30134,
+    "followers_count": 30346,
     "fast_followers_count": 0,
-    "normal_followers_count": 30134,
+    "normal_followers_count": 30346,
     "friends_count": 0,
     "listed_count": 96,
     "created_at": "Sat Oct 07 07:38:56 +0000 2023",
@@ -260,9 +260,9 @@
       }
     },
     "protected": false,
-    "followers_count": 42655,
+    "followers_count": 42656,
     "fast_followers_count": 0,
-    "normal_followers_count": 42655,
+    "normal_followers_count": 42656,
     "friends_count": 353,
     "listed_count": 79,
     "created_at": "Fri Oct 06 22:53:30 +0000 2023",
@@ -834,10 +834,10 @@
       }
     },
     "protected": false,
-    "followers_count": 97489,
+    "followers_count": 97493,
     "fast_followers_count": 0,
-    "normal_followers_count": 97489,
-    "friends_count": 0,
+    "normal_followers_count": 97493,
+    "friends_count": 1,
     "listed_count": 220,
     "created_at": "Thu Sep 21 03:48:37 +0000 2023",
     "favourites_count": 0,
@@ -845,66 +845,914 @@
     "time_zone": null,
     "geo_enabled": false,
     "verified": false,
-    "statuses_count": 2180,
-    "media_count": 58,
+    "statuses_count": 2181,
+    "media_count": 59,
     "lang": null,
     "status": {
-      "created_at": "Fri Nov 17 15:18:33 +0000 2023",
-      "id": 1725533893317841200,
-      "id_str": "1725533893317841213",
-      "text": "@xiaxiaoqiang @Yim8964 每次性欲上头的时候，我都会反问自己，是真的想做爱吗？\n是的。\n哈哈，找个听话男人玩玩    #同城线下  \nhttps://t.co/pbLDvW7Wzs",
+      "created_at": "Fri Nov 17 15:45:37 +0000 2023",
+      "id": 1725540703693070600,
+      "id_str": "1725540703693070703",
+      "text": "@ChengSeJiuMeng 你懂我  我懂你\n情到深处 无法自拔\n人之所欲  肯定会想\n但我更想找个懂情趣的灵魂伴侣 https://t.co/FO9pLiOMjh https://t.co/1k4mhb7B3a",
       "truncated": false,
       "entities": {
-        "hashtags": [
-          {
-            "text": "同城线下",
-            "indices": [
-              69,
-              74
-            ]
-          }
-        ],
+        "hashtags": [],
         "symbols": [],
         "user_mentions": [
           {
-            "screen_name": "xiaxiaoqiang",
-            "name": "夏小強",
-            "id": 229617482,
-            "id_str": "229617482",
+            "screen_name": "ChengSeJiuMeng",
+            "name": "橙色旧梦",
+            "id": 1513895996488843300,
+            "id_str": "1513895996488843266",
             "indices": [
               0,
-              13
-            ]
-          },
-          {
-            "screen_name": "Yim8964",
-            "name": "盛世韭菜,亂世炮灰.",
-            "id": 1267682527872868400,
-            "id_str": "1267682527872868354",
-            "indices": [
-              14,
-              22
+              15
             ]
           }
         ],
         "urls": [
           {
-            "url": "https://t.co/pbLDvW7Wzs",
-            "expanded_url": "https://x.com/Hdhotmom/status/1723247085817147394?s=20",
-            "display_url": "x.com/Hdhotmom/statu…",
+            "url": "https://t.co/FO9pLiOMjh",
+            "expanded_url": "https://twitter.com/hdhotmom/status/1723247085817147394",
+            "display_url": "twitter.com/hdhotmom/statu…",
             "indices": [
-              77,
-              100
+              61,
+              84
             ]
+          }
+        ],
+        "media": [
+          {
+            "id": 1725540688656556000,
+            "id_str": "1725540688656556032",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTDbYAA4lS8.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTDbYAA4lS8.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 211,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 96,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "orig": {
+                "faces": []
+              },
+              "large": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              },
+              "medium": {
+                "faces": []
+              }
+            }
+          },
+          {
+            "id": 1725540688669147100,
+            "id_str": "1725540688669147136",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTGbgAAe5vO.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTGbgAAe5vO.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 83,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 96,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "small": {
+                "faces": [
+                  {
+                    "x": 119,
+                    "y": 107,
+                    "h": 165,
+                    "w": 165
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 210,
+                    "y": 189,
+                    "h": 292,
+                    "w": 292
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 225,
+                    "y": 202,
+                    "h": 312,
+                    "w": 312
+                  }
+                ]
+              },
+              "orig": {
+                "faces": [
+                  {
+                    "x": 225,
+                    "y": 202,
+                    "h": 312,
+                    "w": 312
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": 1725540688685928400,
+            "id_str": "1725540688685928448",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTKbkAA9HUy.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTKbkAA9HUy.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 83,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 224,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "large": {
+                "faces": [
+                  {
+                    "x": 367,
+                    "y": 202,
+                    "h": 325,
+                    "w": 325
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 344,
+                    "y": 189,
+                    "h": 304,
+                    "w": 304
+                  }
+                ]
+              },
+              "small": {
+                "faces": [
+                  {
+                    "x": 194,
+                    "y": 107,
+                    "h": 172,
+                    "w": 172
+                  }
+                ]
+              },
+              "orig": {
+                "faces": [
+                  {
+                    "x": 367,
+                    "y": 202,
+                    "h": 325,
+                    "w": 325
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": 1725540688656547800,
+            "id_str": "1725540688656547840",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTDbQAAgWxK.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTDbQAAgWxK.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 147,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 160,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "orig": {
+                "faces": [
+                  {
+                    "x": 486,
+                    "y": 297,
+                    "h": 136,
+                    "w": 136
+                  }
+                ]
+              },
+              "small": {
+                "faces": [
+                  {
+                    "x": 258,
+                    "y": 157,
+                    "h": 72,
+                    "w": 72
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 455,
+                    "y": 278,
+                    "h": 127,
+                    "w": 127
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 486,
+                    "y": 297,
+                    "h": 136,
+                    "w": 136
+                  }
+                ]
+              }
+            }
           }
         ]
       },
-      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-      "in_reply_to_status_id": 1723998395998576600,
-      "in_reply_to_status_id_str": "1723998395998576714",
-      "in_reply_to_user_id": 229617482,
-      "in_reply_to_user_id_str": "229617482",
-      "in_reply_to_screen_name": "xiaxiaoqiang",
+      "extended_entities": {
+        "media": [
+          {
+            "id": 1725540688656556000,
+            "id_str": "1725540688656556032",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTDbYAA4lS8.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTDbYAA4lS8.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 211,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 96,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "orig": {
+                "faces": []
+              },
+              "large": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              },
+              "medium": {
+                "faces": []
+              }
+            },
+            "media_key": "3_1725540688656556032"
+          },
+          {
+            "id": 1725540688669147100,
+            "id_str": "1725540688669147136",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTGbgAAe5vO.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTGbgAAe5vO.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 83,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 96,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "small": {
+                "faces": [
+                  {
+                    "x": 119,
+                    "y": 107,
+                    "h": 165,
+                    "w": 165
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 210,
+                    "y": 189,
+                    "h": 292,
+                    "w": 292
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 225,
+                    "y": 202,
+                    "h": 312,
+                    "w": 312
+                  }
+                ]
+              },
+              "orig": {
+                "faces": [
+                  {
+                    "x": 225,
+                    "y": 202,
+                    "h": 312,
+                    "w": 312
+                  }
+                ]
+              }
+            },
+            "media_key": "3_1725540688669147136"
+          },
+          {
+            "id": 1725540688685928400,
+            "id_str": "1725540688685928448",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTKbkAA9HUy.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTKbkAA9HUy.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 83,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 224,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "large": {
+                "faces": [
+                  {
+                    "x": 367,
+                    "y": 202,
+                    "h": 325,
+                    "w": 325
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 344,
+                    "y": 189,
+                    "h": 304,
+                    "w": 304
+                  }
+                ]
+              },
+              "small": {
+                "faces": [
+                  {
+                    "x": 194,
+                    "y": 107,
+                    "h": 172,
+                    "w": 172
+                  }
+                ]
+              },
+              "orig": {
+                "faces": [
+                  {
+                    "x": 367,
+                    "y": 202,
+                    "h": 325,
+                    "w": 325
+                  }
+                ]
+              }
+            },
+            "media_key": "3_1725540688685928448"
+          },
+          {
+            "id": 1725540688656547800,
+            "id_str": "1725540688656547840",
+            "indices": [
+              85,
+              108
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JaHTDbQAAgWxK.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JaHTDbQAAgWxK.jpg",
+            "url": "https://t.co/1k4mhb7B3a",
+            "display_url": "pic.twitter.com/1k4mhb7B3a",
+            "expanded_url": "https://twitter.com/Hdhotmom/status/1725540703693070703/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 960,
+              "height": 1280,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 147,
+                  "h": 538,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 960,
+                  "w": 960
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1094,
+                  "w": 960
+                },
+                {
+                  "x": 160,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 640
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1280,
+                  "w": 960
+                }
+              ]
+            },
+            "sizes": {
+              "small": {
+                "w": 510,
+                "h": 680,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 900,
+                "h": 1200,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 960,
+                "h": 1280,
+                "resize": "fit"
+              }
+            },
+            "features": {
+              "orig": {
+                "faces": [
+                  {
+                    "x": 486,
+                    "y": 297,
+                    "h": 136,
+                    "w": 136
+                  }
+                ]
+              },
+              "small": {
+                "faces": [
+                  {
+                    "x": 258,
+                    "y": 157,
+                    "h": 72,
+                    "w": 72
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 455,
+                    "y": 278,
+                    "h": 127,
+                    "w": 127
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 486,
+                    "y": 297,
+                    "h": 136,
+                    "w": 136
+                  }
+                ]
+              }
+            },
+            "media_key": "3_1725540688656547840"
+          }
+        ]
+      },
+      "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+      "in_reply_to_status_id": 1725478667009364200,
+      "in_reply_to_status_id_str": "1725478667009364231",
+      "in_reply_to_user_id": 1513895996488843300,
+      "in_reply_to_user_id_str": "1513895996488843266",
+      "in_reply_to_screen_name": "ChengSeJiuMeng",
       "geo": null,
       "coordinates": null,
       "place": null,
@@ -971,9 +1819,9 @@
       }
     },
     "protected": false,
-    "followers_count": 26418,
+    "followers_count": 26419,
     "fast_followers_count": 0,
-    "normal_followers_count": 26418,
+    "normal_followers_count": 26419,
     "friends_count": 10,
     "listed_count": 24,
     "created_at": "Wed Sep 20 09:06:19 +0000 2023",
@@ -982,37 +1830,37 @@
     "time_zone": null,
     "geo_enabled": false,
     "verified": false,
-    "statuses_count": 14702,
+    "statuses_count": 14725,
     "media_count": 37,
     "lang": null,
     "status": {
-      "created_at": "Fri Nov 17 15:34:10 +0000 2023",
-      "id": 1725537821149270300,
-      "id_str": "1725537821149270183",
-      "text": "@xiaoxiaodudua @Bba4g61 https://t.co/R2yiK0QsU1",
+      "created_at": "Fri Nov 17 15:46:56 +0000 2023",
+      "id": 1725541033419878400,
+      "id_str": "1725541033419878435",
+      "text": "@JudyEva19 @Duoyu9231 https://t.co/R2yiK0QsU1",
       "truncated": false,
       "entities": {
         "hashtags": [],
         "symbols": [],
         "user_mentions": [
           {
-            "screen_name": "xiaoxiaodudua",
-            "name": "嘟嘟呀嘟嘟",
-            "id": 1143922429372305400,
-            "id_str": "1143922429372305414",
+            "screen_name": "JudyEva19",
+            "name": "哔咔漫画",
+            "id": 1592454337833316400,
+            "id_str": "1592454337833316352",
             "indices": [
               0,
-              14
+              10
             ]
           },
           {
-            "screen_name": "Bba4g61",
-            "name": "1",
-            "id": 1458103130349088800,
-            "id_str": "1458103130349088769",
+            "screen_name": "Duoyu9231",
+            "name": "性瘾患者小猫咪",
+            "id": 1685298962264424400,
+            "id_str": "1685298962264424448",
             "indices": [
-              15,
-              23
+              11,
+              21
             ]
           }
         ],
@@ -1022,18 +1870,18 @@
             "expanded_url": "https://x.com/rudd_tara49002/status/1725492111922082064?s=46",
             "display_url": "x.com/rudd_tara49002…",
             "indices": [
-              24,
-              47
+              22,
+              45
             ]
           }
         ]
       },
       "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-      "in_reply_to_status_id": 1721915089492824000,
-      "in_reply_to_status_id_str": "1721915089492824137",
-      "in_reply_to_user_id": 1143922429372305400,
-      "in_reply_to_user_id_str": "1143922429372305414",
-      "in_reply_to_screen_name": "xiaoxiaodudua",
+      "in_reply_to_status_id": 1725343899655504400,
+      "in_reply_to_status_id_str": "1725343899655504336",
+      "in_reply_to_user_id": 1592454337833316400,
+      "in_reply_to_user_id_str": "1592454337833316352",
+      "in_reply_to_screen_name": "JudyEva19",
       "geo": null,
       "coordinates": null,
       "place": null,
@@ -1215,9 +2063,9 @@
       }
     },
     "protected": false,
-    "followers_count": 33730,
+    "followers_count": 33731,
     "fast_followers_count": 0,
-    "normal_followers_count": 33730,
+    "normal_followers_count": 33731,
     "friends_count": 223,
     "listed_count": 80,
     "created_at": "Sun Sep 03 00:46:44 +0000 2023",
@@ -2128,9 +2976,9 @@
       }
     },
     "protected": false,
-    "followers_count": 31700,
+    "followers_count": 31701,
     "fast_followers_count": 0,
-    "normal_followers_count": 31700,
+    "normal_followers_count": 31701,
     "friends_count": 0,
     "listed_count": 142,
     "created_at": "Sun Aug 06 17:48:37 +0000 2023",
@@ -2243,13 +3091,13 @@
       }
     },
     "protected": false,
-    "followers_count": 29220,
+    "followers_count": 29219,
     "fast_followers_count": 0,
-    "normal_followers_count": 29220,
+    "normal_followers_count": 29219,
     "friends_count": 800,
     "listed_count": 63,
     "created_at": "Wed Aug 02 16:43:34 +0000 2023",
-    "favourites_count": 6578,
+    "favourites_count": 6576,
     "utc_offset": null,
     "time_zone": null,
     "geo_enabled": false,
@@ -2708,9 +3556,9 @@
       }
     },
     "protected": false,
-    "followers_count": 55320,
+    "followers_count": 55318,
     "fast_followers_count": 0,
-    "normal_followers_count": 55320,
+    "normal_followers_count": 55318,
     "friends_count": 1714,
     "listed_count": 280,
     "created_at": "Fri Jul 07 09:56:13 +0000 2023",
@@ -3033,6 +3881,147 @@
     "require_some_consent": false
   },
   {
+    "id": 1665058681334149000,
+    "id_str": "1665058681334149120",
+    "name": ".",
+    "screen_name": "linda655218",
+    "location": "",
+    "description": "",
+    "url": "https://t.co/8oOTEqOl12",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/8oOTEqOl12",
+            "expanded_url": "https://t.me/qs1827",
+            "display_url": "t.me/qs1827",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 41044,
+    "fast_followers_count": 0,
+    "normal_followers_count": 41044,
+    "friends_count": 946,
+    "listed_count": 80,
+    "created_at": "Sat Jun 03 18:12:12 +0000 2023",
+    "favourites_count": 3402,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 50983,
+    "media_count": 3635,
+    "lang": null,
+    "status": {
+      "created_at": "Fri Nov 17 15:46:43 +0000 2023",
+      "id": 1725540981561573400,
+      "id_str": "1725540981561573488",
+      "text": "@tongT_T1 衣服是穿给別人看的，跟我在一起就不必穿了，你不穿更好看\n\n #同城线下\n\nhttps://t.co/WPKZJCcsBC",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "同城线下",
+            "indices": [
+              40,
+              45
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "tongT_T1",
+            "name": "童困",
+            "id": 1543995272610472000,
+            "id_str": "1543995272610471936",
+            "indices": [
+              0,
+              9
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/WPKZJCcsBC",
+            "expanded_url": "https://twitter.com/kebt0p/status/1725052814005817505?s=20",
+            "display_url": "twitter.com/kebt0p/status/…",
+            "indices": [
+              47,
+              70
+            ]
+          }
+        ]
+      },
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "in_reply_to_status_id": 1725508128320700400,
+      "in_reply_to_status_id_str": "1725508128320700541",
+      "in_reply_to_user_id": 1543995272610472000,
+      "in_reply_to_user_id_str": "1543995272610471936",
+      "in_reply_to_screen_name": "tongT_T1",
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": true,
+      "quoted_status_id": 1725052814005817600,
+      "quoted_status_id_str": "1725052814005817505",
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "possibly_sensitive_editable": true,
+      "lang": "ja",
+      "supplemental_language": null
+    },
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "F5F8FA",
+    "profile_background_image_url": null,
+    "profile_background_image_url_https": null,
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1687819873240702976/-NuIZHWN_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1687819873240702976/-NuIZHWN_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1665058681334149120/1691242631",
+    "profile_link_color": "1DA1F2",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": true,
+    "default_profile_image": false,
+    "pinned_tweet_ids": [
+      1705191913618608000
+    ],
+    "pinned_tweet_ids_str": [
+      "1705191913618608208"
+    ],
+    "has_custom_timelines": false,
+    "can_media_tag": false,
+    "followed_by": false,
+    "following": false,
+    "follow_request_sent": false,
+    "notifications": false,
+    "advertiser_account_type": "none",
+    "advertiser_account_service_levels": [],
+    "business_profile_state": "none",
+    "translator_type": "none",
+    "withheld_in_countries": [],
+    "require_some_consent": false
+  },
+  {
     "id": 1659111166084518000,
     "id_str": "1659111166084517888",
     "name": "姬宝宝💕",
@@ -3056,9 +4045,9 @@
       }
     },
     "protected": false,
-    "followers_count": 49428,
+    "followers_count": 49430,
     "fast_followers_count": 0,
-    "normal_followers_count": 49428,
+    "normal_followers_count": 49430,
     "friends_count": 9,
     "listed_count": 223,
     "created_at": "Thu May 18 08:19:43 +0000 2023",
@@ -3067,59 +4056,54 @@
     "time_zone": null,
     "geo_enabled": false,
     "verified": false,
-    "statuses_count": 16050,
-    "media_count": 15021,
+    "statuses_count": 16054,
+    "media_count": 15025,
     "lang": null,
     "status": {
-      "created_at": "Fri Nov 17 14:03:26 +0000 2023",
-      "id": 1725514990734774500,
-      "id_str": "1725514990734774435",
-      "text": "@meiridsai 职场系列之趁着聚会酒醉把女领导给操了，没想到就此一步登天平步青云，果然软饭是好吃的！！ \n\nhttps://t.co/PwbCZjWTZP",
+      "created_at": "Fri Nov 17 15:39:55 +0000 2023",
+      "id": 1725539269958365700,
+      "id_str": "1725539269958365692",
+      "text": "@shouchongdianta 为上位展示之绝活女秘书 为了老公和家庭能有更好的生活。知道色诱领导，没想到没成功！只好拿出苦练多年的一字马神技。在办公桌上这么一劈叉！瞬间拿下猥琐领导。表面看着正义，实际盯着很久了！  https://t.co/9g9wfi70vm",
       "truncated": false,
       "entities": {
         "hashtags": [],
         "symbols": [],
         "user_mentions": [
           {
-            "screen_name": "meiridsai",
-            "name": "每日大赛",
-            "id": 1661761298999414800,
-            "id_str": "1661761298999414784",
+            "screen_name": "shouchongdianta",
+            "name": "热点电台",
+            "id": 1571710349652508700,
+            "id_str": "1571710349652508673",
             "indices": [
               0,
-              10
+              16
             ]
           }
         ],
         "urls": [],
         "media": [
           {
-            "id": 1721823748419137500,
-            "id_str": "1721823748419137536",
+            "id": 1709579622051172400,
+            "id_str": "1709579622051172352",
             "indices": [
-              57,
-              80
+              110,
+              133
             ],
-            "media_url": "http://pbs.twimg.com/amplify_video_thumb/1721823748419137536/img/NhTECANY5TB6RlIS.jpg",
-            "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1721823748419137536/img/NhTECANY5TB6RlIS.jpg",
-            "url": "https://t.co/PwbCZjWTZP",
-            "display_url": "pic.twitter.com/PwbCZjWTZP",
-            "expanded_url": "https://twitter.com/tlcf19/status/1722569731268645343/video/1",
+            "media_url": "http://pbs.twimg.com/amplify_video_thumb/1709579622051172352/img/cYumVpzlzNt-3JA6.jpg",
+            "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1709579622051172352/img/cYumVpzlzNt-3JA6.jpg",
+            "url": "https://t.co/9g9wfi70vm",
+            "display_url": "pic.twitter.com/9g9wfi70vm",
+            "expanded_url": "https://twitter.com/Riloxxoo/status/1709583029189198168/video/1",
             "type": "photo",
             "original_info": {
-              "width": 1920,
-              "height": 1080
+              "width": 1280,
+              "height": 720
             },
             "sizes": {
               "thumb": {
                 "w": 150,
                 "h": 150,
                 "resize": "crop"
-              },
-              "large": {
-                "w": 1920,
-                "h": 1080,
-                "resize": "fit"
               },
               "medium": {
                 "w": 1200,
@@ -3130,12 +4114,17 @@
                 "w": 680,
                 "h": 383,
                 "resize": "fit"
+              },
+              "large": {
+                "w": 1280,
+                "h": 720,
+                "resize": "fit"
               }
             },
-            "source_status_id": 1722569731268645400,
-            "source_status_id_str": "1722569731268645343",
-            "source_user_id": 4879098159,
-            "source_user_id_str": "4879098159",
+            "source_status_id": 1709583029189198000,
+            "source_status_id_str": "1709583029189198168",
+            "source_user_id": 1615735577751720000,
+            "source_user_id_str": "1615735577751719943",
             "features": {}
           }
         ]
@@ -3143,32 +4132,27 @@
       "extended_entities": {
         "media": [
           {
-            "id": 1721823748419137500,
-            "id_str": "1721823748419137536",
+            "id": 1709579622051172400,
+            "id_str": "1709579622051172352",
             "indices": [
-              57,
-              80
+              110,
+              133
             ],
-            "media_url": "http://pbs.twimg.com/amplify_video_thumb/1721823748419137536/img/NhTECANY5TB6RlIS.jpg",
-            "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1721823748419137536/img/NhTECANY5TB6RlIS.jpg",
-            "url": "https://t.co/PwbCZjWTZP",
-            "display_url": "pic.twitter.com/PwbCZjWTZP",
-            "expanded_url": "https://twitter.com/tlcf19/status/1722569731268645343/video/1",
+            "media_url": "http://pbs.twimg.com/amplify_video_thumb/1709579622051172352/img/cYumVpzlzNt-3JA6.jpg",
+            "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1709579622051172352/img/cYumVpzlzNt-3JA6.jpg",
+            "url": "https://t.co/9g9wfi70vm",
+            "display_url": "pic.twitter.com/9g9wfi70vm",
+            "expanded_url": "https://twitter.com/Riloxxoo/status/1709583029189198168/video/1",
             "type": "video",
             "original_info": {
-              "width": 1920,
-              "height": 1080
+              "width": 1280,
+              "height": 720
             },
             "sizes": {
               "thumb": {
                 "w": 150,
                 "h": 150,
                 "resize": "crop"
-              },
-              "large": {
-                "w": 1920,
-                "h": 1080,
-                "resize": "fit"
               },
               "medium": {
                 "w": 1200,
@@ -3179,42 +4163,47 @@
                 "w": 680,
                 "h": 383,
                 "resize": "fit"
+              },
+              "large": {
+                "w": 1280,
+                "h": 720,
+                "resize": "fit"
               }
             },
-            "source_status_id": 1722569731268645400,
-            "source_status_id_str": "1722569731268645343",
-            "source_user_id": 4879098159,
-            "source_user_id_str": "4879098159",
+            "source_status_id": 1709583029189198000,
+            "source_status_id_str": "1709583029189198168",
+            "source_user_id": 1615735577751720000,
+            "source_user_id_str": "1615735577751719943",
             "video_info": {
               "aspect_ratio": [
                 16,
                 9
               ],
-              "duration_millis": 6397434,
+              "duration_millis": 6041405,
               "variants": [
+                {
+                  "bitrate": 832000,
+                  "content_type": "video/mp4",
+                  "url": "https://video.twimg.com/amplify_video/1709579622051172352/vid/avc1/640x360/ZPDoEpVTJBEjCySH.mp4?tag=14"
+                },
                 {
                   "bitrate": 288000,
                   "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/amplify_video/1721823748419137536/vid/avc1/480x270/WUklk_UofN6ToAz9.mp4?tag=14"
+                  "url": "https://video.twimg.com/amplify_video/1709579622051172352/vid/avc1/480x270/w52qNqAWU15Bw2Jp.mp4?tag=14"
                 },
                 {
                   "bitrate": 2176000,
                   "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/amplify_video/1721823748419137536/vid/avc1/1280x720/nQVVY64nwTYPLSlu.mp4?tag=14"
+                  "url": "https://video.twimg.com/amplify_video/1709579622051172352/vid/avc1/1280x720/yaI8zubKX_yHP3Kf.mp4?tag=14"
                 },
                 {
                   "content_type": "application/x-mpegURL",
-                  "url": "https://video.twimg.com/amplify_video/1721823748419137536/pl/e9LTBZ21oK_6S7WK.m3u8?tag=14&container=fmp4"
-                },
-                {
-                  "bitrate": 832000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/amplify_video/1721823748419137536/vid/avc1/640x360/wcCFntUj-A6wqYxT.mp4?tag=14"
+                  "url": "https://video.twimg.com/amplify_video/1709579622051172352/pl/Jpm4cdp3BraL5DYP.m3u8?tag=14&container=fmp4"
                 }
               ]
             },
             "features": {},
-            "media_key": "13_1721823748419137536",
+            "media_key": "13_1709579622051172352",
             "additional_media_info": {
               "monetizable": false
             }
@@ -3222,18 +4211,18 @@
         ]
       },
       "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-      "in_reply_to_status_id": 1725510287368089900,
-      "in_reply_to_status_id_str": "1725510287368089958",
-      "in_reply_to_user_id": 1661761298999414800,
-      "in_reply_to_user_id_str": "1661761298999414784",
-      "in_reply_to_screen_name": "meiridsai",
+      "in_reply_to_status_id": 1725514634265035300,
+      "in_reply_to_status_id_str": "1725514634265035184",
+      "in_reply_to_user_id": 1571710349652508700,
+      "in_reply_to_user_id_str": "1571710349652508673",
+      "in_reply_to_screen_name": "shouchongdianta",
       "geo": null,
       "coordinates": null,
       "place": null,
       "contributors": null,
       "is_quote_status": false,
       "retweet_count": 0,
-      "favorite_count": 3,
+      "favorite_count": 0,
       "favorited": false,
       "retweeted": false,
       "possibly_sensitive": true,
@@ -4077,9 +5066,9 @@
       }
     },
     "protected": false,
-    "followers_count": 48033,
+    "followers_count": 48032,
     "fast_followers_count": 0,
-    "normal_followers_count": 48033,
+    "normal_followers_count": 48032,
     "friends_count": 86,
     "listed_count": 97,
     "created_at": "Fri May 05 08:11:33 +0000 2023",
@@ -4316,9 +5305,9 @@
       }
     },
     "protected": false,
-    "followers_count": 8428,
+    "followers_count": 8429,
     "fast_followers_count": 0,
-    "normal_followers_count": 8428,
+    "normal_followers_count": 8429,
     "friends_count": 3,
     "listed_count": 13,
     "created_at": "Sun Mar 05 04:08:06 +0000 2023",
@@ -5753,7 +6742,7 @@
         "contributors": null,
         "is_quote_status": false,
         "retweet_count": 373,
-        "favorite_count": 402,
+        "favorite_count": 409,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": true,
@@ -5850,7 +6839,7 @@
     "friends_count": 5729,
     "listed_count": 17,
     "created_at": "Tue Jun 14 14:00:30 +0000 2022",
-    "favourites_count": 24240,
+    "favourites_count": 24239,
     "utc_offset": null,
     "time_zone": null,
     "geo_enabled": false,
@@ -6775,9 +7764,9 @@
       }
     },
     "protected": false,
-    "followers_count": 153081,
+    "followers_count": 153082,
     "fast_followers_count": 0,
-    "normal_followers_count": 153081,
+    "normal_followers_count": 153082,
     "friends_count": 4319,
     "listed_count": 268,
     "created_at": "Thu Mar 25 00:15:51 +0000 2021",
@@ -6988,6 +7977,70 @@
     "withheld_in_countries": [
       "ID"
     ],
+    "require_some_consent": false
+  },
+  {
+    "id": 1353671936321138700,
+    "id_str": "1353671936321138693",
+    "name": "Chihab Hnz",
+    "screen_name": "ChihabHnz",
+    "location": "",
+    "description": "",
+    "url": null,
+    "entities": {
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 5774,
+    "fast_followers_count": 0,
+    "normal_followers_count": 5774,
+    "friends_count": 0,
+    "listed_count": 14,
+    "created_at": "Mon Jan 25 11:52:18 +0000 2021",
+    "favourites_count": 87,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": false,
+    "verified": false,
+    "statuses_count": 3611,
+    "media_count": 3200,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "F5F8FA",
+    "profile_background_image_url": null,
+    "profile_background_image_url_https": null,
+    "profile_background_tile": false,
+    "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+    "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+    "profile_link_color": "1DA1F2",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": true,
+    "default_profile_image": true,
+    "pinned_tweet_ids": [
+      1705511564466635000
+    ],
+    "pinned_tweet_ids_str": [
+      "1705511564466635026"
+    ],
+    "has_custom_timelines": false,
+    "can_media_tag": true,
+    "followed_by": false,
+    "following": false,
+    "follow_request_sent": false,
+    "notifications": false,
+    "advertiser_account_type": "none",
+    "advertiser_account_service_levels": [],
+    "business_profile_state": "none",
+    "translator_type": "none",
+    "withheld_in_countries": [],
     "require_some_consent": false
   },
   {
@@ -7366,9 +8419,9 @@
       }
     },
     "protected": false,
-    "followers_count": 5058,
+    "followers_count": 5072,
     "fast_followers_count": 0,
-    "normal_followers_count": 5058,
+    "normal_followers_count": 5072,
     "friends_count": 11,
     "listed_count": 19,
     "created_at": "Sat Feb 23 13:00:59 +0000 2019",
@@ -8153,8 +9206,8 @@
         "place": null,
         "contributors": null,
         "is_quote_status": false,
-        "retweet_count": 5601,
-        "favorite_count": 38629,
+        "retweet_count": 5646,
+        "favorite_count": 38947,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": false,
@@ -8163,7 +9216,7 @@
         "supplemental_language": null
       },
       "is_quote_status": false,
-      "retweet_count": 5601,
+      "retweet_count": 5646,
       "favorite_count": 0,
       "favorited": false,
       "retweeted": false,
@@ -8627,9 +9680,9 @@
       }
     },
     "protected": false,
-    "followers_count": 52249,
+    "followers_count": 52248,
     "fast_followers_count": 0,
-    "normal_followers_count": 52249,
+    "normal_followers_count": 52248,
     "friends_count": 61,
     "listed_count": 108,
     "created_at": "Wed Nov 12 23:52:25 +0000 2014",
@@ -9388,8 +10441,8 @@
         "place": null,
         "contributors": null,
         "is_quote_status": false,
-        "retweet_count": 865,
-        "favorite_count": 5757,
+        "retweet_count": 866,
+        "favorite_count": 5764,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": true,
@@ -9402,7 +10455,7 @@
         }
       },
       "is_quote_status": false,
-      "retweet_count": 865,
+      "retweet_count": 866,
       "favorite_count": 0,
       "favorited": false,
       "retweeted": false,
@@ -9833,9 +10886,9 @@
       }
     },
     "protected": false,
-    "followers_count": 1216,
+    "followers_count": 1215,
     "fast_followers_count": 0,
-    "normal_followers_count": 1216,
+    "normal_followers_count": 1215,
     "friends_count": 1,
     "listed_count": 1,
     "created_at": "Fri Sep 13 09:32:56 +0000 2013",
@@ -9960,73 +11013,198 @@
     "time_zone": null,
     "geo_enabled": false,
     "verified": false,
-    "statuses_count": 13121,
+    "statuses_count": 13122,
     "media_count": 80,
     "lang": null,
     "status": {
-      "created_at": "Fri Nov 17 15:29:06 +0000 2023",
-      "id": 1725536546856853800,
-      "id_str": "1725536546856853761",
-      "text": "RT @BlosserSus28297: 🔥酷同视频‼️\n\n🔥#帅哥专区 ‼️‼️  \n\n🔥 #点击链接观看⬇️ \n\nhttps://t.co/dQcXB5znjC\n\n🔥超级会员六折起～ \n\n🔥全站视频免费看～\n\n https://t.co/2zq0vgh9lI",
+      "created_at": "Fri Nov 17 15:41:49 +0000 2023",
+      "id": 1725539748465590500,
+      "id_str": "1725539748465590464",
+      "text": "RT @wentcos: 【绿帽RPG/汉化/动态】少年勇者肯~调查鬼屋！精翻汉化完结版【新汉化/PC+安卓/900M】\nPC游戏 https://t.co/3Tn1UqQ9sl",
       "truncated": false,
       "entities": {
-        "hashtags": [
-          {
-            "text": "帅哥专区",
-            "indices": [
-              31,
-              36
-            ]
-          },
-          {
-            "text": "点击链接观看",
-            "indices": [
-              47,
-              54
-            ]
-          }
-        ],
+        "hashtags": [],
         "symbols": [],
         "user_mentions": [
           {
-            "screen_name": "BlosserSus28297",
-            "name": "酷同推广号",
-            "id": 1710461036803817500,
-            "id_str": "1710461036803817475",
+            "screen_name": "wentcos",
+            "name": "游戏漫画",
+            "id": 1637462895494824000,
+            "id_str": "1637462895494823936",
             "indices": [
               3,
-              19
+              11
             ]
           }
         ],
-        "urls": [
-          {
-            "url": "https://t.co/dQcXB5znjC",
-            "expanded_url": "https://kt.j2robs.xyz?ch=skn6",
-            "display_url": "kt.j2robs.xyz/?ch=skn6",
-            "indices": [
-              59,
-              82
-            ]
-          }
-        ],
+        "urls": [],
         "media": [
           {
-            "id": 1683806719229689900,
-            "id_str": "1683806719229689856",
+            "id": 1725530879462957000,
+            "id_str": "1725530879462957056",
             "indices": [
-              108,
-              131
+              66,
+              89
             ],
-            "media_url": "http://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-            "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-            "url": "https://t.co/2zq0vgh9lI",
-            "display_url": "pic.twitter.com/2zq0vgh9lI",
-            "expanded_url": "https://twitter.com/ax361962999/status/1683806925451063296/video/1",
+            "media_url": "http://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
             "type": "photo",
             "original_info": {
-              "width": 1280,
-              "height": 720
+              "width": 1024,
+              "height": 766,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 193,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 766
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 672
+                },
+                {
+                  "x": 39,
+                  "y": 0,
+                  "h": 766,
+                  "w": 383
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 1024
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "small": {
+                "w": 680,
+                "h": 509,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1024,
+                "h": 766,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 766,
+                "resize": "fit"
+              }
+            },
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "small": {
+                "faces": [
+                  {
+                    "x": 143,
+                    "y": 67,
+                    "h": 34,
+                    "w": 34
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 216,
+                    "y": 101,
+                    "h": 52,
+                    "w": 52
+                  }
+                ]
+              },
+              "orig": {
+                "faces": [
+                  {
+                    "x": 216,
+                    "y": 101,
+                    "h": 52,
+                    "w": 52
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 216,
+                    "y": 101,
+                    "h": 52,
+                    "w": 52
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": 1725530879454519300,
+            "id_str": "1725530879454519296",
+            "indices": [
+              66,
+              89
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 1024,
+              "height": 766,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 193,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 766
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 672
+                },
+                {
+                  "x": 39,
+                  "y": 0,
+                  "h": 766,
+                  "w": 383
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 1024
+                }
+              ]
             },
             "sizes": {
               "thumb": {
@@ -10035,47 +11213,419 @@
                 "resize": "crop"
               },
               "medium": {
-                "w": 1200,
-                "h": 675,
+                "w": 1024,
+                "h": 766,
                 "resize": "fit"
               },
               "small": {
                 "w": 680,
-                "h": 383,
+                "h": 509,
                 "resize": "fit"
               },
               "large": {
-                "w": 1280,
-                "h": 720,
+                "w": 1024,
+                "h": 766,
                 "resize": "fit"
               }
             },
-            "source_status_id": 1683806925451063300,
-            "source_status_id_str": "1683806925451063296",
-            "source_user_id": 1391797882680856600,
-            "source_user_id_str": "1391797882680856576",
-            "features": {}
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "orig": {
+                "faces": []
+              },
+              "medium": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              },
+              "large": {
+                "faces": []
+              }
+            }
+          },
+          {
+            "id": 1725530879454572500,
+            "id_str": "1725530879454572544",
+            "indices": [
+              66,
+              89
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 1024,
+              "height": 768,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 195,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 768,
+                  "w": 768
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 768,
+                  "w": 674
+                },
+                {
+                  "x": 89,
+                  "y": 0,
+                  "h": 768,
+                  "w": 384
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 768,
+                  "w": 1024
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 1024,
+                "h": 768,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 510,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 768,
+                "resize": "fit"
+              }
+            },
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "large": {
+                "faces": []
+              },
+              "orig": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              },
+              "medium": {
+                "faces": []
+              }
+            }
+          },
+          {
+            "id": 1725530879458672600,
+            "id_str": "1725530879458672640",
+            "indices": [
+              66,
+              89
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 1024,
+              "height": 770,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 151,
+                  "y": 0,
+                  "h": 770,
+                  "w": 770
+                },
+                {
+                  "x": 199,
+                  "y": 0,
+                  "h": 770,
+                  "w": 675
+                },
+                {
+                  "x": 344,
+                  "y": 0,
+                  "h": 770,
+                  "w": 385
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 770,
+                  "w": 1024
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 770,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1024,
+                "h": 770,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 511,
+                "resize": "fit"
+              }
+            },
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "orig": {
+                "faces": [
+                  {
+                    "x": 700,
+                    "y": 422,
+                    "h": 92,
+                    "w": 92
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 700,
+                    "y": 422,
+                    "h": 92,
+                    "w": 92
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 700,
+                    "y": 422,
+                    "h": 92,
+                    "w": 92
+                  }
+                ]
+              },
+              "small": {
+                "faces": [
+                  {
+                    "x": 464,
+                    "y": 280,
+                    "h": 61,
+                    "w": 61
+                  }
+                ]
+              }
+            }
           }
         ]
       },
       "extended_entities": {
         "media": [
           {
-            "id": 1683806719229689900,
-            "id_str": "1683806719229689856",
+            "id": 1725530879462957000,
+            "id_str": "1725530879462957056",
             "indices": [
-              108,
-              131
+              66,
+              89
             ],
-            "media_url": "http://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-            "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-            "url": "https://t.co/2zq0vgh9lI",
-            "display_url": "pic.twitter.com/2zq0vgh9lI",
-            "expanded_url": "https://twitter.com/ax361962999/status/1683806925451063296/video/1",
-            "type": "video",
+            "media_url": "http://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
             "original_info": {
-              "width": 1280,
-              "height": 720
+              "width": 1024,
+              "height": 766,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 193,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 766
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 672
+                },
+                {
+                  "x": 39,
+                  "y": 0,
+                  "h": 766,
+                  "w": 383
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 1024
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "small": {
+                "w": 680,
+                "h": 509,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1024,
+                "h": 766,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 766,
+                "resize": "fit"
+              }
+            },
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "small": {
+                "faces": [
+                  {
+                    "x": 143,
+                    "y": 67,
+                    "h": 34,
+                    "w": 34
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 216,
+                    "y": 101,
+                    "h": 52,
+                    "w": 52
+                  }
+                ]
+              },
+              "orig": {
+                "faces": [
+                  {
+                    "x": 216,
+                    "y": 101,
+                    "h": 52,
+                    "w": 52
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 216,
+                    "y": 101,
+                    "h": 52,
+                    "w": 52
+                  }
+                ]
+              }
+            },
+            "media_key": "3_1725530879462957056"
+          },
+          {
+            "id": 1725530879454519300,
+            "id_str": "1725530879454519296",
+            "indices": [
+              66,
+              89
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 1024,
+              "height": 766,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 193,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 766
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 672
+                },
+                {
+                  "x": 39,
+                  "y": 0,
+                  "h": 766,
+                  "w": 383
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 766,
+                  "w": 1024
+                }
+              ]
             },
             "sizes": {
               "thumb": {
@@ -10084,58 +11634,250 @@
                 "resize": "crop"
               },
               "medium": {
-                "w": 1200,
-                "h": 675,
+                "w": 1024,
+                "h": 766,
                 "resize": "fit"
               },
               "small": {
                 "w": 680,
-                "h": 383,
+                "h": 509,
                 "resize": "fit"
               },
               "large": {
-                "w": 1280,
-                "h": 720,
+                "w": 1024,
+                "h": 766,
                 "resize": "fit"
               }
             },
-            "source_status_id": 1683806925451063300,
-            "source_status_id_str": "1683806925451063296",
-            "source_user_id": 1391797882680856600,
-            "source_user_id_str": "1391797882680856576",
-            "video_info": {
-              "aspect_ratio": [
-                16,
-                9
-              ],
-              "duration_millis": 470087,
-              "variants": [
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "orig": {
+                "faces": []
+              },
+              "medium": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              },
+              "large": {
+                "faces": []
+              }
+            },
+            "media_key": "3_1725530879454519296"
+          },
+          {
+            "id": 1725530879454572500,
+            "id_str": "1725530879454572544",
+            "indices": [
+              66,
+              89
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 1024,
+              "height": 768,
+              "focus_rects": [
                 {
-                  "bitrate": 832000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/amplify_video/1683806719229689856/vid/640x360/dyU3ERSNrwDywkyG.mp4?tag=14"
+                  "x": 0,
+                  "y": 195,
+                  "h": 573,
+                  "w": 1024
                 },
                 {
-                  "bitrate": 288000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/amplify_video/1683806719229689856/vid/480x270/QPSVcfpLNa3RA6ms.mp4?tag=14"
+                  "x": 0,
+                  "y": 0,
+                  "h": 768,
+                  "w": 768
                 },
                 {
-                  "bitrate": 2176000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/amplify_video/1683806719229689856/vid/1280x720/CtALJJ5L43oQtTiH.mp4?tag=14"
+                  "x": 0,
+                  "y": 0,
+                  "h": 768,
+                  "w": 674
                 },
                 {
-                  "content_type": "application/x-mpegURL",
-                  "url": "https://video.twimg.com/amplify_video/1683806719229689856/pl/qPDJ05JTrCxLea10.m3u8?tag=14&container=fmp4"
+                  "x": 89,
+                  "y": 0,
+                  "h": 768,
+                  "w": 384
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 768,
+                  "w": 1024
                 }
               ]
             },
-            "features": {},
-            "media_key": "13_1683806719229689856",
-            "additional_media_info": {
-              "monetizable": false
-            }
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large": {
+                "w": 1024,
+                "h": 768,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 510,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 768,
+                "resize": "fit"
+              }
+            },
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "large": {
+                "faces": []
+              },
+              "orig": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              },
+              "medium": {
+                "faces": []
+              }
+            },
+            "media_key": "3_1725530879454572544"
+          },
+          {
+            "id": 1725530879458672600,
+            "id_str": "1725530879458672640",
+            "indices": [
+              66,
+              89
+            ],
+            "media_url": "http://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+            "url": "https://t.co/3Tn1UqQ9sl",
+            "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+            "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+            "type": "photo",
+            "original_info": {
+              "width": 1024,
+              "height": 770,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 573,
+                  "w": 1024
+                },
+                {
+                  "x": 151,
+                  "y": 0,
+                  "h": 770,
+                  "w": 770
+                },
+                {
+                  "x": 199,
+                  "y": 0,
+                  "h": 770,
+                  "w": 675
+                },
+                {
+                  "x": 344,
+                  "y": 0,
+                  "h": 770,
+                  "w": 385
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 770,
+                  "w": 1024
+                }
+              ]
+            },
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 1024,
+                "h": 770,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1024,
+                "h": 770,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 511,
+                "resize": "fit"
+              }
+            },
+            "source_status_id": 1725530894054879500,
+            "source_status_id_str": "1725530894054879385",
+            "source_user_id": 1637462895494824000,
+            "source_user_id_str": "1637462895494823936",
+            "features": {
+              "orig": {
+                "faces": [
+                  {
+                    "x": 700,
+                    "y": 422,
+                    "h": 92,
+                    "w": 92
+                  }
+                ]
+              },
+              "medium": {
+                "faces": [
+                  {
+                    "x": 700,
+                    "y": 422,
+                    "h": 92,
+                    "w": 92
+                  }
+                ]
+              },
+              "large": {
+                "faces": [
+                  {
+                    "x": 700,
+                    "y": 422,
+                    "h": 92,
+                    "w": 92
+                  }
+                ]
+              },
+              "small": {
+                "faces": [
+                  {
+                    "x": 464,
+                    "y": 280,
+                    "h": 61,
+                    "w": 61
+                  }
+                ]
+              }
+            },
+            "media_key": "3_1725530879458672640"
           }
         ]
       },
@@ -10150,58 +11892,179 @@
       "place": null,
       "contributors": null,
       "retweeted_status": {
-        "created_at": "Fri Nov 17 13:44:32 +0000 2023",
-        "id": 1725510232233980200,
-        "id_str": "1725510232233980096",
-        "text": "🔥酷同视频‼️\n\n🔥#帅哥专区 ‼️‼️  \n\n🔥 #点击链接观看⬇️ \n\nhttps://t.co/dQcXB5znjC\n\n🔥超级会员六折起～ \n\n🔥全站视频免费看～\n\n https://t.co/2zq0vgh9lI",
+        "created_at": "Fri Nov 17 15:06:38 +0000 2023",
+        "id": 1725530894054879500,
+        "id_str": "1725530894054879385",
+        "text": "【绿帽RPG/汉化/动态】少年勇者肯~调查鬼屋！精翻汉化完结版【新汉化/PC+安卓/900M】\nPC游戏 https://t.co/3Tn1UqQ9sl",
         "truncated": false,
         "entities": {
-          "hashtags": [
-            {
-              "text": "帅哥专区",
-              "indices": [
-                10,
-                15
-              ]
-            },
-            {
-              "text": "点击链接观看",
-              "indices": [
-                26,
-                33
-              ]
-            }
-          ],
+          "hashtags": [],
           "symbols": [],
           "user_mentions": [],
-          "urls": [
-            {
-              "url": "https://t.co/dQcXB5znjC",
-              "expanded_url": "https://kt.j2robs.xyz?ch=skn6",
-              "display_url": "kt.j2robs.xyz/?ch=skn6",
-              "indices": [
-                38,
-                61
-              ]
-            }
-          ],
+          "urls": [],
           "media": [
             {
-              "id": 1683806719229689900,
-              "id_str": "1683806719229689856",
+              "id": 1725530879462957000,
+              "id_str": "1725530879462957056",
               "indices": [
-                87,
-                110
+                53,
+                76
               ],
-              "media_url": "http://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-              "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-              "url": "https://t.co/2zq0vgh9lI",
-              "display_url": "pic.twitter.com/2zq0vgh9lI",
-              "expanded_url": "https://twitter.com/ax361962999/status/1683806925451063296/video/1",
+              "media_url": "http://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
               "type": "photo",
               "original_info": {
-                "width": 1280,
-                "height": 720
+                "width": 1024,
+                "height": 766,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 193,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 766
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 672
+                  },
+                  {
+                    "x": 39,
+                    "y": 0,
+                    "h": 766,
+                    "w": 383
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 1024
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "small": {
+                  "w": 680,
+                  "h": 509,
+                  "resize": "fit"
+                },
+                "large": {
+                  "w": 1024,
+                  "h": 766,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 1024,
+                  "h": 766,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "small": {
+                  "faces": [
+                    {
+                      "x": 143,
+                      "y": 67,
+                      "h": 34,
+                      "w": 34
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": [
+                    {
+                      "x": 216,
+                      "y": 101,
+                      "h": 52,
+                      "w": 52
+                    }
+                  ]
+                },
+                "orig": {
+                  "faces": [
+                    {
+                      "x": 216,
+                      "y": 101,
+                      "h": 52,
+                      "w": 52
+                    }
+                  ]
+                },
+                "medium": {
+                  "faces": [
+                    {
+                      "x": 216,
+                      "y": 101,
+                      "h": 52,
+                      "w": 52
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": 1725530879454519300,
+              "id_str": "1725530879454519296",
+              "indices": [
+                53,
+                76
+              ],
+              "media_url": "http://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1024,
+                "height": 766,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 193,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 766
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 672
+                  },
+                  {
+                    "x": 39,
+                    "y": 0,
+                    "h": 766,
+                    "w": 383
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 1024
+                  }
+                ]
               },
               "sizes": {
                 "thumb": {
@@ -10210,47 +12073,403 @@
                   "resize": "crop"
                 },
                 "medium": {
-                  "w": 1200,
-                  "h": 675,
+                  "w": 1024,
+                  "h": 766,
                   "resize": "fit"
                 },
                 "small": {
                   "w": 680,
-                  "h": 383,
+                  "h": 509,
                   "resize": "fit"
                 },
                 "large": {
-                  "w": 1280,
-                  "h": 720,
+                  "w": 1024,
+                  "h": 766,
                   "resize": "fit"
                 }
               },
-              "source_status_id": 1683806925451063300,
-              "source_status_id_str": "1683806925451063296",
-              "source_user_id": 1391797882680856600,
-              "source_user_id_str": "1391797882680856576",
-              "features": {}
+              "features": {
+                "orig": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "large": {
+                  "faces": []
+                }
+              }
+            },
+            {
+              "id": 1725530879454572500,
+              "id_str": "1725530879454572544",
+              "indices": [
+                53,
+                76
+              ],
+              "media_url": "http://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1024,
+                "height": 768,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 195,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 768,
+                    "w": 768
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 768,
+                    "w": 674
+                  },
+                  {
+                    "x": 89,
+                    "y": 0,
+                    "h": 768,
+                    "w": 384
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 768,
+                    "w": 1024
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 1024,
+                  "h": 768,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 680,
+                  "h": 510,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 1024,
+                  "h": 768,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                }
+              }
+            },
+            {
+              "id": 1725530879458672600,
+              "id_str": "1725530879458672640",
+              "indices": [
+                53,
+                76
+              ],
+              "media_url": "http://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1024,
+                "height": 770,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 151,
+                    "y": 0,
+                    "h": 770,
+                    "w": 770
+                  },
+                  {
+                    "x": 199,
+                    "y": 0,
+                    "h": 770,
+                    "w": 675
+                  },
+                  {
+                    "x": 344,
+                    "y": 0,
+                    "h": 770,
+                    "w": 385
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 770,
+                    "w": 1024
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "medium": {
+                  "w": 1024,
+                  "h": 770,
+                  "resize": "fit"
+                },
+                "large": {
+                  "w": 1024,
+                  "h": 770,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 680,
+                  "h": 511,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "orig": {
+                  "faces": [
+                    {
+                      "x": 700,
+                      "y": 422,
+                      "h": 92,
+                      "w": 92
+                    }
+                  ]
+                },
+                "medium": {
+                  "faces": [
+                    {
+                      "x": 700,
+                      "y": 422,
+                      "h": 92,
+                      "w": 92
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": [
+                    {
+                      "x": 700,
+                      "y": 422,
+                      "h": 92,
+                      "w": 92
+                    }
+                  ]
+                },
+                "small": {
+                  "faces": [
+                    {
+                      "x": 464,
+                      "y": 280,
+                      "h": 61,
+                      "w": 61
+                    }
+                  ]
+                }
+              }
             }
           ]
         },
         "extended_entities": {
           "media": [
             {
-              "id": 1683806719229689900,
-              "id_str": "1683806719229689856",
+              "id": 1725530879462957000,
+              "id_str": "1725530879462957056",
               "indices": [
-                87,
-                110
+                53,
+                76
               ],
-              "media_url": "http://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-              "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/1683806719229689856/img/Q_FcYpfsxVlR6ob0.jpg",
-              "url": "https://t.co/2zq0vgh9lI",
-              "display_url": "pic.twitter.com/2zq0vgh9lI",
-              "expanded_url": "https://twitter.com/ax361962999/status/1683806925451063296/video/1",
-              "type": "video",
+              "media_url": "http://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU9bYAAYHlK.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
               "original_info": {
-                "width": 1280,
-                "height": 720
+                "width": 1024,
+                "height": 766,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 193,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 766
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 672
+                  },
+                  {
+                    "x": 39,
+                    "y": 0,
+                    "h": 766,
+                    "w": 383
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 1024
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "small": {
+                  "w": 680,
+                  "h": 509,
+                  "resize": "fit"
+                },
+                "large": {
+                  "w": 1024,
+                  "h": 766,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 1024,
+                  "h": 766,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "small": {
+                  "faces": [
+                    {
+                      "x": 143,
+                      "y": 67,
+                      "h": 34,
+                      "w": 34
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": [
+                    {
+                      "x": 216,
+                      "y": 101,
+                      "h": 52,
+                      "w": 52
+                    }
+                  ]
+                },
+                "orig": {
+                  "faces": [
+                    {
+                      "x": 216,
+                      "y": 101,
+                      "h": 52,
+                      "w": 52
+                    }
+                  ]
+                },
+                "medium": {
+                  "faces": [
+                    {
+                      "x": 216,
+                      "y": 101,
+                      "h": 52,
+                      "w": 52
+                    }
+                  ]
+                }
+              },
+              "media_key": "3_1725530879462957056"
+            },
+            {
+              "id": 1725530879454519300,
+              "id_str": "1725530879454519296",
+              "indices": [
+                53,
+                76
+              ],
+              "media_url": "http://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU7aoAANKs3.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1024,
+                "height": 766,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 193,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 766
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 672
+                  },
+                  {
+                    "x": 39,
+                    "y": 0,
+                    "h": 766,
+                    "w": 383
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 766,
+                    "w": 1024
+                  }
+                ]
               },
               "sizes": {
                 "thumb": {
@@ -10259,58 +12478,238 @@
                   "resize": "crop"
                 },
                 "medium": {
-                  "w": 1200,
-                  "h": 675,
+                  "w": 1024,
+                  "h": 766,
                   "resize": "fit"
                 },
                 "small": {
                   "w": 680,
-                  "h": 383,
+                  "h": 509,
                   "resize": "fit"
                 },
                 "large": {
-                  "w": 1280,
-                  "h": 720,
+                  "w": 1024,
+                  "h": 766,
                   "resize": "fit"
                 }
               },
-              "source_status_id": 1683806925451063300,
-              "source_status_id_str": "1683806925451063296",
-              "source_user_id": 1391797882680856600,
-              "source_user_id_str": "1391797882680856576",
-              "video_info": {
-                "aspect_ratio": [
-                  16,
-                  9
-                ],
-                "duration_millis": 470087,
-                "variants": [
+              "features": {
+                "orig": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "large": {
+                  "faces": []
+                }
+              },
+              "media_key": "3_1725530879454519296"
+            },
+            {
+              "id": 1725530879454572500,
+              "id_str": "1725530879454572544",
+              "indices": [
+                53,
+                76
+              ],
+              "media_url": "http://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU7bcAA4Wt2.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1024,
+                "height": 768,
+                "focus_rects": [
                   {
-                    "bitrate": 832000,
-                    "content_type": "video/mp4",
-                    "url": "https://video.twimg.com/amplify_video/1683806719229689856/vid/640x360/dyU3ERSNrwDywkyG.mp4?tag=14"
+                    "x": 0,
+                    "y": 195,
+                    "h": 573,
+                    "w": 1024
                   },
                   {
-                    "bitrate": 288000,
-                    "content_type": "video/mp4",
-                    "url": "https://video.twimg.com/amplify_video/1683806719229689856/vid/480x270/QPSVcfpLNa3RA6ms.mp4?tag=14"
+                    "x": 0,
+                    "y": 0,
+                    "h": 768,
+                    "w": 768
                   },
                   {
-                    "bitrate": 2176000,
-                    "content_type": "video/mp4",
-                    "url": "https://video.twimg.com/amplify_video/1683806719229689856/vid/1280x720/CtALJJ5L43oQtTiH.mp4?tag=14"
+                    "x": 0,
+                    "y": 0,
+                    "h": 768,
+                    "w": 674
                   },
                   {
-                    "content_type": "application/x-mpegURL",
-                    "url": "https://video.twimg.com/amplify_video/1683806719229689856/pl/qPDJ05JTrCxLea10.m3u8?tag=14&container=fmp4"
+                    "x": 89,
+                    "y": 0,
+                    "h": 768,
+                    "w": 384
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 768,
+                    "w": 1024
                   }
                 ]
               },
-              "features": {},
-              "media_key": "13_1683806719229689856",
-              "additional_media_info": {
-                "monetizable": false
-              }
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 1024,
+                  "h": 768,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 680,
+                  "h": 510,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 1024,
+                  "h": 768,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                }
+              },
+              "media_key": "3_1725530879454572544"
+            },
+            {
+              "id": 1725530879458672600,
+              "id_str": "1725530879458672640",
+              "indices": [
+                53,
+                76
+              ],
+              "media_url": "http://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/F_JRMU8aAAAoAt8.jpg",
+              "url": "https://t.co/3Tn1UqQ9sl",
+              "display_url": "pic.twitter.com/3Tn1UqQ9sl",
+              "expanded_url": "https://twitter.com/wentcos/status/1725530894054879385/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1024,
+                "height": 770,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 573,
+                    "w": 1024
+                  },
+                  {
+                    "x": 151,
+                    "y": 0,
+                    "h": 770,
+                    "w": 770
+                  },
+                  {
+                    "x": 199,
+                    "y": 0,
+                    "h": 770,
+                    "w": 675
+                  },
+                  {
+                    "x": 344,
+                    "y": 0,
+                    "h": 770,
+                    "w": 385
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 770,
+                    "w": 1024
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "medium": {
+                  "w": 1024,
+                  "h": 770,
+                  "resize": "fit"
+                },
+                "large": {
+                  "w": 1024,
+                  "h": 770,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 680,
+                  "h": 511,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "orig": {
+                  "faces": [
+                    {
+                      "x": 700,
+                      "y": 422,
+                      "h": 92,
+                      "w": 92
+                    }
+                  ]
+                },
+                "medium": {
+                  "faces": [
+                    {
+                      "x": 700,
+                      "y": 422,
+                      "h": 92,
+                      "w": 92
+                    }
+                  ]
+                },
+                "large": {
+                  "faces": [
+                    {
+                      "x": 700,
+                      "y": 422,
+                      "h": 92,
+                      "w": 92
+                    }
+                  ]
+                },
+                "small": {
+                  "faces": [
+                    {
+                      "x": 464,
+                      "y": 280,
+                      "h": 61,
+                      "w": 61
+                    }
+                  ]
+                }
+              },
+              "media_key": "3_1725530879458672640"
             }
           ]
         },
@@ -10325,8 +12724,8 @@
         "place": null,
         "contributors": null,
         "is_quote_status": false,
-        "retweet_count": 138,
-        "favorite_count": 140,
+        "retweet_count": 55,
+        "favorite_count": 2,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": true,
@@ -10335,7 +12734,7 @@
         "supplemental_language": null
       },
       "is_quote_status": false,
-      "retweet_count": 138,
+      "retweet_count": 55,
       "favorite_count": 0,
       "favorited": false,
       "retweeted": false,
@@ -11082,9 +13481,9 @@
       }
     },
     "protected": false,
-    "followers_count": 28024,
+    "followers_count": 28134,
     "fast_followers_count": 0,
-    "normal_followers_count": 28024,
+    "normal_followers_count": 28134,
     "friends_count": 57,
     "listed_count": 91,
     "created_at": "Tue Mar 01 13:37:40 +0000 2011",
