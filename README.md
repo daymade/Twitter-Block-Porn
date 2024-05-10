@@ -1,6 +1,6 @@
 <div align="center">
    <a href="https://trendshift.io/repositories/1501" target="_blank">
-      <img src="https://trendshift.io/api/badge/repositories/1501" alt="daymade%2FTwitter-Block-Porn | Trendshift" style="height: 25px;"/>
+      <img src="https://trendshift.io/api/badge/repositories/1501" alt="daymade%2FTwitter-Block-Porn | Trendshift" style="height: 35px;"/>
    </a>
 </div>
 
