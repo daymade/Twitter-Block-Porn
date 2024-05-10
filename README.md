@@ -4,12 +4,6 @@
    </a>
 </div>
 
-<div align="center">
-
-[![][github-trending-shield]][github-trending-url]
-
-</div>
-
 ## Twitter-Block-Porn
 
 受不了评论区黄推了? 打开[共享黑名单](https://twitter.com/i/lists/1677334530754248706)，用 [Twitter-Block-Porn](https://greasyfork.org/zh-CN/scripts/470359-twitter-block-porn) 插件一键批量拉黑黄推，手机上也能生效，普通人拉黑受益的是自己，大V拉黑受益的是所有人。
@@ -176,7 +170,3 @@
                     ..\@***.....                                                .. ...../@^.       
                                                                                                    
                                                                                                    </pre>
-
-<!-- LINK GROUP -->
-
-[github-trending-shield]: https://trendshift.io/api/badge/repositories/1501
