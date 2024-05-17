@@ -20,9 +20,13 @@
 // @grant       GM_getValue
 // @grant       GM_log
 // @grant       GM_xmlhttpRequest
+// @match       https://x.com/*
+// @match       https://mobile.x.com/*
+// @match       https://tweetdeck.x.com/*
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
+// @exclude     https://x.com/account/*
 // @exclude     https://twitter.com/account/*
 // @connect     raw.githubusercontent.com
 // @require     https://cdn.jsdelivr.net/npm/axios@0.25.0/dist/axios.min.js
@@ -31,104 +35,159 @@
 // ==/UserScript==
 
 /* global axios $ Qs */
-const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
-  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list1 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ①...",
+  function () {
+    const url = "https://x.com/i/lists/1677334530754248706/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_list2 = GM_registerMenuCommand('🔗 打开共享黑名单 ②...', function () {
-  const url = 'https://twitter.com/i/lists/1683810394287079426/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list2 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ②...",
+  function () {
+    const url = "https://x.com/i/lists/1683810394287079426/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_list3 = GM_registerMenuCommand('🔗 打开共享黑名单 ③...', function () {
-  const url = 'https://twitter.com/i/lists/1699049983159259593/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list3 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ③...",
+  function () {
+    const url = "https://x.com/i/lists/1699049983159259593/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_list4 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑤...', function () {
-  const url = 'https://twitter.com/i/lists/1702721627287371907/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list4 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ⑤...",
+  function () {
+    const url = "https://x.com/i/lists/1702721627287371907/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_list5 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑥...', function () {
-  const url = 'https://twitter.com/i/lists/1704104182913843610/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list5 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ⑥...",
+  function () {
+    const url = "https://x.com/i/lists/1704104182913843610/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_list6 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑦...', function () {
-  const url = 'https://twitter.com/i/lists/1696907125090586845/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list6 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ⑦...",
+  function () {
+    const url = "https://x.com/i/lists/1696907125090586845/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_list7 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑧...', function () {
-  const url = 'https://twitter.com/i/lists/1770809941151896014/members'
-  GM_openInTab(url, {active: true})
-}, '');
+const menu_command_list7 = GM_registerMenuCommand(
+  "🔗 打开共享黑名单 ⑧...",
+  function () {
+    const url = "https://x.com/i/lists/1770809941151896014/members";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
 
-const menu_command_special_list = GM_registerMenuCommand('🚫 拉黑加急名单', function () {
-  if (window.confirm("加急名单里有一些爱主动拉黑人的诈骗犯，要一键屏蔽吗？")) {
-    block_special_list()
-  } else {
-    GM_log('user cancelled block special scammers')
+const menu_command_special_list = GM_registerMenuCommand(
+  "🚫 拉黑加急名单",
+  function () {
+    if (
+      window.confirm("加急名单里有一些爱主动拉黑人的诈骗犯，要一键屏蔽吗？")
+    ) {
+      block_special_list();
+    } else {
+      GM_log("user cancelled block special scammers");
+    }
+  },
+  ""
+);
+
+const menu_command_all_list = GM_registerMenuCommand(
+  "🔗 查看全部名单（举报前请先搜索）...",
+  function () {
+    const url =
+      "https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/lists/all.json";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
+
+const menu_command_report = GM_registerMenuCommand(
+  "🔗 我要举报...",
+  function () {
+    const url = "https://github.com/daymade/Twitter-Block-Porn/issues";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
+
+const menu_command_sponsor = GM_registerMenuCommand(
+  "🥤 请我喝蜜雪冰城...",
+  function () {
+    const url = "https://buymeacoffee.com/finetuning";
+    GM_openInTab(url, { active: true });
+  },
+  ""
+);
+
+const ChangeLogo = GM_getValue("change_logo", true);
+GM_registerMenuCommand(
+  `${
+    ChangeLogo
+      ? "✅ 已将 Logo 还原为小蓝鸟, 点击可使用 \uD835\uDD4F"
+      : "🐤 点击唤回小蓝鸟"
+  }`,
+  function () {
+    GM_setValue("change_logo", !ChangeLogo);
+    location.reload();
   }
-}, '');
+);
 
-const menu_command_all_list = GM_registerMenuCommand('🔗 查看全部名单（举报前请先搜索）...', function () {
-  const url = 'https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/lists/all.json'
-  GM_openInTab(url, {active: true})
-}, '');
-
-const menu_command_report = GM_registerMenuCommand('🔗 我要举报...', function () {
-  const url = 'https://github.com/daymade/Twitter-Block-Porn/issues'
-  GM_openInTab(url, {active: true})
-}, '');
-
-const menu_command_sponsor = GM_registerMenuCommand('🥤 请我喝蜜雪冰城...', function () {
-  const url = 'https://buymeacoffee.com/finetuning'
-  GM_openInTab(url, {active: true})
-}, '');
-
-const ChangeLogo = GM_getValue('change_logo', true)
-GM_registerMenuCommand(`${ChangeLogo?'✅ 已将 Logo 还原为小蓝鸟, 点击可使用 \uD835\uDD4F':'🐤 点击唤回小蓝鸟'}`, function () {
-  GM_setValue('change_logo', !ChangeLogo)
-  location.reload()
-});
-
-function get_cookie (cname) {
-  const name = cname + '='
-  const ca = document.cookie.split(';')
+function get_cookie(cname) {
+  const name = cname + "=";
+  const ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; ++i) {
-    const c = ca[i].trim()
+    const c = ca[i].trim();
     if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length)
+      return c.substring(name.length, c.length);
     }
   }
-  return ''
+  return "";
 }
 
 // all apis send to twitter must use this client with cookie
 const apiClient = axios.create({
-  baseURL: 'https://api.twitter.com',
+  baseURL: "https://api.twitter.com",
   withCredentials: true,
   headers: {
-    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    'X-Twitter-Auth-Type': 'OAuth2Session',
-    'X-Twitter-Active-User': 'yes',
-    'X-Csrf-Token': get_cookie('ct0')
-  }
-})
+    Authorization:
+      "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA",
+    "X-Twitter-Auth-Type": "OAuth2Session",
+    "X-Twitter-Active-User": "yes",
+    "X-Csrf-Token": get_cookie("ct0"),
+  },
+});
 
-// extract list id in url 
-function parseListId (url) {
+// extract list id in url
+function parseListId(url) {
   // https://twitter.com/any/thing/lists/1234567/anything => 1234567/anything => 1234567
-  return url.split('lists/')[1].split('/')[0]
+  return url.split("lists/")[1].split("/")[0];
 }
 
 async function fetch_list_members_id(listId) {
-  let users = await fetch_list_members_info(listId)
-  
-  return users.map(u => u.id_str);
+  let users = await fetch_list_members_info(listId);
+
+  return users.map((u) => u.id_str);
 }
 
 async function fetch_list_members_info(listId) {
@@ -139,98 +198,109 @@ async function fetch_list_members_info(listId) {
 
 async function fetchRemoteList(listId) {
   return new Promise((resolve, reject) => {
-      GM_xmlhttpRequest({
-          method: "GET",
-          url: `https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/lists/${listId}.json`,
-          onload: function(response) {
-              if (response.status === 200) {
-                  resolve(JSON.parse(response.responseText));
-              } else {
-                  console.warn(`Remote list for listId ${listId} not found.`);
-                  resolve([]);
-              }
-          },
-          onerror: function() {
-              console.warn(`Error fetching remote list for listId ${listId}.`);
-              resolve([]);
-          }
-      });
+    GM_xmlhttpRequest({
+      method: "GET",
+      url: `https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/lists/${listId}.json`,
+      onload: function (response) {
+        if (response.status === 200) {
+          resolve(JSON.parse(response.responseText));
+        } else {
+          console.warn(`Remote list for listId ${listId} not found.`);
+          resolve([]);
+        }
+      },
+      onerror: function () {
+        console.warn(`Error fetching remote list for listId ${listId}.`);
+        resolve([]);
+      },
+    });
   });
 }
 
 async function fetchTwitterListMembers(listId) {
   let cursor = -1;
   let allMembers = [];
-  
+
   while (cursor && cursor !== 0) {
     // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/create-manage-lists/api-reference/get-lists-members
     // https://api.twitter.com/1.1/lists/members.json
     // Endpoint	| Requests per user	| Requests per app
     // GET lists/members | 900/15min | 75/15min
-    let response = await apiClient.get(`/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`);
+    let response = await apiClient.get(
+      `/1.1/lists/members.json?list_id=${listId}&cursor=${cursor}`
+    );
     if (!response.data.users) {
-      GM_log(`fetchTwitterListMembers errors: ${JSON.stringify(response.data)}`)
+      GM_log(
+        `fetchTwitterListMembers errors: ${JSON.stringify(response.data)}`
+      );
       return allMembers;
     }
     let users = response.data.users;
     allMembers = allMembers.concat(users);
     cursor = response.data.next_cursor;
   }
-  
+
   return allMembers;
 }
 
 async function fetchAndMergeLists(listId) {
   let [remoteList, twitterList] = await Promise.all([
     fetchRemoteList(listId),
-    fetchTwitterListMembers(listId)
-  ]).catch(err => {
-    console.error('Promise.all error:', err)
+    fetchTwitterListMembers(listId),
+  ]).catch((err) => {
+    console.error("Promise.all error:", err);
   });
 
   // Merge lists. Ensure uniqueness by 'id_str'.
   let merged = [...twitterList, ...remoteList];
-  let uniqueMembers = Array.from(new Map(merged.map(item => [item["id_str"], item])).values());
-  
+  let uniqueMembers = Array.from(
+    new Map(merged.map((item) => [item["id_str"], item])).values()
+  );
+
   return uniqueMembers;
 }
 
-async function block_user (id, listId) {
+async function block_user(id, listId) {
   try {
     // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create
     // https://api.twitter.com/1.1/blocks/create.json
     // Endpoint	| Requests per user	| Requests per app
     // not mentioned in doc!!
-    await apiClient.post('/1.1/blocks/create.json', Qs.stringify({
-      user_id: id
-    }), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+    await apiClient.post(
+      "/1.1/blocks/create.json",
+      Qs.stringify({
+        user_id: id,
+      }),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       }
-    });
-    
+    );
+
     // Update blocked IDs list in GM storage
-    let blocked = GM_getValue('blockedIds', {});
+    let blocked = GM_getValue("blockedIds", {});
     if (!blocked[listId]) {
       blocked[listId] = [];
     }
     blocked[listId].push(id);
-    GM_setValue('blockedIds', blocked);
+    GM_setValue("blockedIds", blocked);
   } catch (err) {
     // Handle errors as needed
   }
 }
 
+async function block_by_ids(member_ids, listId) {
+  let blocked = GM_getValue("blockedIds", {});
+  GM_log(`blockedIds: ${JSON.stringify(blocked)}`);
 
-async function block_by_ids (member_ids, listId) {
-  let blocked = GM_getValue('blockedIds', {});
-  GM_log(`blockedIds: ${JSON.stringify(blocked)}`)
-
-  let toBlock = member_ids.filter(id => !blocked[listId] || !blocked[listId].includes(id));
+  let toBlock = member_ids.filter(
+    (id) => !blocked[listId] || !blocked[listId].includes(id)
+  );
 
   const ids = [...new Set(toBlock)];
 
-  GM_log(`block_by_ids: ${ids.length} users, detail: ${ids}`)
+  GM_log(`block_by_ids: ${ids.length} users, detail: ${ids}`);
 
   // Number of requests per batch
   const batchSize = 10;
@@ -241,40 +311,42 @@ async function block_by_ids (member_ids, listId) {
 
   for (let i = 0; i < Math.ceil(ids.length / batchSize); i++) {
     const batch = ids.slice(i * batchSize, (i + 1) * batchSize);
-    const results = await Promise.allSettled(batch.map(id => block_user(id, listId)));
+    const results = await Promise.allSettled(
+      batch.map((id) => block_user(id, listId))
+    );
 
     for (const [index, result] of results.entries()) {
-      if (result.status === 'rejected') {
+      if (result.status === "rejected") {
         // Keep track of failed IDs
         failedIds.push(batch[index]);
       }
     }
 
     if (i < Math.ceil(ids.length / batchSize) - 1) {
-      await new Promise(resolve => setTimeout(resolve, delay));
+      await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
 
   if (failedIds.length > 0) {
-    GM_log(`Failed to block these IDs: ${failedIds.join(', ')}`)
+    GM_log(`Failed to block these IDs: ${failedIds.join(", ")}`);
   }
 }
 
-async function block_list_test_members () {
-  const listId = parseListId(location.href)
-  const members = await fetch_list_members_id(listId)
+async function block_list_test_members() {
+  const listId = parseListId(location.href);
+  const members = await fetch_list_members_id(listId);
 
-  block_by_ids(members.slice(0, 10), listId)
+  block_by_ids(members.slice(0, 10), listId);
 }
 
-async function block_list_members () {
-  const listId = parseListId(location.href)
-  const members = await fetch_list_members_id(listId)
+async function block_list_members() {
+  const listId = parseListId(location.href);
+  const members = await fetch_list_members_id(listId);
 
-  block_by_ids(members, listId)
+  block_by_ids(members, listId);
 }
 
-async function block_special_list () {
+async function block_special_list() {
   // 加急名单: 特别活跃/拉黑我/来挑衅的黄推
   const special_scammers = [
     "1626262000547377153",
@@ -387,22 +459,24 @@ async function block_special_list () {
     "1673189721445629953",
     "249563694",
     "1412358780872921093",
-    "1688885999265361920"
-  ]
+    "1688885999265361920",
+  ];
 
   // `block` is a reserved listId for those sacmmers who has blocked me
   // see block.json in `lists` folder
-  let blockedIds = await fetchRemoteList("block")
+  let blockedIds = await fetchRemoteList("block");
 
-  block_by_ids(special_scammers.concat(blockedIds), "block")
+  block_by_ids(special_scammers.concat(blockedIds), "block");
 }
 
-async function export_list_members () {
+async function export_list_members() {
   const listId = parseListId(location.href);
   const members = await fetchTwitterListMembers(listId);
 
   // 创建一个 Blob 实例，包含 JSON 字符串的成员信息
-  const blob = new Blob([JSON.stringify(members, null, 2)], {type : 'application/json'});
+  const blob = new Blob([JSON.stringify(members, null, 2)], {
+    type: "application/json",
+  });
 
   // 创建一个下载链接并点击它来下载文件
   const link = document.createElement("a");
@@ -411,7 +485,7 @@ async function export_list_members () {
   link.click();
 }
 
-(_ => {
+((_) => {
   /* Begin of Dependencies */
   /* eslint-disable */
 
@@ -433,254 +507,265 @@ async function export_list_members () {
 
       IMPORTANT: This function requires your script to have loaded jQuery.
   */
-  function waitForKeyElements (
-      selectorTxt,    /* Required: The jQuery selector string that
+  function waitForKeyElements(
+    selectorTxt /* Required: The jQuery selector string that
                           specifies the desired element(s).
-                      */
-      actionFunction, /* Required: The code to run when elements are
+                      */,
+    actionFunction /* Required: The code to run when elements are
                           found. It is passed a jNode to the matched
                           element.
-                      */
-      bWaitOnce,      /* Optional: If false, will continue to scan for
+                      */,
+    bWaitOnce /* Optional: If false, will continue to scan for
                           new elements even after the first match is
                           found.
-                      */
-      iframeSelector  /* Optional: If set, identifies the iframe to
+                      */,
+    iframeSelector /* Optional: If set, identifies the iframe to
                           search.
                       */
   ) {
-      var targetNodes, btargetsFound;
+    var targetNodes, btargetsFound;
 
-      if (typeof iframeSelector == "undefined")
-          targetNodes     = $(selectorTxt);
-      else
-          targetNodes     = $(iframeSelector).contents ()
-                                            .find (selectorTxt);
+    if (typeof iframeSelector == "undefined") targetNodes = $(selectorTxt);
+    else targetNodes = $(iframeSelector).contents().find(selectorTxt);
 
-      if (targetNodes  &&  targetNodes.length > 0) {
-          btargetsFound   = true;
-          /*--- Found target node(s).  Go through each and act if they
+    if (targetNodes && targetNodes.length > 0) {
+      btargetsFound = true;
+      /*--- Found target node(s).  Go through each and act if they
               are new.
           */
-          targetNodes.each ( function () {
-              var jThis        = $(this);
-              var alreadyFound = jThis.data ('alreadyFound')  ||  false;
+      targetNodes.each(function () {
+        var jThis = $(this);
+        var alreadyFound = jThis.data("alreadyFound") || false;
 
-              if (!alreadyFound) {
-                  //--- Call the payload function.
-                  var cancelFound     = actionFunction (jThis);
-                  if (cancelFound)
-                      btargetsFound   = false;
-                  else
-                      jThis.data ('alreadyFound', true);
-              }
-          } );
-      }
-      else {
-          btargetsFound   = false;
-      }
+        if (!alreadyFound) {
+          //--- Call the payload function.
+          var cancelFound = actionFunction(jThis);
+          if (cancelFound) btargetsFound = false;
+          else jThis.data("alreadyFound", true);
+        }
+      });
+    } else {
+      btargetsFound = false;
+    }
 
-      //--- Get the timer-control variable for this selector.
-      var controlObj      = waitForKeyElements.controlObj  ||  {};
-      var controlKey      = selectorTxt.replace (/[^\w]/g, "_");
-      var timeControl     = controlObj [controlKey];
+    //--- Get the timer-control variable for this selector.
+    var controlObj = waitForKeyElements.controlObj || {};
+    var controlKey = selectorTxt.replace(/[^\w]/g, "_");
+    var timeControl = controlObj[controlKey];
 
-      //--- Now set or clear the timer as appropriate.
-      if (btargetsFound  &&  bWaitOnce  &&  timeControl) {
-          //--- The only condition where we need to clear the timer.
-          clearInterval (timeControl);
-          delete controlObj [controlKey]
+    //--- Now set or clear the timer as appropriate.
+    if (btargetsFound && bWaitOnce && timeControl) {
+      //--- The only condition where we need to clear the timer.
+      clearInterval(timeControl);
+      delete controlObj[controlKey];
+    } else {
+      //--- Set a timer, if needed.
+      if (!timeControl) {
+        timeControl = setInterval(function () {
+          waitForKeyElements(
+            selectorTxt,
+            actionFunction,
+            bWaitOnce,
+            iframeSelector
+          );
+        }, 300);
+        controlObj[controlKey] = timeControl;
       }
-      else {
-          //--- Set a timer, if needed.
-          if ( ! timeControl) {
-              timeControl = setInterval ( function () {
-                      waitForKeyElements (    selectorTxt,
-                                              actionFunction,
-                                              bWaitOnce,
-                                              iframeSelector
-                                          );
-                  },
-                  300
-              );
-              controlObj [controlKey] = timeControl;
-          }
-      }
-      waitForKeyElements.controlObj   = controlObj;
+    }
+    waitForKeyElements.controlObj = controlObj;
   }
   /* eslint-enable */
   /* End of Dependencies */
 
-  let lang = document.documentElement.lang
-  if (lang == 'en-US') {
-    lang = 'en' // TweetDeck
+  let lang = document.documentElement.lang;
+  if (lang == "en-US") {
+    lang = "en"; // TweetDeck
   }
-  if (lang == 'zh-CN') {
-    lang = 'zh'
+  if (lang == "zh-CN") {
+    lang = "zh";
   }
-  
+
   const translations = {
     en: {
-      lang_name: 'English',
-      block_btn: 'Block all Scammers',
-      block_test_btn: 'Test block top 10 Scammers',
-      block_success: 'All scammers blocked!',
-      block_test_success: 'Top 10 scammers test blocked successfully!',
-      export_btn: 'Export',
-      export_success: 'Export successful!',
+      lang_name: "English",
+      block_btn: "Block all Scammers",
+      block_test_btn: "Test block top 10 Scammers",
+      block_success: "All scammers blocked!",
+      block_test_success: "Top 10 scammers test blocked successfully!",
+      export_btn: "Export",
+      export_success: "Export successful!",
     },
-    'en-GB': {
-      lang_name: 'British English',
-      block_btn: 'Block all Scammers',
-      block_test_btn: 'Test block top 10 Scammers',
-      block_success: 'All scammers blocked!',
-      block_test_success: 'Top 10 scammers test blocked successfully!',
-      export_btn: 'Export',
-      export_success: 'Export successful!',
+    "en-GB": {
+      lang_name: "British English",
+      block_btn: "Block all Scammers",
+      block_test_btn: "Test block top 10 Scammers",
+      block_success: "All scammers blocked!",
+      block_test_success: "Top 10 scammers test blocked successfully!",
+      export_btn: "Export",
+      export_success: "Export successful!",
     },
     zh: {
-      lang_name: '简体中文',
-      block_btn: '屏蔽所有诈骗犯',
-      block_test_btn: '屏蔽前10名',
-      block_success: '诈骗犯已全部被屏蔽！',
-      block_test_success: '前10名诈骗犯测试屏蔽成功！',
-      export_btn: '导出',
-      export_success: '导出成功！',
+      lang_name: "简体中文",
+      block_btn: "屏蔽所有诈骗犯",
+      block_test_btn: "屏蔽前10名",
+      block_success: "诈骗犯已全部被屏蔽！",
+      block_test_success: "前10名诈骗犯测试屏蔽成功！",
+      export_btn: "导出",
+      export_success: "导出成功！",
     },
-    'zh-Hant': {
-      lang_name: '正體中文',
-      block_btn: '封鎖所有詐騙犯',
-      block_test_btn: '測試封鎖前10名詐騙犯',
-      block_success: '詐騙犯已全部被封鎖！',
-      block_test_success: '前10名詐騙犯測試封鎖成功！',
-      export_btn: '導出',
-      export_success: '導出成功！',
+    "zh-Hant": {
+      lang_name: "正體中文",
+      block_btn: "封鎖所有詐騙犯",
+      block_test_btn: "測試封鎖前10名詐騙犯",
+      block_success: "詐騙犯已全部被封鎖！",
+      block_test_success: "前10名詐騙犯測試封鎖成功！",
+      export_btn: "導出",
+      export_success: "導出成功！",
     },
     ja: {
-      lang_name: '日本語',
-      block_btn: 'すべての詐欺師をブロック',
-      block_test_btn: 'トップ10詐欺師をテストブロック',
-      block_success: 'すべての詐欺師がブロックされました！',
-      block_test_success: 'トップ10の詐欺師がテストブロックされました！',
-      export_btn: 'エクスポート',
-      export_success: 'エクスポート成功！',
+      lang_name: "日本語",
+      block_btn: "すべての詐欺師をブロック",
+      block_test_btn: "トップ10詐欺師をテストブロック",
+      block_success: "すべての詐欺師がブロックされました！",
+      block_test_success: "トップ10の詐欺師がテストブロックされました！",
+      export_btn: "エクスポート",
+      export_success: "エクスポート成功！",
     },
     vi: {
-      lang_name: 'Tiếng Việt',
-      block_btn: 'Chặn tất cả scammers',
-      block_test_btn: 'Thử chặn top 10 scammers',
-      block_success: 'Tất cả scammers đã bị chặn!',
-      block_test_success: 'Đã thành công chặn thử top 10 scammers!',
-      export_btn: 'Xuất',
-      export_success: 'Xuất thành công!',
+      lang_name: "Tiếng Việt",
+      block_btn: "Chặn tất cả scammers",
+      block_test_btn: "Thử chặn top 10 scammers",
+      block_success: "Tất cả scammers đã bị chặn!",
+      block_test_success: "Đã thành công chặn thử top 10 scammers!",
+      export_btn: "Xuất",
+      export_success: "Xuất thành công!",
     },
     ko: {
-      lang_name: '한국어',
-      block_btn: '모든 사기꾼을 차단',
-      block_test_btn: '테스트 차단 사기꾼 상위 10',
-      block_success: '모든 사기꾼이 차단되었습니다!',
-      block_test_success: '상위 10 사기꾼 테스트 차단 성공!',
-      export_btn: '내보내기',
-      export_success: '내보내기 성공!',
+      lang_name: "한국어",
+      block_btn: "모든 사기꾼을 차단",
+      block_test_btn: "테스트 차단 사기꾼 상위 10",
+      block_success: "모든 사기꾼이 차단되었습니다!",
+      block_test_success: "상위 10 사기꾼 테스트 차단 성공!",
+      export_btn: "내보내기",
+      export_success: "내보내기 성공!",
     },
     de: {
-      lang_name: 'Deutsch',
-      block_btn: 'Alle Betrüger blockieren',
-      block_test_btn: 'Testblock Top 10 Betrüger',
-      block_success: 'Alle Betrüger wurden blockiert!',
-      block_test_success: 'Top 10 Betrüger erfolgreich getestet und blockiert!',
-      export_btn: 'Exportieren',
-      export_success: 'Export erfolgreich!',
+      lang_name: "Deutsch",
+      block_btn: "Alle Betrüger blockieren",
+      block_test_btn: "Testblock Top 10 Betrüger",
+      block_success: "Alle Betrüger wurden blockiert!",
+      block_test_success: "Top 10 Betrüger erfolgreich getestet und blockiert!",
+      export_btn: "Exportieren",
+      export_success: "Export erfolgreich!",
     },
     fr: {
-      lang_name: 'French',
-      block_btn: 'Bloquer tous les escrocs',
-      block_test_btn: 'Test de blocage top 10 escrocs',
-      block_success: 'Tous les escrocs sont bloqués !',
-      block_test_success: 'Test de blocage des 10 premiers escrocs réussi !',
-      export_btn: 'Exporter',
-      export_success: 'Exportation réussie !',
+      lang_name: "French",
+      block_btn: "Bloquer tous les escrocs",
+      block_test_btn: "Test de blocage top 10 escrocs",
+      block_success: "Tous les escrocs sont bloqués !",
+      block_test_success: "Test de blocage des 10 premiers escrocs réussi !",
+      export_btn: "Exporter",
+      export_success: "Exportation réussie !",
     },
+  };
+
+  let i18n = translations[lang];
+
+  function rgba_to_hex(rgba_str, force_remove_alpha) {
+    return (
+      "#" +
+      rgba_str
+        .replace(/^rgba?\(|\s+|\)$/g, "") // Get's rgba / rgb string values
+        .split(",") // splits them at ","
+        .filter((_, index) => !force_remove_alpha || index !== 3)
+        .map((string) => parseFloat(string)) // Converts them to numbers
+        .map((number, index) =>
+          index === 3 ? Math.round(number * 255) : number
+        ) // Converts alpha to 255 number
+        .map((number) => number.toString(16)) // Converts numbers to hex
+        .map((string) => (string.length === 1 ? "0" + string : string)) // Adds 0 when length of one number is 1
+        .join("")
+        .toUpperCase()
+    );
   }
 
-  let i18n = translations[lang]
-
-  function rgba_to_hex (rgba_str, force_remove_alpha) {
-    return '#' + rgba_str.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
-      .split(',') // splits them at ","
-      .filter((_, index) => !force_remove_alpha || index !== 3)
-      .map(string => parseFloat(string)) // Converts them to numbers
-      .map((number, index) => index === 3 ? Math.round(number * 255) : number) // Converts alpha to 255 number
-      .map(number => number.toString(16)) // Converts numbers to hex
-      .map(string => string.length === 1 ? '0' + string : string) // Adds 0 when length of one number is 1
-      .join('')
-      .toUpperCase()
+  function hex_to_rgb(hex_str) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})/i.exec(hex_str);
+    return result
+      ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(
+          result[3],
+          16
+        )})`
+      : "";
   }
 
-  function hex_to_rgb (hex_str) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})/i.exec(hex_str)
-    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : ''
+  function invert_hex(hex) {
+    return (
+      "#" +
+      (Number(`0x1${hex.substring(1)}`) ^ 0xffffff)
+        .toString(16)
+        .substring(1)
+        .toUpperCase()
+    );
   }
 
-  function invert_hex (hex) {
-    return '#' + (Number(`0x1${hex.substring(1)}`) ^ 0xFFFFFF).toString(16).substring(1).toUpperCase()
-  }
-
-  function get_theme_color () {
-    const FALLBACK_COLOR = 'rgb(128, 128, 128)'
-    let bgColor = getComputedStyle(document.querySelector('#modal-header > span')).color || FALLBACK_COLOR
-    let buttonTextColor = hex_to_rgb(invert_hex(rgba_to_hex(bgColor)))
-    for (const ele of document.querySelectorAll('div[role=\'button\']')) {
-      const color = ele?.style?.backgroundColor
-      if (color != '') {
-        bgColor = color
-        const span = ele.querySelector('span')
-        buttonTextColor = getComputedStyle(span)?.color || buttonTextColor
+  function get_theme_color() {
+    const FALLBACK_COLOR = "rgb(128, 128, 128)";
+    let bgColor =
+      getComputedStyle(document.querySelector("#modal-header > span")).color ||
+      FALLBACK_COLOR;
+    let buttonTextColor = hex_to_rgb(invert_hex(rgba_to_hex(bgColor)));
+    for (const ele of document.querySelectorAll("div[role='button']")) {
+      const color = ele?.style?.backgroundColor;
+      if (color != "") {
+        bgColor = color;
+        const span = ele.querySelector("span");
+        buttonTextColor = getComputedStyle(span)?.color || buttonTextColor;
       }
     }
 
     return {
       bgColor,
       buttonTextColor,
-      plainTextColor: $('span').css('color'),
-      hoverColor: bgColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.9)'),
-      mousedownColor: bgColor.replace(/rgb/i, 'rgba').replace(/\)/, ', 0.8)')
-    }
+      plainTextColor: $("span").css("color"),
+      hoverColor: bgColor.replace(/rgb/i, "rgba").replace(/\)/, ", 0.9)"),
+      mousedownColor: bgColor.replace(/rgb/i, "rgba").replace(/\)/, ", 0.8)"),
+    };
   }
 
-  function get_ancestor (dom, level) {
+  function get_ancestor(dom, level) {
     for (let i = 0; i < level; ++i) {
-      dom = dom.parent()
+      dom = dom.parent();
     }
-    return dom
+    return dom;
   }
 
-  function get_notifier_of (msg) {
-    return _ => {
+  function get_notifier_of(msg) {
+    return (_) => {
       const banner = $(`
         <div id="bwl-notice" style="right:0px; position:fixed; left:0px; bottom:0px; display:flex; flex-direction:column;">
           <div class="tbwl-notice">
             <span>${msg}</span>
           </div>
         </div>
-      `)
+      `);
       const closeButton = $(`
         <span id="bwl-close-button" style="font-weight:700; margin-left:12px; margin-right:12px; cursor:pointer;">
           Close
         </span>
-      `)
-      closeButton.click(_ => banner.remove())
-      $(banner).children('.tbwl-notice').append(closeButton)
+      `);
+      closeButton.click((_) => banner.remove());
+      $(banner).children(".tbwl-notice").append(closeButton);
 
-      $('#layers').append(banner)
-      setTimeout(() => banner.remove(), 5000)
-      $('div[data-testid="app-bar-close"]').click()
-    }
+      $("#layers").append(banner);
+      setTimeout(() => banner.remove(), 5000);
+      $('div[data-testid="app-bar-close"]').click();
+    };
   }
 
-  function mount_button (parentDom, name, executer, success_notifier) {
-    const btn_mousedown = 'bwl-btn-mousedown'
-    const btn_hover = 'bwl-btn-hover'
+  function mount_button(parentDom, name, executer, success_notifier) {
+    const btn_mousedown = "bwl-btn-mousedown";
+    const btn_hover = "bwl-btn-hover";
 
     const button = $(`
       <div
@@ -696,52 +781,57 @@ async function export_list_members () {
           </span>
         </div>
       </div>
-    `).addClass(parentDom.prop('classList')[0])
-      .hover(function () {
-        $(this).addClass(btn_hover)
-      }, function () {
-        $(this).removeClass(btn_hover)
-        $(this).removeClass(btn_mousedown)
-      })
-      .on('selectstart', function () {
-        return false
+    `)
+      .addClass(parentDom.prop("classList")[0])
+      .hover(
+        function () {
+          $(this).addClass(btn_hover);
+        },
+        function () {
+          $(this).removeClass(btn_hover);
+          $(this).removeClass(btn_mousedown);
+        }
+      )
+      .on("selectstart", function () {
+        return false;
       })
       .mousedown(function () {
-        $(this).removeClass(btn_hover)
-        $(this).addClass(btn_mousedown)
+        $(this).removeClass(btn_hover);
+        $(this).addClass(btn_mousedown);
       })
       .mouseup(function () {
-        $(this).removeClass(btn_mousedown)
-        if ($(this).is(':hover')) {
-          $(this).addClass(btn_hover)
+        $(this).removeClass(btn_mousedown);
+        if ($(this).is(":hover")) {
+          $(this).addClass(btn_hover);
         }
       })
       .click(async () => await executer())
-      .click(success_notifier)
+      .click(success_notifier);
 
-    parentDom.append(button)
+    parentDom.append(button);
   }
 
-  function insert_css () {
-    const FALLBACK_FONT_FAMILY = 'TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;'
-    function get_font_family () {
-      for (const ele of document.querySelectorAll('div[role=\'button\']')) {
-        const font_family = getComputedStyle(ele).fontFamily
+  function insert_css() {
+    const FALLBACK_FONT_FAMILY =
+      'TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", Arial, sans-serif;';
+    function get_font_family() {
+      for (const ele of document.querySelectorAll("div[role='button']")) {
+        const font_family = getComputedStyle(ele).fontFamily;
         if (font_family) {
-          return font_family + ', ' + FALLBACK_FONT_FAMILY
+          return font_family + ", " + FALLBACK_FONT_FAMILY;
         }
       }
-      return FALLBACK_FONT_FAMILY
+      return FALLBACK_FONT_FAMILY;
     }
 
-    const colors = get_theme_color()
+    const colors = get_theme_color();
 
     // switch related
-    $('head').append(`<style>
-    </style>`)
+    $("head").append(`<style>
+    </style>`);
 
     // TODO: reduce repeated styles
-    $('head').append(`<style>
+    $("head").append(`<style>
       .tbwl-notice {
         align-self: center;
         display: flex;
@@ -859,40 +949,63 @@ async function export_list_members () {
       .checkbox input[type="checkbox"]:focus + label::before {
         outline: 0;
       }
-    </style>`)
+    </style>`);
   }
 
-  function main () {
-    let inited = false
+  function main() {
+    let inited = false;
 
-    const notice_export_success = get_notifier_of(i18n.export_success)
-    const notice_block_test_success = get_notifier_of(i18n.block_test_success)
-    const notice_block_success = get_notifier_of(`${i18n.block_success}, 为了安全起见, 每次最多拉黑 300 个`)
+    const notice_export_success = get_notifier_of(i18n.export_success);
+    const notice_block_test_success = get_notifier_of(i18n.block_test_success);
+    const notice_block_success = get_notifier_of(
+      `${i18n.block_success}, 为了安全起见, 每次最多拉黑 300 个`
+    );
 
-    waitForKeyElements('h2#modal-header[aria-level="2"][role="heading"]', ele => {
-      if (!inited) {
-        insert_css()
-        inited = true
+    waitForKeyElements(
+      'h2#modal-header[aria-level="2"][role="heading"]',
+      (ele) => {
+        if (!inited) {
+          insert_css();
+          inited = true;
+        }
+        const ancestor = get_ancestor(ele, 3);
+        const currentURL = window.location.href;
+        if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
+          mount_button(
+            ancestor,
+            i18n.export_btn,
+            export_list_members,
+            notice_export_success
+          );
+          mount_button(
+            ancestor,
+            i18n.block_test_btn,
+            block_list_test_members,
+            notice_block_test_success
+          );
+          mount_button(
+            ancestor,
+            i18n.block_btn,
+            block_list_members,
+            notice_block_success
+          );
+        }
       }
-      const ancestor = get_ancestor(ele, 3)
-      const currentURL = window.location.href
-      if (/\/lists\/[0-9]+\/members$/.test(currentURL)) {
-        mount_button(ancestor, i18n.export_btn, export_list_members, notice_export_success)
-        mount_button(ancestor, i18n.block_test_btn, block_list_test_members, notice_block_test_success)
-        mount_button(ancestor, i18n.block_btn, block_list_members, notice_block_success)
-      }
-    })
+    );
   }
 
   // 这个函数名字来自 @albaz64
   (function makeBlueBirdGreatAgain() {
-    if(!ChangeLogo) return;
+    if (!ChangeLogo) return;
 
     // Twitter logo
-    const SVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 335 276' fill='%233ba9ee'%3E%3Cpath d='m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35'/%3E%3C/svg%3E"
+    const SVG =
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 335 276' fill='%233ba9ee'%3E%3Cpath d='m302 70a195 195 0 0 1 -299 175 142 142 0 0 0 97 -30 70 70 0 0 1 -58 -47 70 70 0 0 0 31 -2 70 70 0 0 1 -57 -66 70 70 0 0 0 28 5 70 70 0 0 1 -18 -90 195 195 0 0 0 141 72 67 67 0 0 1 116 -62 117 117 0 0 0 43 -17 65 65 0 0 1 -31 38 117 117 0 0 0 39 -11 65 65 0 0 1 -32 35'/%3E%3C/svg%3E";
 
     // Function to reset favicon
-    document.querySelector(`head>link[rel="shortcut icon"]`).href = `//abs.twimg.com/favicons/twitter.ico`
+    document.querySelector(
+      `head>link[rel="shortcut icon"]`
+    ).href = `//abs.twimg.com/favicons/twitter.ico`;
 
     // Add style
     GM_addStyle(
@@ -916,8 +1029,8 @@ async function export_list_members () {
           position: absolute;
           left: 48px;
       }`
-    )
-  })()
+    );
+  })();
 
-  main()
-})()
+  main();
+})();
