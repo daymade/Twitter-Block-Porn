@@ -23,7 +23,11 @@
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
+// @match       https://x.com/*
+// @match       https://mobile.x.com/*
+// @match       https://tweetdeck.x.com/*
 // @exclude     https://twitter.com/account/*
+// @exclude     https://x.com/account/*
 // @connect     raw.githubusercontent.com
 // @require     https://cdn.jsdelivr.net/npm/axios@0.25.0/dist/axios.min.js
 // @require     https://cdn.jsdelivr.net/npm/qs@6.10.3/dist/qs.min.js
@@ -32,37 +36,37 @@
 
 /* global axios $ Qs */
 const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
-  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
+  const url = 'https://x.com/i/lists/1677334530754248706/members'
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list2 = GM_registerMenuCommand('🔗 打开共享黑名单 ②...', function () {
-  const url = 'https://twitter.com/i/lists/1683810394287079426/members'
+  const url = 'https://x.com/i/lists/1683810394287079426/members'
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list3 = GM_registerMenuCommand('🔗 打开共享黑名单 ③...', function () {
-  const url = 'https://twitter.com/i/lists/1699049983159259593/members'
+  const url = 'https://x.com/i/lists/1699049983159259593/members'
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list4 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑤...', function () {
-  const url = 'https://twitter.com/i/lists/1702721627287371907/members'
+  const url = 'https://x.com/i/lists/1702721627287371907/members'
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list5 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑥...', function () {
-  const url = 'https://twitter.com/i/lists/1704104182913843610/members'
+  const url = 'https://x.com/i/lists/1704104182913843610/members'
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list6 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑦...', function () {
-  const url = 'https://twitter.com/i/lists/1696907125090586845/members'
+  const url = 'https://x.com/i/lists/1696907125090586845/members'
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list7 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑧...', function () {
-  const url = 'https://twitter.com/i/lists/1770809941151896014/members'
+  const url = 'https://x.com/i/lists/1770809941151896014/members'
   GM_openInTab(url, {active: true})
 }, '');
 
