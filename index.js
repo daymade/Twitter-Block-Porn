@@ -42,7 +42,7 @@ const pageBaseUrlMap = {
 
 function getPageBaseUrl() {
   const hostname = window.location.hostname;
-  return pageBaseUrlMap[hostname] || 'https://twitter.com'; // 默认使用 Twitter 的页面 URL
+  return pageBaseUrlMap[hostname] || 'twitter.com'; // 默认使用 Twitter 的页面 URL
 }
 
 const basePageUrl = getPageBaseUrl();
@@ -124,31 +124,16 @@ function get_cookie (cname) {
   return ''
 }
 
-// all apis send to twitter must use this client with cookie
-// const apiClient = axios.create({
-//   baseURL: 'https://api.twitter.com',
-//   withCredentials: true,
-//   headers: {
-//     Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-//     'X-Twitter-Auth-Type': 'OAuth2Session',
-//     'X-Twitter-Active-User': 'yes',
-//     'X-Csrf-Token': get_cookie('ct0')
-//   }
-// })
-
-// 域名到 API 基础 URL 的映射表
 const apiBaseUrlMap = {
   'twitter.com': 'https://api.twitter.com',
   'x.com': 'https://api.x.com',
 };
 
-// 动态获取 API 基础 URL 的函数
 function getApiBaseUrl() {
   const hostname = window.location.hostname;
   return apiBaseUrlMap[hostname] || 'https://api.twitter.com'; // 默认使用 Twitter 的 API URL
 }
 
-// 修改 axios 实例的创建方式，使用动态获取的 API 基础 URL
 const apiClient = axios.create({
   withCredentials: true,
   headers: {
