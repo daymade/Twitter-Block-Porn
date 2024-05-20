@@ -34,39 +34,52 @@
 // @require     https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
 // ==/UserScript==
 
+const pageBaseUrlMap = {
+  'twitter.com': 'twitter.com',
+  'x.com': 'x.com',
+};
+
+
+function getPageBaseUrl() {
+  const hostname = window.location.hostname;
+  return pageBaseUrlMap[hostname] || 'https://twitter.com'; // 默认使用 Twitter 的页面 URL
+}
+
+const basePageUrl = getPageBaseUrl();
+
 /* global axios $ Qs */
 const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
-  const url = 'https://x.com/i/lists/1677334530754248706/members'
+  const url = `https://${basePageUrl}/i/lists/1677334530754248706/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list2 = GM_registerMenuCommand('🔗 打开共享黑名单 ②...', function () {
-  const url = 'https://x.com/i/lists/1683810394287079426/members'
+  const url = `https://${basePageUrl}/i/lists/1683810394287079426/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list3 = GM_registerMenuCommand('🔗 打开共享黑名单 ③...', function () {
-  const url = 'https://x.com/i/lists/1699049983159259593/members'
+  const url = `https://${basePageUrl}/i/lists/1699049983159259593/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list4 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑤...', function () {
-  const url = 'https://x.com/i/lists/1702721627287371907/members'
+  const url = `https://${basePageUrl}/i/lists/1702721627287371907/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list5 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑥...', function () {
-  const url = 'https://x.com/i/lists/1704104182913843610/members'
+  const url = `https://${basePageUrl}/i/lists/1704104182913843610/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list6 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑦...', function () {
-  const url = 'https://x.com/i/lists/1696907125090586845/members'
+  const url = `https://${basePageUrl}/i/lists/1696907125090586845/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list7 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑧...', function () {
-  const url = 'https://x.com/i/lists/1770809941151896014/members'
+  const url = `https://${basePageUrl}/i/lists/1770809941151896014/members`
   GM_openInTab(url, {active: true})
 }, '');
 
@@ -112,16 +125,46 @@ function get_cookie (cname) {
 }
 
 // all apis send to twitter must use this client with cookie
+// const apiClient = axios.create({
+//   baseURL: 'https://api.twitter.com',
+//   withCredentials: true,
+//   headers: {
+//     Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+//     'X-Twitter-Auth-Type': 'OAuth2Session',
+//     'X-Twitter-Active-User': 'yes',
+//     'X-Csrf-Token': get_cookie('ct0')
+//   }
+// })
+
+// 域名到 API 基础 URL 的映射表
+const apiBaseUrlMap = {
+  'twitter.com': 'https://api.twitter.com',
+  'x.com': 'https://api.x.com',
+};
+
+// 动态获取 API 基础 URL 的函数
+function getApiBaseUrl() {
+  const hostname = window.location.hostname;
+  return apiBaseUrlMap[hostname] || 'https://api.twitter.com'; // 默认使用 Twitter 的 API URL
+}
+
+// 修改 axios 实例的创建方式，使用动态获取的 API 基础 URL
 const apiClient = axios.create({
-  baseURL: 'https://api.twitter.com',
   withCredentials: true,
   headers: {
-    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    'X-Twitter-Auth-Type': 'OAuth2Session',
-    'X-Twitter-Active-User': 'yes',
-    'X-Csrf-Token': get_cookie('ct0')
+      Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+      'X-Twitter-Auth-Type': 'OAuth2Session',
+      'X-Twitter-Active-User': 'yes',
+      'X-Csrf-Token': get_cookie('ct0')
   }
-})
+});
+
+// 在发起请求前，设置正确的 baseURL
+apiClient.interceptors.request.use(config => {
+  config.baseURL = getApiBaseUrl();
+  return config;
+});
+
 
 // extract list id in url 
 function parseListId (url) {
