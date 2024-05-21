@@ -242,27 +242,32 @@ async function block_user (id, listId) {
     });
     
     // Update blocked IDs list in GM storage
-    let blocked = GM_getValue('blockedIds', {});
+    let blocked = GM_getValue('blockedIdsMapping', {});
     if (!blocked[listId]) {
       blocked[listId] = [];
     }
     blocked[listId].push(id);
-    GM_setValue('blockedIds', blocked);
+    GM_setValue('blockedIdsMapping', blocked);
   } catch (err) {
-    // Handle errors as needed
+    GM_log(`error occurs when block_user: ${err}`);
+    throw err;
   }
 }
 
-
 async function block_by_ids (member_ids, listId) {
-  let blocked = GM_getValue('blockedIds', {});
-  GM_log(`blockedIds: ${JSON.stringify(blocked)}`)
+  let blocked = GM_getValue('blockedIdsMapping', {});
+  GM_log(`block_by_ids: already blocked accounts: ${JSON.stringify(blocked)}`);
 
-  let toBlock = member_ids.filter(id => !blocked[listId] || !blocked[listId].includes(id));
+  let suspended = await fetchRemoteList('suspended');
+  GM_log(`block_by_ids: suspended accounts to be ignored: ${JSON.stringify(suspended)}`);
+
+  let toBlock = member_ids
+                    .filter(id => !blocked[listId] || !blocked[listId].includes(id))
+                    .filter(id => !suspended.includes(id));
 
   const ids = [...new Set(toBlock)];
 
-  GM_log(`block_by_ids: ${ids.length} users, detail: ${ids}`)
+  GM_log(`block_by_ids: about to block ${ids.length} scammers, detail: ${ids}`)
 
   // Number of requests per batch
   const batchSize = 10;
@@ -276,7 +281,7 @@ async function block_by_ids (member_ids, listId) {
     const results = await Promise.allSettled(batch.map(id => block_user(id, listId)));
 
     for (const [index, result] of results.entries()) {
-      if (result.status === 'rejected') {
+      if (result.status === 'rejected' && result.reason.response.status === 404) {
         // Keep track of failed IDs
         failedIds.push(batch[index]);
       }
@@ -288,7 +293,7 @@ async function block_by_ids (member_ids, listId) {
   }
 
   if (failedIds.length > 0) {
-    GM_log(`Failed to block these IDs: ${failedIds.join(', ')}`)
+    GM_log(`block_by_ids: failed to block these scammers: ${failedIds.join(', ')}`)
   }
 }
 
@@ -424,7 +429,9 @@ async function block_special_list () {
 
   // `block` is a reserved listId for those sacmmers who has blocked me
   // see block.json in `lists` folder
-  let blockedIds = await fetchRemoteList("block")
+  let scammers = await fetchRemoteList("block")
+  
+  let blockedIds = scammers.map(u => u.id_str)
 
   block_by_ids(special_scammers.concat(blockedIds), "block")
 }
