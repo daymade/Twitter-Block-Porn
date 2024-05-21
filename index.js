@@ -2,7 +2,7 @@
 // @name        Twitter Block Porn
 // @homepage    https://github.com/daymade/Twitter-Block-Porn
 // @icon        https://raw.githubusercontent.com/daymade/Twitter-Block-Porn/master/imgs/icon.svg
-// @version     1.6.0
+// @version     1.6.1
 // @description One-click block all the yellow scammers in the comment area.
 // @description:zh-CN 共享黑名单, 一键拉黑所有黄推诈骗犯
 // @description:zh-TW 一鍵封鎖評論區的黃色詐騙犯
@@ -23,46 +23,63 @@
 // @match       https://twitter.com/*
 // @match       https://mobile.twitter.com/*
 // @match       https://tweetdeck.twitter.com/*
+// @match       https://x.com/*
+// @match       https://mobile.x.com/*
+// @match       https://tweetdeck.x.com/*
 // @exclude     https://twitter.com/account/*
+// @exclude     https://x.com/account/*
 // @connect     raw.githubusercontent.com
 // @require     https://cdn.jsdelivr.net/npm/axios@0.25.0/dist/axios.min.js
 // @require     https://cdn.jsdelivr.net/npm/qs@6.10.3/dist/qs.min.js
 // @require     https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
 // ==/UserScript==
 
+const pageBaseUrlMap = {
+  'twitter.com': 'twitter.com',
+  'x.com': 'x.com',
+};
+
+
+function getPageBaseUrl() {
+  const hostname = window.location.hostname;
+  return pageBaseUrlMap[hostname] || 'twitter.com'; // 默认使用 Twitter 的页面 URL
+}
+
+const basePageUrl = getPageBaseUrl();
+
 /* global axios $ Qs */
 const menu_command_list1 = GM_registerMenuCommand('🔗 打开共享黑名单 ①...', function () {
-  const url = 'https://twitter.com/i/lists/1677334530754248706/members'
+  const url = `https://${basePageUrl}/i/lists/1677334530754248706/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list2 = GM_registerMenuCommand('🔗 打开共享黑名单 ②...', function () {
-  const url = 'https://twitter.com/i/lists/1683810394287079426/members'
+  const url = `https://${basePageUrl}/i/lists/1683810394287079426/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list3 = GM_registerMenuCommand('🔗 打开共享黑名单 ③...', function () {
-  const url = 'https://twitter.com/i/lists/1699049983159259593/members'
+  const url = `https://${basePageUrl}/i/lists/1699049983159259593/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list4 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑤...', function () {
-  const url = 'https://twitter.com/i/lists/1702721627287371907/members'
+  const url = `https://${basePageUrl}/i/lists/1702721627287371907/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list5 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑥...', function () {
-  const url = 'https://twitter.com/i/lists/1704104182913843610/members'
+  const url = `https://${basePageUrl}/i/lists/1704104182913843610/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list6 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑦...', function () {
-  const url = 'https://twitter.com/i/lists/1696907125090586845/members'
+  const url = `https://${basePageUrl}/i/lists/1696907125090586845/members`
   GM_openInTab(url, {active: true})
 }, '');
 
 const menu_command_list7 = GM_registerMenuCommand('🔗 打开共享黑名单 ⑧...', function () {
-  const url = 'https://twitter.com/i/lists/1770809941151896014/members'
+  const url = `https://${basePageUrl}/i/lists/1770809941151896014/members`
   GM_openInTab(url, {active: true})
 }, '');
 
@@ -107,17 +124,32 @@ function get_cookie (cname) {
   return ''
 }
 
-// all apis send to twitter must use this client with cookie
+const apiBaseUrlMap = {
+  'twitter.com': 'https://api.twitter.com',
+  'x.com': 'https://api.x.com',
+};
+
+function getApiBaseUrl() {
+  const hostname = window.location.hostname;
+  return apiBaseUrlMap[hostname] || 'https://api.twitter.com'; // 默认使用 Twitter 的 API URL
+}
+
 const apiClient = axios.create({
-  baseURL: 'https://api.twitter.com',
   withCredentials: true,
   headers: {
-    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    'X-Twitter-Auth-Type': 'OAuth2Session',
-    'X-Twitter-Active-User': 'yes',
-    'X-Csrf-Token': get_cookie('ct0')
+      Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+      'X-Twitter-Auth-Type': 'OAuth2Session',
+      'X-Twitter-Active-User': 'yes',
+      'X-Csrf-Token': get_cookie('ct0')
   }
-})
+});
+
+// 在发起请求前，设置正确的 baseURL
+apiClient.interceptors.request.use(config => {
+  config.baseURL = getApiBaseUrl();
+  return config;
+});
+
 
 // extract list id in url 
 function parseListId (url) {
