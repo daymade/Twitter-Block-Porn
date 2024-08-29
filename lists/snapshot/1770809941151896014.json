@@ -26,9 +26,9 @@
       }
     },
     "protected": false,
-    "followers_count": 33887,
+    "followers_count": 33888,
     "fast_followers_count": 0,
-    "normal_followers_count": 33887,
+    "normal_followers_count": 33888,
     "friends_count": 2,
     "listed_count": 51,
     "created_at": "Mon Jul 29 16:14:57 +0000 2024",
@@ -313,9 +313,9 @@
       }
     },
     "protected": false,
-    "followers_count": 30039,
+    "followers_count": 30041,
     "fast_followers_count": 0,
-    "normal_followers_count": 30039,
+    "normal_followers_count": 30041,
     "friends_count": 1,
     "listed_count": 120,
     "created_at": "Thu Jul 25 20:42:58 +0000 2024",
@@ -613,9 +613,9 @@
       }
     },
     "protected": false,
-    "followers_count": 52754,
+    "followers_count": 52756,
     "fast_followers_count": 0,
-    "normal_followers_count": 52754,
+    "normal_followers_count": 52756,
     "friends_count": 112,
     "listed_count": 70,
     "created_at": "Thu Jul 25 02:08:10 +0000 2024",
@@ -952,9 +952,9 @@
       }
     },
     "protected": false,
-    "followers_count": 47342,
+    "followers_count": 47343,
     "fast_followers_count": 0,
-    "normal_followers_count": 47342,
+    "normal_followers_count": 47343,
     "friends_count": 4,
     "listed_count": 86,
     "created_at": "Mon Jun 24 07:06:06 +0000 2024",
@@ -2091,7 +2091,7 @@
         "contributors": null,
         "is_quote_status": false,
         "retweet_count": 487,
-        "favorite_count": 117,
+        "favorite_count": 116,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": true,
@@ -2169,9 +2169,9 @@
       }
     },
     "protected": false,
-    "followers_count": 52129,
+    "followers_count": 52128,
     "fast_followers_count": 0,
-    "normal_followers_count": 52129,
+    "normal_followers_count": 52128,
     "friends_count": 112,
     "listed_count": 142,
     "created_at": "Mon Apr 01 00:27:21 +0000 2024",
@@ -2972,9 +2972,9 @@
       }
     },
     "protected": false,
-    "followers_count": 48832,
+    "followers_count": 48831,
     "fast_followers_count": 0,
-    "normal_followers_count": 48832,
+    "normal_followers_count": 48831,
     "friends_count": 52,
     "listed_count": 108,
     "created_at": "Thu Mar 14 15:23:58 +0000 2024",
@@ -3083,9 +3083,9 @@
       }
     },
     "protected": false,
-    "followers_count": 32488,
+    "followers_count": 32487,
     "fast_followers_count": 0,
-    "normal_followers_count": 32488,
+    "normal_followers_count": 32487,
     "friends_count": 107,
     "listed_count": 76,
     "created_at": "Wed Mar 13 00:37:18 +0000 2024",
@@ -3663,6 +3663,139 @@
     "require_some_consent": false
   },
   {
+    "id": 1711076221142831000,
+    "id_str": "1711076221142831104",
+    "name": "婉姨",
+    "screen_name": "NLaguanda5077",
+    "location": "距离你10.71km              电报",
+    "description": "生活总是不尽人意  微笑面对❤️\n30+大龄剩女😭😭建筑造价师\n性格开放 有情操❤️刚玩推特，\n做真实的自己 反差有性瘾！ 来推找寻真正的自我，不想被生活与家庭束缚🌹\n（喜欢同龄人）",
+    "url": "https://t.co/dEGIDVir65",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/dEGIDVir65",
+            "expanded_url": "https://t.me/xym9866",
+            "display_url": "t.me/xym9866",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 12055,
+    "fast_followers_count": 0,
+    "normal_followers_count": 12055,
+    "friends_count": 39,
+    "listed_count": 22,
+    "created_at": "Sun Oct 08 17:48:59 +0000 2023",
+    "favourites_count": 54,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": false,
+    "verified": false,
+    "statuses_count": 192,
+    "media_count": 80,
+    "lang": null,
+    "status": {
+      "created_at": "Wed Aug 28 11:14:10 +0000 2024",
+      "id": 1828752934345310700,
+      "id_str": "1828752934345310596",
+      "text": "@Jerry00107966 https://t.co/UU48rJISGE",
+      "truncated": false,
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "Jerry00107966",
+            "name": "悉尼閑人",
+            "id": 1047053292587638800,
+            "id_str": "1047053292587638786",
+            "indices": [
+              0,
+              14
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/UU48rJISGE",
+            "expanded_url": "https://x.com/NLaguanda5077/status/1828752625900396646",
+            "display_url": "x.com/NLaguanda5077/…",
+            "indices": [
+              15,
+              38
+            ]
+          }
+        ]
+      },
+      "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+      "in_reply_to_status_id": 1828749732002627600,
+      "in_reply_to_status_id_str": "1828749732002627635",
+      "in_reply_to_user_id": 1047053292587638800,
+      "in_reply_to_user_id_str": "1047053292587638786",
+      "in_reply_to_screen_name": "Jerry00107966",
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": true,
+      "quoted_status_id": 1828752625900396500,
+      "quoted_status_id_str": "1828752625900396646",
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "possibly_sensitive_editable": true,
+      "lang": "qme",
+      "supplemental_language": null
+    },
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "F5F8FA",
+    "profile_background_image_url": null,
+    "profile_background_image_url_https": null,
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1808400964082360320/fCHgry2r_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1808400964082360320/fCHgry2r_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1711076221142831104/1719991364",
+    "profile_link_color": "1DA1F2",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": true,
+    "default_profile_image": false,
+    "pinned_tweet_ids": [
+      1823266447638016300
+    ],
+    "pinned_tweet_ids_str": [
+      "1823266447638016156"
+    ],
+    "has_custom_timelines": false,
+    "can_media_tag": true,
+    "followed_by": false,
+    "following": false,
+    "follow_request_sent": false,
+    "notifications": false,
+    "advertiser_account_type": "none",
+    "advertiser_account_service_levels": [],
+    "business_profile_state": "none",
+    "translator_type": "none",
+    "withheld_in_countries": [],
+    "require_some_consent": false
+  },
+  {
     "id": 1697899401694314500,
     "id_str": "1697899401694314496",
     "name": "夫主与妻奴",
@@ -3853,7 +3986,7 @@
         "contributors": null,
         "is_quote_status": false,
         "retweet_count": 264,
-        "favorite_count": 746,
+        "favorite_count": 749,
         "favorited": false,
         "retweeted": false,
         "lang": "hi",
@@ -3931,9 +4064,9 @@
       }
     },
     "protected": false,
-    "followers_count": 250572,
+    "followers_count": 250575,
     "fast_followers_count": 0,
-    "normal_followers_count": 250572,
+    "normal_followers_count": 250575,
     "friends_count": 125,
     "listed_count": 963,
     "created_at": "Sun Feb 05 12:07:12 +0000 2023",
@@ -4725,7 +4858,7 @@
         "contributors": null,
         "is_quote_status": false,
         "retweet_count": 12,
-        "favorite_count": 37,
+        "favorite_count": 38,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": false,
@@ -4783,91 +4916,115 @@
     "require_some_consent": false
   },
   {
-    "id": 964674080988332000,
-    "id_str": "964674080988332032",
-    "name": "蜜桃妹妹🍑（一日女友）",
-    "screen_name": "akilahhh2",
-    "location": "距离你8KM",
-    "description": "好看的皮囊千篇一律，有趣的灵魂万里挑一。她们说，这里有高质量的男人，我就来了，嘿嘿\n\n关注宝宝就能带回家，只宠自己的粉丝，别人的粉丝我不理，附近近的可约",
-    "url": null,
+    "id": 1622205141016535000,
+    "id_str": "1622205141016535040",
+    "name": "星星姐姐",
+    "screen_name": "XXJJ9977",
+    "location": "好用的vpn👉",
+    "description": "路过的小伙，给姐姐点个关注吧❤️",
+    "url": "https://t.co/Gg91qvvkKL",
     "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/Gg91qvvkKL",
+            "expanded_url": "http://g.olinks.top/hXrQEx",
+            "display_url": "g.olinks.top/hXrQEx",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
       "description": {
         "urls": []
       }
     },
     "protected": false,
-    "followers_count": 3502,
+    "followers_count": 250575,
     "fast_followers_count": 0,
-    "normal_followers_count": 3502,
-    "friends_count": 100,
-    "listed_count": 5,
-    "created_at": "Sat Feb 17 01:33:18 +0000 2018",
-    "favourites_count": 304,
+    "normal_followers_count": 250575,
+    "friends_count": 125,
+    "listed_count": 963,
+    "created_at": "Sun Feb 05 12:07:12 +0000 2023",
+    "favourites_count": 9653,
     "utc_offset": null,
     "time_zone": null,
     "geo_enabled": false,
     "verified": false,
-    "statuses_count": 3169,
-    "media_count": 2967,
+    "statuses_count": 7143,
+    "media_count": 6858,
     "lang": null,
     "status": {
-      "created_at": "Sat May 04 12:31:02 +0000 2024",
-      "id": 1786735286703239400,
-      "id_str": "1786735286703239505",
-      "text": "本人建了几年的sm群被封了，最后新建一个，只欢迎志同道合的朋友\n\n限时开放，群满删帖 妹妹特别多 https://t.co/MKACP2MXJH",
+      "created_at": "Thu Aug 29 12:40:19 +0000 2024",
+      "id": 1829137000609534200,
+      "id_str": "1829137000609534232",
+      "text": "RT @xingyue0616: 随着身体开始泛红、发烫，汗水沿着身体流淌进温泉，交合在一起。\n\n水汽缭绕，带着阵阵幽香，弥漫在惬意的空气里。\n\n生活中充满了戏剧和谎言，唯有诚实的身体才会因你……为之一颤❤️ https://t.co/NBIpjMra7V",
       "truncated": false,
       "entities": {
         "hashtags": [],
         "symbols": [],
-        "user_mentions": [],
+        "user_mentions": [
+          {
+            "screen_name": "xingyue0616",
+            "name": "星悦姐姐💋",
+            "id": 1795627753313534000,
+            "id_str": "1795627753313533952",
+            "indices": [
+              3,
+              15
+            ]
+          }
+        ],
         "urls": [],
         "media": [
           {
-            "id": 1786735278323069000,
-            "id_str": "1786735278323068928",
+            "id": 1828738422539784200,
+            "id_str": "1828738422539784192",
             "indices": [
-              49,
-              72
+              105,
+              128
             ],
-            "media_url": "http://pbs.twimg.com/media/GMvCROQa8AApYV-.jpg",
-            "media_url_https": "https://pbs.twimg.com/media/GMvCROQa8AApYV-.jpg",
-            "url": "https://t.co/MKACP2MXJH",
-            "display_url": "pic.twitter.com/MKACP2MXJH",
-            "expanded_url": "https://twitter.com/akilahhh2/status/1786735286703239505/photo/1",
+            "media_url": "http://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+            "url": "https://t.co/NBIpjMra7V",
+            "display_url": "pic.twitter.com/NBIpjMra7V",
+            "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
             "type": "photo",
             "original_info": {
-              "width": 1050,
-              "height": 1566,
+              "width": 1138,
+              "height": 2048,
               "focus_rects": [
                 {
                   "x": 0,
-                  "y": 370,
-                  "h": 588,
-                  "w": 1050
+                  "y": 1062,
+                  "h": 637,
+                  "w": 1138
                 },
                 {
                   "x": 0,
-                  "y": 139,
-                  "h": 1050,
-                  "w": 1050
+                  "y": 811,
+                  "h": 1138,
+                  "w": 1138
                 },
                 {
                   "x": 0,
-                  "y": 66,
-                  "h": 1197,
-                  "w": 1050
+                  "y": 732,
+                  "h": 1297,
+                  "w": 1138
                 },
                 {
-                  "x": 267,
+                  "x": 114,
                   "y": 0,
-                  "h": 1566,
-                  "w": 783
+                  "h": 2048,
+                  "w": 1024
                 },
                 {
                   "x": 0,
                   "y": 0,
-                  "h": 1566,
-                  "w": 1050
+                  "h": 2048,
+                  "w": 1138
                 }
               ]
             },
@@ -4878,134 +5035,86 @@
                 "resize": "crop"
               },
               "large": {
-                "w": 1050,
-                "h": 1566,
+                "w": 1138,
+                "h": 2048,
                 "resize": "fit"
               },
               "medium": {
-                "w": 805,
+                "w": 667,
                 "h": 1200,
                 "resize": "fit"
               },
               "small": {
-                "w": 456,
+                "w": 378,
                 "h": 680,
                 "resize": "fit"
               }
             },
+            "source_status_id": 1828738567063179300,
+            "source_status_id_str": "1828738567063179270",
+            "source_user_id": 1795627753313534000,
+            "source_user_id_str": "1795627753313533952",
             "features": {
               "large": {
-                "faces": [
-                  {
-                    "x": 186,
-                    "y": 926,
-                    "h": 99,
-                    "w": 99
-                  },
-                  {
-                    "x": 738,
-                    "y": 1009,
-                    "h": 143,
-                    "w": 143
-                  }
-                ]
+                "faces": []
               },
               "medium": {
-                "faces": [
-                  {
-                    "x": 142,
-                    "y": 709,
-                    "h": 75,
-                    "w": 75
-                  },
-                  {
-                    "x": 565,
-                    "y": 773,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
-              },
-              "orig": {
-                "faces": [
-                  {
-                    "x": 186,
-                    "y": 926,
-                    "h": 99,
-                    "w": 99
-                  },
-                  {
-                    "x": 738,
-                    "y": 1009,
-                    "h": 143,
-                    "w": 143
-                  }
-                ]
+                "faces": []
               },
               "small": {
-                "faces": [
-                  {
-                    "x": 80,
-                    "y": 402,
-                    "h": 42,
-                    "w": 42
-                  },
-                  {
-                    "x": 320,
-                    "y": 438,
-                    "h": 62,
-                    "w": 62
-                  }
-                ]
+                "faces": []
+              },
+              "orig": {
+                "faces": []
               }
             }
           },
           {
-            "id": 1786735278323064800,
-            "id_str": "1786735278323064832",
+            "id": 1828738422401544200,
+            "id_str": "1828738422401544192",
             "indices": [
-              49,
-              72
+              105,
+              128
             ],
-            "media_url": "http://pbs.twimg.com/media/GMvCROQa4AAUlDl.jpg",
-            "media_url_https": "https://pbs.twimg.com/media/GMvCROQa4AAUlDl.jpg",
-            "url": "https://t.co/MKACP2MXJH",
-            "display_url": "pic.twitter.com/MKACP2MXJH",
-            "expanded_url": "https://twitter.com/akilahhh2/status/1786735286703239505/photo/1",
+            "media_url": "http://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+            "url": "https://t.co/NBIpjMra7V",
+            "display_url": "pic.twitter.com/NBIpjMra7V",
+            "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
             "type": "photo",
             "original_info": {
-              "width": 528,
-              "height": 1024,
+              "width": 859,
+              "height": 1152,
               "focus_rects": [
                 {
                   "x": 0,
-                  "y": 492,
-                  "h": 296,
-                  "w": 528
-                },
-                {
-                  "x": 0,
-                  "y": 376,
-                  "h": 528,
-                  "w": 528
-                },
-                {
-                  "x": 0,
-                  "y": 339,
-                  "h": 602,
-                  "w": 528
+                  "y": 76,
+                  "h": 481,
+                  "w": 859
                 },
                 {
                   "x": 0,
                   "y": 0,
-                  "h": 1024,
-                  "w": 512
+                  "h": 859,
+                  "w": 859
                 },
                 {
                   "x": 0,
                   "y": 0,
-                  "h": 1024,
-                  "w": 528
+                  "h": 979,
+                  "w": 859
+                },
+                {
+                  "x": 283,
+                  "y": 0,
+                  "h": 1152,
+                  "w": 576
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1152,
+                  "w": 859
                 }
               ]
             },
@@ -5016,85 +5125,37 @@
                 "resize": "crop"
               },
               "large": {
-                "w": 528,
-                "h": 1024,
-                "resize": "fit"
-              },
-              "small": {
-                "w": 351,
-                "h": 680,
+                "w": 859,
+                "h": 1152,
                 "resize": "fit"
               },
               "medium": {
-                "w": 528,
-                "h": 1024,
+                "w": 859,
+                "h": 1152,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 507,
+                "h": 680,
                 "resize": "fit"
               }
             },
+            "source_status_id": 1828738567063179300,
+            "source_status_id_str": "1828738567063179270",
+            "source_user_id": 1795627753313534000,
+            "source_user_id_str": "1795627753313533952",
             "features": {
               "large": {
-                "faces": [
-                  {
-                    "x": 61,
-                    "y": 155,
-                    "h": 106,
-                    "w": 106
-                  },
-                  {
-                    "x": 61,
-                    "y": 749,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
-              },
-              "small": {
-                "faces": [
-                  {
-                    "x": 40,
-                    "y": 103,
-                    "h": 70,
-                    "w": 70
-                  },
-                  {
-                    "x": 40,
-                    "y": 497,
-                    "h": 72,
-                    "w": 72
-                  }
-                ]
+                "faces": []
               },
               "medium": {
-                "faces": [
-                  {
-                    "x": 61,
-                    "y": 155,
-                    "h": 106,
-                    "w": 106
-                  },
-                  {
-                    "x": 61,
-                    "y": 749,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
+                "faces": []
+              },
+              "small": {
+                "faces": []
               },
               "orig": {
-                "faces": [
-                  {
-                    "x": 61,
-                    "y": 155,
-                    "h": 106,
-                    "w": 106
-                  },
-                  {
-                    "x": 61,
-                    "y": 749,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
+                "faces": []
               }
             }
           }
@@ -5103,51 +5164,51 @@
       "extended_entities": {
         "media": [
           {
-            "id": 1786735278323069000,
-            "id_str": "1786735278323068928",
+            "id": 1828738422539784200,
+            "id_str": "1828738422539784192",
             "indices": [
-              49,
-              72
+              105,
+              128
             ],
-            "media_url": "http://pbs.twimg.com/media/GMvCROQa8AApYV-.jpg",
-            "media_url_https": "https://pbs.twimg.com/media/GMvCROQa8AApYV-.jpg",
-            "url": "https://t.co/MKACP2MXJH",
-            "display_url": "pic.twitter.com/MKACP2MXJH",
-            "expanded_url": "https://twitter.com/akilahhh2/status/1786735286703239505/photo/1",
+            "media_url": "http://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+            "url": "https://t.co/NBIpjMra7V",
+            "display_url": "pic.twitter.com/NBIpjMra7V",
+            "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
             "type": "photo",
             "original_info": {
-              "width": 1050,
-              "height": 1566,
+              "width": 1138,
+              "height": 2048,
               "focus_rects": [
                 {
                   "x": 0,
-                  "y": 370,
-                  "h": 588,
-                  "w": 1050
+                  "y": 1062,
+                  "h": 637,
+                  "w": 1138
                 },
                 {
                   "x": 0,
-                  "y": 139,
-                  "h": 1050,
-                  "w": 1050
+                  "y": 811,
+                  "h": 1138,
+                  "w": 1138
                 },
                 {
                   "x": 0,
-                  "y": 66,
-                  "h": 1197,
-                  "w": 1050
+                  "y": 732,
+                  "h": 1297,
+                  "w": 1138
                 },
                 {
-                  "x": 267,
+                  "x": 114,
                   "y": 0,
-                  "h": 1566,
-                  "w": 783
+                  "h": 2048,
+                  "w": 1024
                 },
                 {
                   "x": 0,
                   "y": 0,
-                  "h": 1566,
-                  "w": 1050
+                  "h": 2048,
+                  "w": 1138
                 }
               ]
             },
@@ -5158,135 +5219,87 @@
                 "resize": "crop"
               },
               "large": {
-                "w": 1050,
-                "h": 1566,
+                "w": 1138,
+                "h": 2048,
                 "resize": "fit"
               },
               "medium": {
-                "w": 805,
+                "w": 667,
                 "h": 1200,
                 "resize": "fit"
               },
               "small": {
-                "w": 456,
+                "w": 378,
                 "h": 680,
                 "resize": "fit"
               }
             },
+            "source_status_id": 1828738567063179300,
+            "source_status_id_str": "1828738567063179270",
+            "source_user_id": 1795627753313534000,
+            "source_user_id_str": "1795627753313533952",
             "features": {
               "large": {
-                "faces": [
-                  {
-                    "x": 186,
-                    "y": 926,
-                    "h": 99,
-                    "w": 99
-                  },
-                  {
-                    "x": 738,
-                    "y": 1009,
-                    "h": 143,
-                    "w": 143
-                  }
-                ]
+                "faces": []
               },
               "medium": {
-                "faces": [
-                  {
-                    "x": 142,
-                    "y": 709,
-                    "h": 75,
-                    "w": 75
-                  },
-                  {
-                    "x": 565,
-                    "y": 773,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
-              },
-              "orig": {
-                "faces": [
-                  {
-                    "x": 186,
-                    "y": 926,
-                    "h": 99,
-                    "w": 99
-                  },
-                  {
-                    "x": 738,
-                    "y": 1009,
-                    "h": 143,
-                    "w": 143
-                  }
-                ]
+                "faces": []
               },
               "small": {
-                "faces": [
-                  {
-                    "x": 80,
-                    "y": 402,
-                    "h": 42,
-                    "w": 42
-                  },
-                  {
-                    "x": 320,
-                    "y": 438,
-                    "h": 62,
-                    "w": 62
-                  }
-                ]
+                "faces": []
+              },
+              "orig": {
+                "faces": []
               }
             },
-            "media_key": "3_1786735278323068928"
+            "media_key": "3_1828738422539784192"
           },
           {
-            "id": 1786735278323064800,
-            "id_str": "1786735278323064832",
+            "id": 1828738422401544200,
+            "id_str": "1828738422401544192",
             "indices": [
-              49,
-              72
+              105,
+              128
             ],
-            "media_url": "http://pbs.twimg.com/media/GMvCROQa4AAUlDl.jpg",
-            "media_url_https": "https://pbs.twimg.com/media/GMvCROQa4AAUlDl.jpg",
-            "url": "https://t.co/MKACP2MXJH",
-            "display_url": "pic.twitter.com/MKACP2MXJH",
-            "expanded_url": "https://twitter.com/akilahhh2/status/1786735286703239505/photo/1",
+            "media_url": "http://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+            "url": "https://t.co/NBIpjMra7V",
+            "display_url": "pic.twitter.com/NBIpjMra7V",
+            "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
             "type": "photo",
             "original_info": {
-              "width": 528,
-              "height": 1024,
+              "width": 859,
+              "height": 1152,
               "focus_rects": [
                 {
                   "x": 0,
-                  "y": 492,
-                  "h": 296,
-                  "w": 528
-                },
-                {
-                  "x": 0,
-                  "y": 376,
-                  "h": 528,
-                  "w": 528
-                },
-                {
-                  "x": 0,
-                  "y": 339,
-                  "h": 602,
-                  "w": 528
+                  "y": 76,
+                  "h": 481,
+                  "w": 859
                 },
                 {
                   "x": 0,
                   "y": 0,
-                  "h": 1024,
-                  "w": 512
+                  "h": 859,
+                  "w": 859
                 },
                 {
                   "x": 0,
                   "y": 0,
-                  "h": 1024,
-                  "w": 528
+                  "h": 979,
+                  "w": 859
+                },
+                {
+                  "x": 283,
+                  "y": 0,
+                  "h": 1152,
+                  "w": 576
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 1152,
+                  "w": 859
                 }
               ]
             },
@@ -5297,88 +5310,40 @@
                 "resize": "crop"
               },
               "large": {
-                "w": 528,
-                "h": 1024,
+                "w": 859,
+                "h": 1152,
+                "resize": "fit"
+              },
+              "medium": {
+                "w": 859,
+                "h": 1152,
                 "resize": "fit"
               },
               "small": {
-                "w": 351,
+                "w": 507,
                 "h": 680,
                 "resize": "fit"
-              },
-              "medium": {
-                "w": 528,
-                "h": 1024,
-                "resize": "fit"
               }
             },
+            "source_status_id": 1828738567063179300,
+            "source_status_id_str": "1828738567063179270",
+            "source_user_id": 1795627753313534000,
+            "source_user_id_str": "1795627753313533952",
             "features": {
               "large": {
-                "faces": [
-                  {
-                    "x": 61,
-                    "y": 155,
-                    "h": 106,
-                    "w": 106
-                  },
-                  {
-                    "x": 61,
-                    "y": 749,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
-              },
-              "small": {
-                "faces": [
-                  {
-                    "x": 40,
-                    "y": 103,
-                    "h": 70,
-                    "w": 70
-                  },
-                  {
-                    "x": 40,
-                    "y": 497,
-                    "h": 72,
-                    "w": 72
-                  }
-                ]
+                "faces": []
               },
               "medium": {
-                "faces": [
-                  {
-                    "x": 61,
-                    "y": 155,
-                    "h": 106,
-                    "w": 106
-                  },
-                  {
-                    "x": 61,
-                    "y": 749,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
+                "faces": []
+              },
+              "small": {
+                "faces": []
               },
               "orig": {
-                "faces": [
-                  {
-                    "x": 61,
-                    "y": 155,
-                    "h": 106,
-                    "w": 106
-                  },
-                  {
-                    "x": 61,
-                    "y": 749,
-                    "h": 109,
-                    "w": 109
-                  }
-                ]
+                "faces": []
               }
             },
-            "media_key": "3_1786735278323064832"
+            "media_key": "3_1828738422401544192"
           }
         ]
       },
@@ -5392,9 +5357,396 @@
       "coordinates": null,
       "place": null,
       "contributors": null,
+      "withheld_in_countries": [
+        "ID"
+      ],
+      "retweeted_status": {
+        "created_at": "Wed Aug 28 10:17:05 +0000 2024",
+        "id": 1828738567063179300,
+        "id_str": "1828738567063179270",
+        "text": "随着身体开始泛红、发烫，汗水沿着身体流淌进温泉，交合在一起。\n\n水汽缭绕，带着阵阵幽香，弥漫在惬意的空气里。\n\n生活中充满了戏剧和谎言，唯有诚实的身体才会因你……为之一颤❤️ https://t.co/NBIpjMra7V",
+        "truncated": false,
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [],
+          "media": [
+            {
+              "id": 1828738422539784200,
+              "id_str": "1828738422539784192",
+              "indices": [
+                88,
+                111
+              ],
+              "media_url": "http://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+              "url": "https://t.co/NBIpjMra7V",
+              "display_url": "pic.twitter.com/NBIpjMra7V",
+              "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1138,
+                "height": 2048,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 1062,
+                    "h": 637,
+                    "w": 1138
+                  },
+                  {
+                    "x": 0,
+                    "y": 811,
+                    "h": 1138,
+                    "w": 1138
+                  },
+                  {
+                    "x": 0,
+                    "y": 732,
+                    "h": 1297,
+                    "w": 1138
+                  },
+                  {
+                    "x": 114,
+                    "y": 0,
+                    "h": 2048,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 2048,
+                    "w": 1138
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 1138,
+                  "h": 2048,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 667,
+                  "h": 1200,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 378,
+                  "h": 680,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              }
+            },
+            {
+              "id": 1828738422401544200,
+              "id_str": "1828738422401544192",
+              "indices": [
+                88,
+                111
+              ],
+              "media_url": "http://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+              "url": "https://t.co/NBIpjMra7V",
+              "display_url": "pic.twitter.com/NBIpjMra7V",
+              "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 859,
+                "height": 1152,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 76,
+                    "h": 481,
+                    "w": 859
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 859,
+                    "w": 859
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 979,
+                    "w": 859
+                  },
+                  {
+                    "x": 283,
+                    "y": 0,
+                    "h": 1152,
+                    "w": 576
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 1152,
+                    "w": 859
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 859,
+                  "h": 1152,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 859,
+                  "h": 1152,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 507,
+                  "h": 680,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              }
+            }
+          ]
+        },
+        "extended_entities": {
+          "media": [
+            {
+              "id": 1828738422539784200,
+              "id_str": "1828738422539784192",
+              "indices": [
+                88,
+                111
+              ],
+              "media_url": "http://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/GWD75_6XkAA52b8.jpg",
+              "url": "https://t.co/NBIpjMra7V",
+              "display_url": "pic.twitter.com/NBIpjMra7V",
+              "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 1138,
+                "height": 2048,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 1062,
+                    "h": 637,
+                    "w": 1138
+                  },
+                  {
+                    "x": 0,
+                    "y": 811,
+                    "h": 1138,
+                    "w": 1138
+                  },
+                  {
+                    "x": 0,
+                    "y": 732,
+                    "h": 1297,
+                    "w": 1138
+                  },
+                  {
+                    "x": 114,
+                    "y": 0,
+                    "h": 2048,
+                    "w": 1024
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 2048,
+                    "w": 1138
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 1138,
+                  "h": 2048,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 667,
+                  "h": 1200,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 378,
+                  "h": 680,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              },
+              "media_key": "3_1828738422539784192"
+            },
+            {
+              "id": 1828738422401544200,
+              "id_str": "1828738422401544192",
+              "indices": [
+                88,
+                111
+              ],
+              "media_url": "http://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/GWD75_ZaMAAmgQx.jpg",
+              "url": "https://t.co/NBIpjMra7V",
+              "display_url": "pic.twitter.com/NBIpjMra7V",
+              "expanded_url": "https://twitter.com/xingyue0616/status/1828738567063179270/photo/1",
+              "type": "photo",
+              "original_info": {
+                "width": 859,
+                "height": 1152,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 76,
+                    "h": 481,
+                    "w": 859
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 859,
+                    "w": 859
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 979,
+                    "w": 859
+                  },
+                  {
+                    "x": 283,
+                    "y": 0,
+                    "h": 1152,
+                    "w": 576
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 1152,
+                    "w": 859
+                  }
+                ]
+              },
+              "sizes": {
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 859,
+                  "h": 1152,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 859,
+                  "h": 1152,
+                  "resize": "fit"
+                },
+                "small": {
+                  "w": 507,
+                  "h": 680,
+                  "resize": "fit"
+                }
+              },
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "medium": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              },
+              "media_key": "3_1828738422401544192"
+            }
+          ]
+        },
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 12,
+        "favorite_count": 38,
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "possibly_sensitive_editable": true,
+        "lang": "zh",
+        "supplemental_language": null
+      },
       "is_quote_status": false,
-      "retweet_count": 0,
-      "favorite_count": 3,
+      "retweet_count": 12,
+      "favorite_count": 0,
       "favorited": false,
       "retweeted": false,
       "possibly_sensitive": true,
@@ -5409,22 +5761,22 @@
     "profile_background_image_url": null,
     "profile_background_image_url_https": null,
     "profile_background_tile": false,
-    "profile_image_url": "http://pbs.twimg.com/profile_images/1696714137114722304/0hZlqORq_normal.jpg",
-    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1696714137114722304/0hZlqORq_normal.jpg",
-    "profile_banner_url": "https://pbs.twimg.com/profile_banners/964674080988332032/1693363149",
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1673240452403720194/Ex8vZJ23_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1673240452403720194/Ex8vZJ23_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1622205141016535040/1687764867",
     "profile_link_color": "1DA1F2",
     "profile_sidebar_border_color": "C0DEED",
     "profile_sidebar_fill_color": "DDEEF6",
     "profile_text_color": "333333",
     "profile_use_background_image": true,
-    "has_extended_profile": true,
+    "has_extended_profile": false,
     "default_profile": true,
     "default_profile_image": false,
     "pinned_tweet_ids": [
-      1775513991378592300
+      1829056287159853300
     ],
     "pinned_tweet_ids_str": [
-      "1775513991378592148"
+      "1829056287159853269"
     ],
     "has_custom_timelines": false,
     "can_media_tag": true,
@@ -5436,7 +5788,9 @@
     "advertiser_account_service_levels": [],
     "business_profile_state": "none",
     "translator_type": "none",
-    "withheld_in_countries": [],
+    "withheld_in_countries": [
+      "ID"
+    ],
     "require_some_consent": false
   },
   {
@@ -6949,24 +7303,24 @@
     "time_zone": null,
     "geo_enabled": false,
     "verified": false,
-    "statuses_count": 27004,
+    "statuses_count": 27005,
     "media_count": 1829,
     "lang": null,
     "status": {
-      "created_at": "Thu Aug 29 13:00:41 +0000 2024",
-      "id": 1829142125604417500,
-      "id_str": "1829142125604417649",
-      "text": "RT @meimeiderichang: 抬起腿才能让哥哥的舌头舔的更深\n不受控制的喷出来了 哭\n完整70分钟这里传不下 我发在平论里吧 你们自取 顺便打联系方式 https://t.co/fX7EGkRMfn",
+      "created_at": "Thu Aug 29 13:04:12 +0000 2024",
+      "id": 1829143010023813400,
+      "id_str": "1829143010023813302",
+      "text": "RT @ambulatory_1986: 小狗发骚了，可以给你们看的那种😋 https://t.co/yOKYSE7anr",
       "truncated": false,
       "entities": {
         "hashtags": [],
         "symbols": [],
         "user_mentions": [
           {
-            "screen_name": "meimeiderichang",
-            "name": "我和同父异母的妹妹的日常",
-            "id": 516424622,
-            "id_str": "516424622",
+            "screen_name": "ambulatory_1986",
+            "name": "阿九九9⃣9⃣私信我有福利❤️",
+            "id": 1639508689924116500,
+            "id_str": "1639508689924116480",
             "indices": [
               3,
               19
@@ -6976,130 +7330,189 @@
         "urls": [],
         "media": [
           {
-            "id": 1826976594973560800,
-            "id_str": "1826976594973560832",
+            "id": 1827405072147320800,
+            "id_str": "1827405072147320832",
             "indices": [
-              82,
-              105
+              38,
+              61
             ],
-            "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-            "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-            "url": "https://t.co/fX7EGkRMfn",
-            "display_url": "pic.twitter.com/fX7EGkRMfn",
-            "expanded_url": "https://twitter.com/meimeiderichang/status/1826976666838769758/video/1",
+            "media_url": "http://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+            "url": "https://t.co/yOKYSE7anr",
+            "display_url": "pic.twitter.com/yOKYSE7anr",
+            "expanded_url": "https://twitter.com/ambulatory_1986/status/1827481261340028961/photo/1",
             "type": "photo",
             "original_info": {
-              "width": 1280,
-              "height": 720
+              "width": 800,
+              "height": 432,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 771
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 432
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 379
+                },
+                {
+                  "x": 31,
+                  "y": 0,
+                  "h": 432,
+                  "w": 216
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 800
+                }
+              ]
             },
             "sizes": {
+              "medium": {
+                "w": 800,
+                "h": 432,
+                "resize": "fit"
+              },
               "thumb": {
                 "w": 150,
                 "h": 150,
                 "resize": "crop"
               },
-              "medium": {
-                "w": 1200,
-                "h": 675,
+              "large": {
+                "w": 800,
+                "h": 432,
                 "resize": "fit"
               },
               "small": {
                 "w": 680,
-                "h": 383,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 1280,
-                "h": 720,
+                "h": 367,
                 "resize": "fit"
               }
             },
-            "source_status_id": 1826976666838769700,
-            "source_status_id_str": "1826976666838769758",
-            "source_user_id": 516424622,
-            "source_user_id_str": "516424622",
-            "features": {}
+            "source_status_id": 1827481261340029000,
+            "source_status_id_str": "1827481261340028961",
+            "source_user_id": 1639508689924116500,
+            "source_user_id_str": "1639508689924116480",
+            "features": {
+              "medium": {
+                "faces": []
+              },
+              "large": {
+                "faces": []
+              },
+              "orig": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              }
+            }
           }
         ]
       },
       "extended_entities": {
         "media": [
           {
-            "id": 1826976594973560800,
-            "id_str": "1826976594973560832",
+            "id": 1827405072147320800,
+            "id_str": "1827405072147320832",
             "indices": [
-              82,
-              105
+              38,
+              61
             ],
-            "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-            "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-            "url": "https://t.co/fX7EGkRMfn",
-            "display_url": "pic.twitter.com/fX7EGkRMfn",
-            "expanded_url": "https://twitter.com/meimeiderichang/status/1826976666838769758/video/1",
-            "type": "video",
+            "media_url": "http://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+            "url": "https://t.co/yOKYSE7anr",
+            "display_url": "pic.twitter.com/yOKYSE7anr",
+            "expanded_url": "https://twitter.com/ambulatory_1986/status/1827481261340028961/photo/1",
+            "type": "photo",
             "original_info": {
-              "width": 1280,
-              "height": 720
+              "width": 800,
+              "height": 432,
+              "focus_rects": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 771
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 432
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 379
+                },
+                {
+                  "x": 31,
+                  "y": 0,
+                  "h": 432,
+                  "w": 216
+                },
+                {
+                  "x": 0,
+                  "y": 0,
+                  "h": 432,
+                  "w": 800
+                }
+              ]
             },
             "sizes": {
+              "medium": {
+                "w": 800,
+                "h": 432,
+                "resize": "fit"
+              },
               "thumb": {
                 "w": 150,
                 "h": 150,
                 "resize": "crop"
               },
-              "medium": {
-                "w": 1200,
-                "h": 675,
+              "large": {
+                "w": 800,
+                "h": 432,
                 "resize": "fit"
               },
               "small": {
                 "w": 680,
-                "h": 383,
-                "resize": "fit"
-              },
-              "large": {
-                "w": 1280,
-                "h": 720,
+                "h": 367,
                 "resize": "fit"
               }
             },
-            "source_status_id": 1826976666838769700,
-            "source_status_id_str": "1826976666838769758",
-            "source_user_id": 516424622,
-            "source_user_id_str": "516424622",
-            "video_info": {
-              "aspect_ratio": [
-                16,
-                9
-              ],
-              "duration_millis": 44433,
-              "variants": [
-                {
-                  "bitrate": 2176000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/vid/avc1/1280x720/zylp4S3PFSx08akO.mp4?tag=12"
-                },
-                {
-                  "bitrate": 832000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/vid/avc1/640x360/SFtiUfZ7oJFF99aT.mp4?tag=12"
-                },
-                {
-                  "content_type": "application/x-mpegURL",
-                  "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/pl/JVtpdESMYHpb5NXE.m3u8?tag=12"
-                },
-                {
-                  "bitrate": 256000,
-                  "content_type": "video/mp4",
-                  "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/vid/avc1/480x270/ijNqAnAQXHg1U5GM.mp4?tag=12"
-                }
-              ]
+            "source_status_id": 1827481261340029000,
+            "source_status_id_str": "1827481261340028961",
+            "source_user_id": 1639508689924116500,
+            "source_user_id_str": "1639508689924116480",
+            "features": {
+              "medium": {
+                "faces": []
+              },
+              "large": {
+                "faces": []
+              },
+              "orig": {
+                "faces": []
+              },
+              "small": {
+                "faces": []
+              }
             },
-            "features": {},
-            "media_key": "7_1826976594973560832",
-            "additional_media_info": {
-              "monetizable": false
-            }
+            "media_key": "3_1827405072147320832"
           }
         ]
       },
@@ -7114,10 +7527,10 @@
       "place": null,
       "contributors": null,
       "retweeted_status": {
-        "created_at": "Fri Aug 23 13:35:55 +0000 2024",
-        "id": 1826976666838769700,
-        "id_str": "1826976666838769758",
-        "text": "抬起腿才能让哥哥的舌头舔的更深\n不受控制的喷出来了 哭\n完整70分钟这里传不下 我发在平论里吧 你们自取 顺便打联系方式 https://t.co/fX7EGkRMfn",
+        "created_at": "Sat Aug 24 23:01:00 +0000 2024",
+        "id": 1827481261340029000,
+        "id_str": "1827481261340028961",
+        "text": "小狗发骚了，可以给你们看的那种😋 https://t.co/yOKYSE7anr",
         "truncated": false,
         "entities": {
           "hashtags": [],
@@ -7126,126 +7539,185 @@
           "urls": [],
           "media": [
             {
-              "id": 1826976594973560800,
-              "id_str": "1826976594973560832",
+              "id": 1827405072147320800,
+              "id_str": "1827405072147320832",
               "indices": [
-                61,
-                84
+                17,
+                40
               ],
-              "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-              "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-              "url": "https://t.co/fX7EGkRMfn",
-              "display_url": "pic.twitter.com/fX7EGkRMfn",
-              "expanded_url": "https://twitter.com/meimeiderichang/status/1826976666838769758/video/1",
+              "media_url": "http://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+              "url": "https://t.co/yOKYSE7anr",
+              "display_url": "pic.twitter.com/yOKYSE7anr",
+              "expanded_url": "https://twitter.com/ambulatory_1986/status/1827481261340028961/photo/1",
               "type": "photo",
               "original_info": {
-                "width": 1280,
-                "height": 720
+                "width": 800,
+                "height": 432,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 771
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 432
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 379
+                  },
+                  {
+                    "x": 31,
+                    "y": 0,
+                    "h": 432,
+                    "w": 216
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 800
+                  }
+                ]
               },
               "sizes": {
+                "medium": {
+                  "w": 800,
+                  "h": 432,
+                  "resize": "fit"
+                },
                 "thumb": {
                   "w": 150,
                   "h": 150,
                   "resize": "crop"
                 },
-                "medium": {
-                  "w": 1200,
-                  "h": 675,
+                "large": {
+                  "w": 800,
+                  "h": 432,
                   "resize": "fit"
                 },
                 "small": {
                   "w": 680,
-                  "h": 383,
-                  "resize": "fit"
-                },
-                "large": {
-                  "w": 1280,
-                  "h": 720,
+                  "h": 367,
                   "resize": "fit"
                 }
               },
-              "features": {}
+              "features": {
+                "medium": {
+                  "faces": []
+                },
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                }
+              }
             }
           ]
         },
         "extended_entities": {
           "media": [
             {
-              "id": 1826976594973560800,
-              "id_str": "1826976594973560832",
+              "id": 1827405072147320800,
+              "id_str": "1827405072147320832",
               "indices": [
-                61,
-                84
+                17,
+                40
               ],
-              "media_url": "http://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-              "media_url_https": "https://pbs.twimg.com/ext_tw_video_thumb/1826976594973560832/pu/img/_Qp40vMBxMJ15wSj.jpg",
-              "url": "https://t.co/fX7EGkRMfn",
-              "display_url": "pic.twitter.com/fX7EGkRMfn",
-              "expanded_url": "https://twitter.com/meimeiderichang/status/1826976666838769758/video/1",
-              "type": "video",
+              "media_url": "http://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/GVw_OyoWkAADNhq.jpg",
+              "url": "https://t.co/yOKYSE7anr",
+              "display_url": "pic.twitter.com/yOKYSE7anr",
+              "expanded_url": "https://twitter.com/ambulatory_1986/status/1827481261340028961/photo/1",
+              "type": "photo",
               "original_info": {
-                "width": 1280,
-                "height": 720
+                "width": 800,
+                "height": 432,
+                "focus_rects": [
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 771
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 432
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 379
+                  },
+                  {
+                    "x": 31,
+                    "y": 0,
+                    "h": 432,
+                    "w": 216
+                  },
+                  {
+                    "x": 0,
+                    "y": 0,
+                    "h": 432,
+                    "w": 800
+                  }
+                ]
               },
               "sizes": {
+                "medium": {
+                  "w": 800,
+                  "h": 432,
+                  "resize": "fit"
+                },
                 "thumb": {
                   "w": 150,
                   "h": 150,
                   "resize": "crop"
                 },
-                "medium": {
-                  "w": 1200,
-                  "h": 675,
+                "large": {
+                  "w": 800,
+                  "h": 432,
                   "resize": "fit"
                 },
                 "small": {
                   "w": 680,
-                  "h": 383,
-                  "resize": "fit"
-                },
-                "large": {
-                  "w": 1280,
-                  "h": 720,
+                  "h": 367,
                   "resize": "fit"
                 }
               },
-              "video_info": {
-                "aspect_ratio": [
-                  16,
-                  9
-                ],
-                "duration_millis": 44433,
-                "variants": [
-                  {
-                    "bitrate": 2176000,
-                    "content_type": "video/mp4",
-                    "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/vid/avc1/1280x720/zylp4S3PFSx08akO.mp4?tag=12"
-                  },
-                  {
-                    "bitrate": 832000,
-                    "content_type": "video/mp4",
-                    "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/vid/avc1/640x360/SFtiUfZ7oJFF99aT.mp4?tag=12"
-                  },
-                  {
-                    "content_type": "application/x-mpegURL",
-                    "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/pl/JVtpdESMYHpb5NXE.m3u8?tag=12"
-                  },
-                  {
-                    "bitrate": 256000,
-                    "content_type": "video/mp4",
-                    "url": "https://video.twimg.com/ext_tw_video/1826976594973560832/pu/vid/avc1/480x270/ijNqAnAQXHg1U5GM.mp4?tag=12"
-                  }
-                ]
+              "features": {
+                "medium": {
+                  "faces": []
+                },
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                },
+                "small": {
+                  "faces": []
+                }
               },
-              "features": {},
-              "media_key": "7_1826976594973560832",
-              "additional_media_info": {
-                "monetizable": false
-              }
+              "media_key": "3_1827405072147320832"
             }
           ]
         },
-        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+        "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
         "in_reply_to_status_id": null,
         "in_reply_to_status_id_str": null,
         "in_reply_to_user_id": null,
@@ -7256,21 +7728,17 @@
         "place": null,
         "contributors": null,
         "is_quote_status": false,
-        "retweet_count": 3422,
-        "favorite_count": 21685,
+        "retweet_count": 527,
+        "favorite_count": 2644,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": true,
         "possibly_sensitive_editable": false,
         "lang": "zh",
-        "supplemental_language": null,
-        "self_thread": {
-          "id": 1826976666838769700,
-          "id_str": "1826976666838769758"
-        }
+        "supplemental_language": null
       },
       "is_quote_status": false,
-      "retweet_count": 3422,
+      "retweet_count": 527,
       "favorite_count": 0,
       "favorited": false,
       "retweeted": false,
