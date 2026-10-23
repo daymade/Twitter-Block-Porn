@@ -37,7 +37,7 @@ validate_input () {
     if type != "array" then false else all(.[];
       if type != "object" then false
       elif (.id_str | type) != "string" then false
-      else (.id_str | test("^[0-9]+$")) end) end end' "$1" > /dev/null || fail "invalid account array: $2"
+      else (.id_str | length > 0 and (test("[^0-9]") | not)) end) end end' "$1" > /dev/null || fail "invalid account array: $2"
 }
 queue_output () { outputPaths+=("$1"); outputCopies+=("$2"); }
 

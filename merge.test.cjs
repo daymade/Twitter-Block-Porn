@@ -64,7 +64,7 @@ test('repeating the same valid batch leaves every list byte and output mtime unc
     assert.deepEqual(times.map(([name]) => [name, fs.statSync(path.join(root, name), { bigint: true }).mtimeNs]), times)
   } finally { dispose(root) }
 })
-const badSnapshots = [null, {}, [null], ['wrong'], [1], [{}], [{ id_str: null }], [{ id_str: 103 }], [{ id_str: '' }], [{ id_str: '１２３' }], [{ id_str: '-103' }]]
+const badSnapshots = [null, {}, [null], ['wrong'], [1], [{}], [{ id_str: null }], [{ id_str: 103 }], [{ id_str: '' }], [{ id_str: '１２３' }], [{ id_str: '-103' }], [{ id_str: '103\n' }]]
 for (const [index, bad] of badSnapshots.entries()) test('invalid late snapshot rejects the entire batch without writes: ' + index, () => {
   const root = fixture()
   try { write(root, 'lists/snapshot/999.json', bad); checkFailureUnchanged(root) } finally { dispose(root) }
