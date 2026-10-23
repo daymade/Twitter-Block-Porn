@@ -19,12 +19,19 @@
 
 <img width="619" alt="image" src="https://github.com/daymade/Twitter-Block-Porn/assets/4291901/09ec7353-8c7b-4c50-ba80-db54b2d450e3">
 
-账号库 https://github.com/daymade/Twitter-Block-Porn/blob/master/lists/all.json 这里收录了所有列表，包括 
+## 公共名单维护
 
-- Scammers 黄推诈骗犯 ① https://twitter.com/i/lists/1677334530754248706
-- Scammers 黄推诈骗犯 ② https://twitter.com/i/lists/1683810394287079426
-- Scammers 黄推诈骗犯 ③ https://twitter.com/i/lists/1699049983159259593
-- Scammers 黄推诈骗犯 ⑤ https://twitter.com/i/lists/1702721627287371907
-- Scammers 黄推诈骗犯 ⑥ https://twitter.com/i/lists/1704104182913843610
-- 加急名单 https://github.com/daymade/Twitter-Block-Porn/blob/master/lists/block.json
+名单输入、记录格式、历史合并及输出合同以 [merge.sh](merge.sh) 为准；平台完整导出放入其快照目录，加急补录使用[加急名单原件](lists/block.json)。保留平台给出的字符串账号 ID，不用数字转换或猜测补齐缺失身份。
+
+在仓库根目录使用已有 Bash、jq 和 Node.js，先验证再合并：
+
+```sh
+node --test merge.test.cjs
+bash merge.sh
+git diff -- lists
+```
+
+合并会修改名单文件，先保全相关未提交工作；测试只使用临时合成数据。输入或计算失败时不替换发布文件，按错误检查原导出与历史文件，不以清空历史或删掉坏记录代替完整导出。发布阶段的 I/O 错误会停止并报告，多个文件替换不保证断电原子性；先核对实际 diff 再处理。
+
+自动运行的触发、分支及提交步骤以 [Action](.github/workflows/action.yml) 为准。没有生成变化时成功退出；有变化时仅暂存名单目录。不要手维护快照投影或汇总文件来代替合并。代码或本地合并通过，不代表远端名单已更新；贡献合入后还需从插件实际读取的远端名单核对结果。
 
